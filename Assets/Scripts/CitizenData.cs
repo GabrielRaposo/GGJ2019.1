@@ -7,6 +7,7 @@ public enum Theme {WATER, FIRE, EARTH, AIR}
 public class CitizenData
 {
     public string citizenName;
+    public string citizenSurname;
 
     public GameObject tent;
 
@@ -18,6 +19,7 @@ public class CitizenData
     public bool revealedDislike;
     public bool revealProficience;
 
+    public int strikes;
     
     public static CitizenData CreateCitizen()
     {
