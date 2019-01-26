@@ -15,6 +15,8 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	public actions turnActionType;
 	public GameObject textBox;
 	public TextMeshProUGUI text;
+
+	public int strikes;
 	
 	// Start is called before the first frame update
 	void Start()

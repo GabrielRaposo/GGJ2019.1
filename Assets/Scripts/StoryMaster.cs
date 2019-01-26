@@ -165,6 +165,13 @@ public class StoryMaster : MonoBehaviour
 
 	public void Bark(Barks barks, CitizenBehaviour dude)
 	{
+		ReorderCitizens(citizens.IndexOf(dude.GetComponent<CitizenData>()));
+
+		if(dude.strikes == 3)
+		{
+			story.ChoosePathString($"StrikeBark{Random.Range(0, 3).ToString()}");
+		}
+
 		switch (barks)
 		{
 			case Barks.GET_FOOD:

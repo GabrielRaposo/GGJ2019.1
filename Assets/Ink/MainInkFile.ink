@@ -162,7 +162,7 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: Were you a gardner back in the day?
 {GetName(0)}: More like an enthusiast. I used to plant pumpkins in the mean time. They're spooky.
 ->DONE
-= LikeEarth2
+= LikeEarth2 //TODO
 {GetName(0)}: So, how do you like my earrings?
 {GetName(1)}: They're nice, I think.
 {GetName(0)}: I made them myself a couple of years ago. Used the finest gold I've ever seen and the finest garnet I've found.
@@ -183,14 +183,14 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: Ouch
 {GetName(0)}: Yeah, ouch. Not a fan of cliffs since then.
 ->DONE
-= DislikeEarth2
+= DislikeEarth2 //TODO
 {GetName(0)}: Have you ever played Whack-a-Mole?
 {GetName(1)}: I used to play it at every opportunity I'd get. Why?
 {GetName(0)}: I saw a mole today, and wished I could whack it. 
 {GetName(0)}: I don't know, but these critters that drill holes and tunnels have something so creepy
 ->DONE
 
-= LikeFire0
+= LikeFire0 //TODO
 {GetName(0)}: I'd do anything for a fine cut of beef right now.
 {GetName(1)}: But you already ate!
 {GetName(0)}: Yeah, but nothing beats the heavenly smell of a medium rare steak, or the taste of it. 
@@ -200,12 +200,12 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: What is it?
 {GetName(0)}: The end of it. So spring may begin and the weather get warmer again
 ->DONE
-= LikeFire2
+= LikeFire2 //TODO
 {GetName(0)}: You like jazz?
 {GetName(1)}: Beg your pardon?
 {GetName(0)}: Jazz. The music. Jazz.
 ->DONE
-= DislikeFire0
+= DislikeFire0 //TODO
 {GetName(0)}: The food was specially non-spicy tonight. I appreciate that.
 {GetName(1)}: That's unexpected, I don't believe to have done anything different. But I'm glad you enjoyed it.
 {GetName(0)}: I wish I could make it even less spicy.
@@ -232,7 +232,7 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: You used to?
 {GetName(0)}: Yeah, I used to fly this big, bird-shaped, yellow kite. When the wind was right, it was the prettiest thing in the sky.
 ->DONE
-= LikeAir1
+= LikeAir1 //TODO
 {GetName(0)}: You like jazz?
 {GetName(1)}: Beg your pardon?
 {GetName(0)}: Jazz. The music. Jazz.
@@ -260,7 +260,7 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(0)}: Kites. 
 {GetName(0)}: Never got how to fly one, nor what is the fun of it. It's so pointless and uninteresting.
 ->DONE
-= DislikeAir2
+= DislikeAir2 //TODO
 {GetName(0)}: Mind if I ask something really weird?
 {GetName(1)}: Sure, what's up?
 {GetName(0)}: Don't let any flying creature get near me.
@@ -285,7 +285,7 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: I don't think we know any.
 {GetName(0)}: Oh, don't worry, we have all night. I could teach you all some of the best ones for us to sing all night through.
 ->DONE
-= ProficienceEarth0
+= ProficienceEarth0 //TODO
 {GetName(0)}: Being here outside brings me memories of new mown hay back at home. 
 {GetName(0)}: Sittin' at the porch, smoking tobacco on my pipe listening to the cows at the barn and the crickets at night. 
 {GetName(0)}: Dayum, those were some good days.
@@ -298,7 +298,7 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: I bet the diamonds at the mine were prettier.
 {GetName(0)}: Nothing I've seen in any mine glittered as the stars at the night sky.
 ->DONE
-= ProficienceEarth2
+= ProficienceEarth2 //TODO
 {GetName(0)}: Nights like this used to be the best ones to travel. So starred and bright, the path would always be clear for the horses.
 {GetName(1)}: Weren't you afraid of the dark?
 {GetName(0)}: I have nothing to fear under the full moon and a lit torch.
@@ -336,7 +336,7 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(0)}: I'm not just a bard, I'm the - - Well, I used to be the best bard around. 
 {GetName(0)}: Such a shame my career was shortlived, but the world shall hear my voice for many more years!
 ->DONE
-= ProficienceAir2
+= ProficienceAir2 //TODO
 {GetName(0)}: I wonder what {Darya|Maya|Olesya|Anastacia} might be doing right now.
 {GetName(0)}: Who are they?
 {GetName(0)}: They were the last birds that were under my protection. They have fled, and every night as pretty as this I think about them.
@@ -431,10 +431,10 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(0)}: Today was a bad day, but tomorrow will be better. I'm betting on it.
 ->DONE
 = Strike1
-{GetName(1)}: The last two days were pretty awful. I hope it changes soon.
+{GetName(0)}: The last two days were pretty awful. I hope it changes soon.
 ->DONE
 = Strike2
-{GetName(2)}: I'm starting to feel that it didn't matter to leave my old group. Anywhere I go is the same thing.
+{GetName(0)}: I'm starting to feel that it didn't matter to leave my old group. Anywhere I go is the same thing.
 ->DONE
 
 = StrikeBark0
