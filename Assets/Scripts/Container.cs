@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using TMPro;
 
-public class Container : MonoBehaviour
+public class Container : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+
+    private bool isResourceInUse = false;
+
 	public Barks type;
-	private int amount;
+	[SerializeField] private int amount;
 
 	public TextMeshProUGUI text;
 
@@ -41,5 +45,38 @@ public class Container : MonoBehaviour
 		else
 			return false;
 	}
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        isResourceInUse = TryRemoveOne();
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (!isResourceInUse) return;
+        isResourceInUse = false;
+        if (!eventData.pointerCurrentRaycast.isValid)
+        {
+            amount += 1;
+            return;
+        }
+        UISlotScript slot = eventData.pointerCurrentRaycast.gameObject.GetComponent<UISlotScript>();
+        if (slot == null || !slot.AssertSlot(type))
+        {
+            amount += 1;
+            return;
+        }
+        if (slot.Container != null)
+        {
+            slot.Container.AddOne();
+        }
+        slot.Container = this;
+        if (eventData.pointerCurrentRaycast.gameObject.GetComponent<DecorationSlot>() != null)
+        {
+            slot.Fill(StoryMaster.BarkToTheme(type));
+            return;
+        }
+        slot.Fill();
+    }
 
 }

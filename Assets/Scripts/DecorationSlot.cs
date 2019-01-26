@@ -21,12 +21,12 @@ public class DecorationSlot : UISlotScript
 
 	}
 
-	public void Fill(Theme theme)
+	public override void Fill(Theme theme)
 	{
 		filed = true;
 
 		Content = theme;
-
+    
 		switch (theme)
 		{
 			case Theme.WATER:
@@ -45,17 +45,17 @@ public class DecorationSlot : UISlotScript
 
 	}
 
-	public void Fill()
-	{
-		Remove();
-	}
+    public override bool AssertSlot(Barks barks)
+    {
+        return (barks == Barks.GET_DECOR_AIR || barks == Barks.GET_DECOR_EARTH || barks == Barks.GET_DECOR_FIRE || barks == Barks.GET_DECOR_WATER);
+    }
 
-	public void Swap(Theme theme)
+    public void Swap(Theme theme)
 	{
 		Fill(theme);
 	}
 
-	public void Remove()
+	public override void Remove()
 	{
 		filed = false;
 		display.sprite = emptyImage;

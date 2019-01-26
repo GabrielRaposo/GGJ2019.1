@@ -163,8 +163,15 @@ public class StoryMaster : MonoBehaviour
 		}
 	}
 
-	public void Bark(Barks barks)
+	public void Bark(Barks barks, CitizenBehaviour dude)
 	{
+		ReorderCitizens(citizens.IndexOf(dude.GetComponent<CitizenData>()));
+
+		if(dude.strikes == 3)
+		{
+			story.ChoosePathString($"StrikeBark{Random.Range(0, 3).ToString()}");
+		}
+
 		switch (barks)
 		{
 			case Barks.GET_FOOD:
@@ -192,6 +199,9 @@ public class StoryMaster : MonoBehaviour
 				story.ChoosePathString($"BarkWood{Random.Range(0, 4).ToString()}");
 				break;
 		}
+
+		dude.ShowText(story.Continue());
+
 	}
 
 	private void SetExternalInkFunctions()
@@ -222,6 +232,30 @@ public class StoryMaster : MonoBehaviour
             citizens[0] = citizens[i];
             citizens[i] = placeHolder;
             return;
+        }
+    }
+
+    static public Theme BarkToTheme(Barks bark)
+    {
+        switch(bark)
+        {
+            case Barks.GET_DECOR_AIR: return Theme.AIR;
+            case Barks.GET_DECOR_WATER: return Theme.WATER;
+            case Barks.GET_DECOR_FIRE: return Theme.FIRE;
+            case Barks.GET_DECOR_EARTH: return Theme.EARTH;
+            default: return Theme.AIR;
+        }
+    }
+
+    static public Barks ThemeToBark(Theme theme)
+    {
+        switch (theme)
+        {
+            case Theme.AIR: return Barks.GET_DECOR_AIR;
+            case Theme.EARTH: return Barks.GET_DECOR_EARTH;
+            case Theme.FIRE: return Barks.GET_DECOR_FIRE;
+            case Theme.WATER: return Barks.GET_DECOR_WATER;
+            default: return Barks.GET_DECOR_AIR;
         }
     }
 

@@ -12,7 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957ecc506084c2940a2e6c701d9a7834, type: 3}
   m_Name: Three
   m_EditorClassIdentifier: 
-  slots: []
-  results: []
-  themes: []
+  slots:
+  - type: 1
+  - type: 1
+  results:
+  - {fileID: 1566389311784686169, guid: 65f1749dc5767fd47a80cc7d2d1ea79e, type: 3}
+  themes:
+  - themes: 00000000
+  - themes: 01000000
+  - themes: 02000000
+  - themes: 03000000
+  - themes: 0000000001000000
+  - themes: 0000000002000000
+  - themes: 0000000003000000
+  - themes: 0100000002000000
+  - themes: 0100000003000000
+  - themes: 0200000003000000
+  - themes: 000000000100000002000000
+  - themes: 000000000200000003000000
+  - themes: 000000000100000003000000
+  - themes: 010000000200000003000000
+  - themes: 00000000010000000200000003000000
   variableNumber: 0
