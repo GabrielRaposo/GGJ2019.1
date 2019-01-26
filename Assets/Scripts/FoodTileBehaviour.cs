@@ -8,8 +8,9 @@ public class FoodTileBehaviour : MonoBehaviour, IPointerClickHandler
 
 	GameManager gameManager;
 
-	// Start is called before the first frame update
-	void Start()
+
+    // Start is called before the first frame update
+    void Start()
     {
 		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
     }

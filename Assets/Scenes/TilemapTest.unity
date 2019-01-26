@@ -323,7 +323,6 @@ GameObject:
   m_Component:
   - component: {fileID: 198118643}
   - component: {fileID: 198118642}
-  - component: {fileID: 198118645}
   - component: {fileID: 198118644}
   m_Layer: 0
   m_Name: FoodTile
@@ -386,18 +385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileSize: {x: 2, y: 1}
---- !u!114 &198118645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198118641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cc1be71d65b9f4448c18c508aae37e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &442311888
 GameObject:
   m_ObjectHideFlags: 0
@@ -7257,6 +7244,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 972970880}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &999128845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4351284487186194193, guid: 3b72a76a7bfc5874dae037a5fd546244,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653424782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &999128846
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999128845}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.75, y: 0.75}
+    newSize: {x: 0.75, y: 0.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.75}
+  m_EdgeRadius: 0
 --- !u!1 &1270181403
 GameObject:
   m_ObjectHideFlags: 0
@@ -7622,7 +7641,7 @@ PrefabInstance:
     - target: {fileID: 4351284487186194193, guid: 3b72a76a7bfc5874dae037a5fd546244,
         type: 3}
       propertyPath: m_Name
-      value: Stone
+      value: Debris
       objectReference: {fileID: 0}
     - target: {fileID: 4351284487186194198, guid: 3b72a76a7bfc5874dae037a5fd546244,
         type: 3}
@@ -7873,6 +7892,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 219029710253443781}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2115680896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115680895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87bf05a3c8e3ee44ba7033d4ee3d3c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2115680898
 MonoBehaviour:
   m_ObjectHideFlags: 0

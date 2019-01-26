@@ -8,7 +8,15 @@ public enum actions
 {
 	none,
 	cleanTent,
-	getFood
+	getFood,
+    cleanDebris
+}
+
+public enum resourceTypes 
+{
+    stone,
+    wood,
+    decoration
 }
 
 public class GameManager : MonoBehaviour
