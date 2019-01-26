@@ -66,17 +66,15 @@ public class Container : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             amount += 1;
             return;
         }
-        print(slot.ContentType);
-        if (slot.ContentType != null)
+        if (slot.Container != null)
         {
-            GameObject container = GameObject.FindGameObjectWithTag("container-" + StoryMaster.BarkToTheme(slot.ContentType.Value).ToString().ToLower());
-            print(container);
-            container.GetComponent<Container>().AddOne();
+            slot.Container.AddOne();
         }
+        slot.Container = this;
         if (eventData.pointerCurrentRaycast.gameObject.GetComponent<DecorationSlot>() != null)
         {
             slot.Fill(StoryMaster.BarkToTheme(type));
-                return;
+            return;
         }
         slot.Fill();
     }

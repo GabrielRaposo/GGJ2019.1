@@ -11,6 +11,8 @@ public class UISlotScript : MonoBehaviour
     private Barks contentType;
 	private Theme content;
 
+    [SerializeField] private Container container;
+
 	protected Theme? Content { get {
 
 			if (!filed)
@@ -22,19 +24,17 @@ public class UISlotScript : MonoBehaviour
 
 		set => content = value.Value; }
 
-    public Barks? ContentType
+    public Container Container
     {
         get
         {
-
             if (!filed)
                 return null;
             else
-                return contentType;
-
+                return container;
         }
 
-        set => contentType = value.Value;
+        set => container = value;
     }
 
     public virtual void Fill(CitizenData citizenData) { }

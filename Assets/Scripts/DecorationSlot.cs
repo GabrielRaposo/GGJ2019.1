@@ -26,7 +26,6 @@ public class DecorationSlot : UISlotScript
 		filed = true;
 
 		Content = theme;
-        ContentType = StoryMaster.ThemeToBark(theme);
     
 		switch (theme)
 		{
