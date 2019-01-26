@@ -31,7 +31,7 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (gameManager.SelectedCitizen != null)
+		if (gameManager.SelectedCitizen != null && citizenOwner == null)
 		{
 			if (gameManager.GetInteractableItemsInCurrentDay.Exists(go => go == gameObject))
 			{
