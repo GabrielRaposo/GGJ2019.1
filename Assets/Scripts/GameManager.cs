@@ -8,7 +8,15 @@ public enum actions
 {
 	none,
 	cleanTent,
-	getFood
+	getFood,
+    cleanDebris
+}
+
+public enum resourceTypes 
+{
+    stone,
+    wood,
+    decoration
 }
 
 public class GameManager : MonoBehaviour
@@ -135,16 +143,16 @@ public class GameManager : MonoBehaviour
         foodQuantity--;
         dayBehaviour.AdvanceDay(citizens);
         ResetCamp(citizens);
-        DesactivateCamp();
+        // DesactivateCamp();
     }
     
     public IEnumerator Downfall()
     {
-        backgroundFade.CrossFadeAlpha(1.0f, secondsToDownfall / 2.0f, false);
-        yield return new WaitForSeconds(secondsToDownfall / 2.0f);
-        SceneManager.LoadScene("Fogueira", LoadSceneMode.Additive);
+        // backgroundFade.CrossFadeAlpha(1.0f, secondsToDownfall / 2.0f, false);
+        // yield return new WaitForSeconds(secondsToDownfall / 2.0f);
+        // SceneManager.LoadScene("Fogueira", LoadSceneMode.Additive);
         AdvanceDayCamp();
-        backgroundFade.CrossFadeAlpha(0.0f, secondsToDownfall / 2.0f, false);
+        // backgroundFade.CrossFadeAlpha(0.0f, secondsToDownfall / 2.0f, false);
         yield return new WaitForSeconds(secondsToDownfall / 2.0f);
     }
 
