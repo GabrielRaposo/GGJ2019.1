@@ -209,6 +209,8 @@ public class RecipeEditor : Editor
         EditorGUILayout.EndVertical();
 
         //base.OnInspectorGUI();
+
+        EditorUtility.SetDirty(target);
     }
 
 
