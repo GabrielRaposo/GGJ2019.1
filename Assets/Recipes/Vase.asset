@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957ecc506084c2940a2e6c701d9a7834, type: 3}
   m_Name: Vase
   m_EditorClassIdentifier: 
-  slots: []
+  slots:
+  - type: 0
+  - type: 2
   results:
-  - {fileID: 0}
+  - {fileID: 1071521160027592909, guid: 233415e7f94b43648b27fa21782c0a9b, type: 3}
+  - {fileID: 4794113778641593429, guid: 3c3e29352f52f294092284869e537fd3, type: 3}
+  - {fileID: 8631090699628820451, guid: 05433d63806dee04ba0a9154219af4bd, type: 3}
+  - {fileID: 625858838377779909, guid: 86d118e994d32fa43bb1a97beb9fb57a, type: 3}
   themes:
   - themes: 00000000
   - themes: 01000000
@@ -31,3 +36,4 @@ MonoBehaviour:
   - themes: 000000000100000003000000
   - themes: 010000000200000003000000
   - themes: 00000000010000000200000003000000
+  variableNumber: 1

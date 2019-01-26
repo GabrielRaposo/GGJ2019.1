@@ -8,6 +8,11 @@ TagManager:
   - tent
   - Game Manager
   - Citizen
+  - Fade Background
+  - StoneWay
+  - WoodWay
+  - DecorationWay
+  - FoodWay
   layers:
   - Default
   - TransparentFX
