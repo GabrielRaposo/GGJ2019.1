@@ -101,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   hasTent: 0
-  turnActionType: 0
 --- !u!61 &1445007973301265268
 BoxCollider2D:
   m_ObjectHideFlags: 0
