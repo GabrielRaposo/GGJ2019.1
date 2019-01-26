@@ -5,10 +5,9 @@ using UnityEngine.EventSystems;
 
 public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 {
+	GameManager gameManager;
 
-	[SerializeField] GameManager gameManager;
 	public bool hasTent;
-
 	public delegate void TurnAction();
 	public TurnAction turnAction = null;
 	public actions turnActionType;
@@ -18,6 +17,7 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	{
 		hasTent = false;
 		turnActionType = actions.none;
+		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
 	}
 
 	// Update is called once per frame
@@ -31,13 +31,21 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 		transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeSelf);
 	}
 
-	public void HighlightInteractable()
+    public void UnhighlightInteractable()
+    {
+        foreach (GameObject gameObject in gameManager.GetInteractableItemsInCurrentDay)
+        {
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
+
+    public void HighlightInteractable()
 	{
 		foreach (GameObject gameObject in gameManager.GetInteractableItemsInCurrentDay)
 		{
 			if (!hasTent)
 			{
-				if (gameObject.CompareTag("tent"))
+				if (gameObject.CompareTag("tent") && gameObject.GetComponent<TentBehaviour>().CitizenOwner == null)
 				{
 					gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
 				}
@@ -45,6 +53,7 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 			}
 			if (!gameObject.CompareTag("tent"))
 			{
+				Debug.Log(gameObject);
 				gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
 			}
 		}
@@ -66,6 +75,7 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 		if (gameManager.SelectedCitizen == null)
 		{
 			gameManager.SelectedCitizen = gameObject;
+			Debug.Log(gameManager.SelectedCitizen);
 			ShowInfo();
 			HighlightInteractable();
 		} else
@@ -74,7 +84,7 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 			{
 				gameManager.SelectedCitizen = null;
 				ShowInfo();
-				HighlightInteractable();
+				UnhighlightInteractable();
 			}
 		}
 	}

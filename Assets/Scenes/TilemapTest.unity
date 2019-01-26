@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -358,7 +358,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5.5, z: -0.016601562}
   m_LocalScale: {x: 2, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 961446461}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -492,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &374673373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8209,6 +8210,11 @@ PrefabInstance:
       propertyPath: secondsToDownfall
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 219029708877172892, guid: c0b36711b4efb744eafb1c576db424f8,
+        type: 3}
+      propertyPath: foodQuantity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 219029708877172895, guid: c0b36711b4efb744eafb1c576db424f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8313,11 +8319,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 219029708877172892, guid: c0b36711b4efb744eafb1c576db424f8,
-        type: 3}
-      propertyPath: foodQuantity
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 219029708877172894, guid: c0b36711b4efb744eafb1c576db424f8,
         type: 3}
@@ -8448,6 +8449,27 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1913150041}
+    - target: {fileID: 1445007973301265270, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 201f3538b549dde42878bb54fe41fe85,
+        type: 3}
+    - target: {fileID: 1445007973301265270, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973301265270, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973301265270, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dca7dc88fc9a75246b5a95a1ff94b530, type: 3}
 --- !u!1001 &7346367029550902245
