@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class HighlightBehaviour : MonoBehaviour
 {
-
-	public Vector2 tileSize;
 
     // Start is called before the first frame update
     void Start()
     {
-
+		Vector2 tileSize = GetComponentInParent<Interactable>().tileSize;
+		print(tileSize);
+		transform.localScale = new Vector3(tileSize.x, tileSize.y, 1.0f);
     }
 
     // Update is called once per frame

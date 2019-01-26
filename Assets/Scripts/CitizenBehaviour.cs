@@ -7,11 +7,12 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 {
 
 	[SerializeField] GameManager gameManager;
+	public bool hasTent;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+		hasTent = false;
     }
 
     // Update is called once per frame
@@ -30,13 +31,33 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 		List<GameObject> itemsCurrentDay = gameManager.GetInteractableItemsInCurrentDay;
 		foreach (GameObject gameObject in itemsCurrentDay)
 		{
+			if (gameObject.CompareTag("tent"))
+			{
+				if (!hasTent)
+				{
+					gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
+				}
+				continue;
+			}
 			gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
 		}
 	}
 	
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		ShowInfo();
-		HighlightInteractable();
+		if (gameManager.SelectedCitizen == null)
+		{
+			gameManager.SelectedCitizen = gameObject;
+			ShowInfo();
+			HighlightInteractable();
+		} else
+		{
+			if (gameManager.SelectedCitizen == gameObject)
+			{
+				gameManager.SelectedCitizen = null;
+				ShowInfo();
+				HighlightInteractable();
+			}
+		}
 	}
 }
