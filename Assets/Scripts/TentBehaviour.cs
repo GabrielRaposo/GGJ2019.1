@@ -35,7 +35,6 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 		{
 			if (gameManager.GetInteractableItemsInCurrentDay.Exists(go => go == gameObject))
 			{
-				print("alo");
 				CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
 				selectedCitizenBehaviour.SetTurnAction(
 					delegate () {
