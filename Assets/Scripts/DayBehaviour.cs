@@ -11,6 +11,8 @@ public class DayBehaviour : MonoBehaviour
 	[SerializeField] GameObject dayTextObject;
 	[SerializeField] float dayTextDuration;
 
+	PeopleBehaviour peopleBehaviour; 
+
 	int dayCounter = 0;
 	
 	public int DayCounter
@@ -22,6 +24,7 @@ public class DayBehaviour : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+		peopleBehaviour = GetComponent<PeopleBehaviour>();
 		gameManager = GetComponent<GameManager>();
 		interactableItemsInCurrentDay = new List<GameObject>();
 		StartCoroutine(showDayText());
@@ -69,6 +72,9 @@ public class DayBehaviour : MonoBehaviour
 	public void BeginDay()
 	{
 		InitInteractableObjects();
+		if (dayCounter == 2) {
+			peopleBehaviour.SpawnNewcomers(1);
+		}
 	}
 
 	public void AdvanceDay(CitizenBehaviour[] citizens)
