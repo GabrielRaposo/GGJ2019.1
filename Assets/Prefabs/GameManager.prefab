@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 219029708877172895}
   - component: {fileID: 219029708877172892}
   - component: {fileID: 219029708877172894}
+  - component: {fileID: 4944606557416081227}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,6 +50,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66746c9ce108f34184ca467a21127c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayBehaviour: {fileID: 0}
+  selectedCitizen: {fileID: 0}
+  foodPanel: {fileID: 0}
+  foodQuantity: 0
   foodFilled: {fileID: 2800000, guid: d16412bf842096a4d9922b9d837861ac, type: 3}
   foodUnfilled: {fileID: 2800000, guid: ff41c4968c335b14fbd754f0e199753b, type: 3}
 --- !u!114 &219029708877172894
@@ -67,3 +72,17 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   dayTextObject: {fileID: 0}
   dayTextDuration: 3
+--- !u!114 &4944606557416081227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219029708877172893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808a73c4cbff2f4478095ed5f4813dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkAsset: {fileID: 4900000, guid: cc5060353a4866c49ae1c7fa5b56291d, type: 3}
+  text: {fileID: 0}

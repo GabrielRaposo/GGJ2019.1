@@ -163,7 +163,7 @@ public class StoryMaster : MonoBehaviour
 		}
 	}
 
-	public void Bark(Barks barks)
+	public void Bark(Barks barks, CitizenBehaviour dude)
 	{
 		switch (barks)
 		{
@@ -192,6 +192,9 @@ public class StoryMaster : MonoBehaviour
 				story.ChoosePathString($"BarkWood{Random.Range(0, 4).ToString()}");
 				break;
 		}
+
+		dude.ShowText(story.Continue());
+
 	}
 
 	private void SetExternalInkFunctions()
