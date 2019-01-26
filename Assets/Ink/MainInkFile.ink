@@ -162,10 +162,11 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: Were you a gardner back in the day?
 {GetName(0)}: More like an enthusiast. I used to plant pumpkins in the mean time. They're spooky.
 ->DONE
-= LikeEarth2 //TODO
+= LikeEarth2
 {GetName(0)}: So, how do you like my earrings?
 {GetName(1)}: They're nice, I think.
-{GetName(0)}: I made them myself a couple of years ago. Used the finest gold I've ever seen and the finest garnet I've found.
+{GetName(0)}: They were a gift from my mama. She used to tinker with jewelry, and she made those specially for me back in the day.
+{GetName(0)}: It has diamonds engraved in the shape of a constellation. {She would always say it would guide me to home.|When I get lost, I look to it and search for the stars on the sky, so I know the way home.}
 {GetName(1)}: Oh, that's actually nice.
 ->DONE
 = DislikeEarth0
@@ -183,33 +184,39 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: Ouch
 {GetName(0)}: Yeah, ouch. Not a fan of cliffs since then.
 ->DONE
-= DislikeEarth2 //TODO
-{GetName(0)}: Have you ever played Whack-a-Mole?
-{GetName(1)}: I used to play it at every opportunity I'd get. Why?
-{GetName(0)}: I saw a mole today, and wished I could whack it. 
-{GetName(0)}: I don't know, but these critters that drill holes and tunnels have something so creepy
+= DislikeEarth2
+{GetName(0)}: Mind if I share something with you?
+{GetName(1)}: Sure, what is it?
+{GetName(0)}: Don't make me go to the mine, please. When I was younger, I got stuck inside one for days.
+{GetName(0)}: Since then, closed, confined spaces has been specially unsettling
+{GetName(1)}: No need to worry, I'll remember that.
 ->DONE
 
-= LikeFire0 //TODO
-{GetName(0)}: I'd do anything for a fine cut of beef right now.
-{GetName(1)}: But you already ate!
-{GetName(0)}: Yeah, but nothing beats the heavenly smell of a medium rare steak, or the taste of it. 
+= LikeFire0
+{GetName(0)}: I'd do anything to light up a grill right now.
+{GetName(1)}: What would you grill in it?
+{GetName(0)}: Nothing in special, the greatest pleasure is lighting it up with two rocks and seeing the fire spread on the coal. It's so warming and comfy.
+{GetName(1)}: So... Lighting only for the sake of lighting?
+{GetName(0)}: Jackpot!
 ->DONE
 = LikeFire1
 {GetName(0)}: You know what is the best part of winter?
 {GetName(1)}: What is it?
 {GetName(0)}: The end of it. So spring may begin and the weather get warmer again
 ->DONE
-= LikeFire2 //TODO
-{GetName(0)}: You like jazz?
-{GetName(1)}: Beg your pardon?
-{GetName(0)}: Jazz. The music. Jazz.
+= LikeFire2
+{GetName(0)}: Are you feeling something different on the air?
+{GetName(1)}: You mean the bittersweet smell on the air the whole night?
+{GetName(0)}: Yes! Just got finished mixing some herbs and now I got a brand new incense. Did you like it?
+{GetName(1)}: {I actually liked it a lot, I only wish it wasn't as strong as it is right now|Not exactly, is too much bitter and too much sweet. In the end is just a mess of differente smells begging for my attention.}
+{GetName(0)}: I'll change the proportions and later I'll ask you again.
 ->DONE
-= DislikeFire0 //TODO
-{GetName(0)}: The food was specially non-spicy tonight. I appreciate that.
-{GetName(1)}: That's unexpected, I don't believe to have done anything different. But I'm glad you enjoyed it.
-{GetName(0)}: I wish I could make it even less spicy.
-{GetName(1)}: But then it would be tasteless.
+= DislikeFire0
+{GetName(0)}: The food was specially spicy tonight.
+{GetName(1)}: That's unexpected, I don't believe to have done anything different.
+{GetName(0)}: I wish I could make it less spicy. I mean, non-spicy at all.
+{GetName(1)}: But then it would be almost tasteless.
+{GetName(0)}: I disagree with that, your taste is already addicted to the pepper.
 ->DONE
 = DislikeFire1
 {GetName(0)}: You look like you want to ask something.
@@ -232,10 +239,12 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: You used to?
 {GetName(0)}: Yeah, I used to fly this big, bird-shaped, yellow kite. When the wind was right, it was the prettiest thing in the sky.
 ->DONE
-= LikeAir1 //TODO
+= LikeAir1
 {GetName(0)}: You like jazz?
 {GetName(1)}: Beg your pardon?
-{GetName(0)}: Jazz. The music. Jazz.
+{GetName(0)}: Jazz. Chet Bacon. Chicken Corea. John Colt-Raine. You know, jazz?
+{GetName(1)}: Sorry, not a clue. I'm actually pretty clueless about jazz.
+{GetName(0)}: Oh, that fine...
 ->DONE
 = LikeAir2
 {GetName(0)}: Look, a goose!
@@ -260,14 +269,14 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(0)}: Kites. 
 {GetName(0)}: Never got how to fly one, nor what is the fun of it. It's so pointless and uninteresting.
 ->DONE
-= DislikeAir2 //TODO
-{GetName(0)}: Mind if I ask something really weird?
-{GetName(1)}: Sure, what's up?
-{GetName(0)}: Don't let any flying creature get near me.
-{GetName(1)}: ...Mind if I ask you why?
-{GetName(0)}: Mosquitoes bite you and suck your blood, eagles fly down and try to get you as a prey, parrots can be truly rude. 
-{GetName(0)}: Please don't let them get near me.
-{GetName(1)}: You should get professional help about this question.
+= DislikeAir2
+{GetName(0)}: Can I share something with you that makes me really unconfortable?
+{GetName(1)}: Sure, what is the matter?
+{GetName(0)}: If a tornado hit us during the night, please hold me.
+{GetName(1)}: I'm sorry, what?
+{GetName(0)}: Tornados. They used to hit my hometown every now and then.
+{GetName(0)}: I remember my neighbor, a chicken, flying towards the sky because of it. Scares the heck out of me.
+{GetName(1)}: Don't worry, I'll tie you to a tree if a tornado hits us.
 ->DONE
 
 = ProficienceWater0
@@ -285,9 +294,9 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: I don't think we know any.
 {GetName(0)}: Oh, don't worry, we have all night. I could teach you all some of the best ones for us to sing all night through.
 ->DONE
-= ProficienceEarth0 //TODO
+= ProficienceEarth0
 {GetName(0)}: Being here outside brings me memories of new mown hay back at home. 
-{GetName(0)}: Sittin' at the porch, smoking tobacco on my pipe listening to the cows at the barn and the crickets at night. 
+{GetName(0)}: Sittin' at the porch, smoking tobacco on my pipe, watching the crops, listening at the crickets at night. 
 {GetName(0)}: Dayum, those were some good days.
 {GetName(1)}: Are you sad it's over?
 {GetName(0)}: Me? Not at all! I'm not sad because it's over, for I'm glad it happened and now I get to share my stories with some good folk!
@@ -298,10 +307,12 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: I bet the diamonds at the mine were prettier.
 {GetName(0)}: Nothing I've seen in any mine glittered as the stars at the night sky.
 ->DONE
-= ProficienceEarth2 //TODO
-{GetName(0)}: Nights like this used to be the best ones to travel. So starred and bright, the path would always be clear for the horses.
+= ProficienceEarth2
+{GetName(0)}: Nights like this used to be the best ones to travel. So starred and bright, the path would always be clear almost entirely by the full moon.
 {GetName(1)}: Weren't you afraid of the dark?
 {GetName(0)}: I have nothing to fear under the full moon and a lit torch.
+{GetName(1)}: That must be a really interesting life. You must be full of fascinating stories.
+{GetName(0)}: Oh you can bet on it.
 ->DONE
 = ProficienceFire0
 {GetName(0)}: Guess who made the glass bottle you're holding right now.
@@ -336,12 +347,13 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(0)}: I'm not just a bard, I'm the - - Well, I used to be the best bard around. 
 {GetName(0)}: Such a shame my career was shortlived, but the world shall hear my voice for many more years!
 ->DONE
-= ProficienceAir2 //TODO
-{GetName(0)}: I wonder what {Darya|Maya|Olesya|Anastacia} might be doing right now.
-{GetName(0)}: Who are they?
-{GetName(0)}: They were the last birds that were under my protection. They have fled, and every night as pretty as this I think about them.
-{GetName(0)}: Are you ok?
-{GetName(0)}: I'm fine, but thank you for the concern. I'm sure we'll meet somewhere, along these journeys on the wild.
+= ProficienceAir2
+{GetName(0)}: Such a fine night with a fine wind as this would be great for me to conduct tests!
+{GetName(1)}: Tests such as...?
+{GetName(0)}: Tests to see how could I glide using mechanical wings!
+{GetName(1)}: Like a flying bird naturally do?
+{GetName(0)}: Yes, but imagine all of us being able to fly just like a parakeet! I used to work on that, but my progress has been halted for a while.
+{GetName(1)}: I'm sure you'll get back to work on your project soon enough.
 ->DONE
 
 = BarkFood0
@@ -431,10 +443,10 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(0)}: Today was a bad day, but tomorrow will be better. I'm betting on it.
 ->DONE
 = Strike1
-{GetName(0)}: The last two days were pretty awful. I hope it changes soon.
+{GetName(1)}: The last two days were pretty awful. I hope it changes soon.
 ->DONE
 = Strike2
-{GetName(0)}: I'm starting to feel that it didn't matter to leave my old group. Anywhere I go is the same thing.
+{GetName(2)}: I'm starting to feel that it didn't matter to leave my old group. Anywhere I go is the same thing.
 ->DONE
 
 = StrikeBark0
@@ -455,6 +467,29 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 ->DONE
 = StrikeLoss2
 {GetName(0)}: There's no place like home for some self-healing.
+->DONE
+
+= LosingMember0
+{GetName(0)}: I can't do this anymore. I know you tried your best, but I can't just be here. It's like nothing has changed from the last camp I've been.
+{GetName(1)}: I'm sorry we couldn't make it better for you.
+{GetName(0)}: Null sweat, {GetName(1)}, it's nobody's fault. I just didn't manage to fit in, that's all.
+{GetName(1)}: Farewell, {GetName(0)}. Farewell.
+{GetName(0)}: See you next time.
+->DONE
+= LosingMember1
+{GetName(0)}: My time has come to leave, my friends.
+{GetName(1)}: Are you sure of venturing out like this?
+{GetName(0)}: Yes, I don't belong here. I don't feel like home. But I hope to see you all soon around.
+{GetName(1)}: Bon voyage, {GetName(0)}.
+->DONE
+= LosingMember2
+{GetName(1)}: Are you leaving?
+{GetName(0)}: Yeah, {GetName(1)}, I'm leaving. I'm sorry for not telling anyone about it before, but I can't stand being in this camp anymore.
+{GetName(1)}: For how long have you been thinking about it?
+{GetName(0)}: A while now. I can't stay at a place where I don't feel like home.
+{GetName(1)}: I see. That's why we all came here, right?
+{GetName(0)}: Yeah. Farewell, {GetName(1)}.
+{GetName(1)}: Farewell, {GetName(0)}.
 ->DONE
 
 === function GetName(p) ===
