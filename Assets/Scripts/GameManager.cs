@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum actions
 {
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
 			foreach (CitizenBehaviour citizen in citizens)
 			{
 				citizen.ResetTurnAction();
+                citizen.UnhighlightInteractable();
 			}
 		}
 		else
