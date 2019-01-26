@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum SlotType { STONE, WOOD, DECORATION, INSPIRATION}
 
+[System.Serializable]
 [CreateAssetMenu(fileName = "Recipe", menuName = "Create Recipe")]
 public class SORecipe : ScriptableObject
 {
@@ -15,6 +16,7 @@ public class SORecipe : ScriptableObject
 
 }
 
+[System.Serializable]
 public class Slot
 {
     public SlotType type;
