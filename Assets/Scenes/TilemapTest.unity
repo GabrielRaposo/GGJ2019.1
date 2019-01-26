@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 198118643}
   - component: {fileID: 198118642}
   - component: {fileID: 198118644}
+  - component: {fileID: 198118645}
   m_Layer: 0
   m_Name: FoodTile
   m_TagString: Untagged
@@ -385,6 +386,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileSize: {x: 2, y: 1}
+--- !u!114 &198118645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198118641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203af012fe9dc6b4c95caf46daafd417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &442311888
 GameObject:
   m_ObjectHideFlags: 0
@@ -7086,16 +7099,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 198118643}
     m_Modifications:
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_Name
-      value: basic-highlight
-      objectReference: {fileID: 0}
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 64201480709222156, guid: 9848ace46fe79a8479341eee61cac86f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7160,6 +7163,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_Name
+      value: basic-highlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9848ace46fe79a8479341eee61cac86f, type: 3}
@@ -7276,6 +7289,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &999128850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999128845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85e5a88556563245befe7ab3009b1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceChance: 10
 --- !u!1 &1270181403
 GameObject:
   m_ObjectHideFlags: 0
@@ -7901,9 +7927,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2115680895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87bf05a3c8e3ee44ba7033d4ee3d3c96, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c639c9428fb510438921c1aac7810ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wood: 0
+  stone: 0
+  decoration: 0
 --- !u!114 &2115680898
 MonoBehaviour:
   m_ObjectHideFlags: 0
