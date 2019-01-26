@@ -8826,5 +8826,16 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1913150041}
+    - target: {fileID: 1445007973301265270, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973301265270, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3e29ba8fb7d5ac64bbcc4de3b2652452,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dca7dc88fc9a75246b5a95a1ff94b530, type: 3}
