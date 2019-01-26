@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/TilemapTest.unity
+    guid: add0fc689751a9646bfa5a5ef556eb20
+  - enabled: 1
+    path: Assets/Scenes/Fogueira.unity
+    guid: 6ad172d446709bd45b8e3c3a47549cb7
   m_configObjects: {}

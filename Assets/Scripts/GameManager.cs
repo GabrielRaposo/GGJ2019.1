@@ -19,8 +19,11 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private GameObject foodPanel;
 	[SerializeField] private int foodQuantity = 0;
 	[SerializeField] private Texture foodFilled, foodUnfilled;
+    [SerializeField] private float secondsToDownfall, counterToFade = 100.0f;
+    Image backgroundFade;
 
-	public const int maxFoodQuantity = 3;
+
+    public const int maxFoodQuantity = 3;
 
 	public int FoodQuantity
 	{
@@ -48,6 +51,8 @@ public class GameManager : MonoBehaviour
     {
 		dayBehaviour = GetComponent<DayBehaviour>();
 		foodPanel = GameObject.Find("Food Panel");
+        backgroundFade = GameObject.FindGameObjectWithTag("Fade Background").GetComponent<Image>();
+        backgroundFade.canvasRenderer.SetAlpha(0f);
     }
 
     // Update is called once per frame
@@ -95,20 +100,59 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+    public void ResetCamp(CitizenBehaviour[] citizens)
+    {
+        UpdateFood();
+        foreach (CitizenBehaviour citizen in citizens)
+        {
+            citizen.ResetTurnAction();
+            citizen.UnhighlightInteractable();
+        }
+    }
+
+    public void DesactivateCamp()
+    {
+        foreach (GameObject rootGameObject in SceneManager.GetSceneByName("TilemapTest").GetRootGameObjects())
+        {
+            if (rootGameObject.name == "canvas-fade") continue;
+            rootGameObject.SetActive(false);
+        }
+    }
+
+    public void ActivateCamp()
+    {
+        foreach (GameObject rootGameObject in SceneManager.GetSceneByName("TilemapTest").GetRootGameObjects())
+        {
+            if (rootGameObject.name == "canvas-fade") continue;
+            rootGameObject.SetActive(true);
+        }
+    }
+
+    public void AdvanceDayCamp()
+    {
+        CitizenBehaviour[] citizens = GameObject.FindObjectsOfType<CitizenBehaviour>();
+
+        foodQuantity--;
+        dayBehaviour.AdvanceDay(citizens);
+        ResetCamp(citizens);
+        DesactivateCamp();
+    }
+    
+    public IEnumerator Downfall()
+    {
+        backgroundFade.CrossFadeAlpha(1.0f, secondsToDownfall / 2.0f, false);
+        yield return new WaitForSeconds(secondsToDownfall / 2.0f);
+        SceneManager.LoadScene("Fogueira", LoadSceneMode.Additive);
+        AdvanceDayCamp();
+        backgroundFade.CrossFadeAlpha(0.0f, secondsToDownfall / 2.0f, false);
+        yield return new WaitForSeconds(secondsToDownfall / 2.0f);
+    }
+
 	public void AdvanceDay()
 	{
 		if (CanAdvanceDay())
 		{
-			CitizenBehaviour[] citizens = GameObject.FindObjectsOfType<CitizenBehaviour>();
-			
-			foodQuantity--;
-			dayBehaviour.AdvanceDay(citizens);
-			UpdateFood();
-			foreach (CitizenBehaviour citizen in citizens)
-			{
-				citizen.ResetTurnAction();
-                citizen.UnhighlightInteractable();
-			}
+            StartCoroutine(Downfall());
 		}
 		else
 		{
