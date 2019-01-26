@@ -493,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &374673373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7858,7 +7858,7 @@ PrefabInstance:
     - target: {fileID: 4351284487186194198, guid: 3b72a76a7bfc5874dae037a5fd546244,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.11
       objectReference: {fileID: 0}
     - target: {fileID: 4351284487186194198, guid: 3b72a76a7bfc5874dae037a5fd546244,
         type: 3}
@@ -8117,6 +8117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fadfaaa8c7acb14fa0addb1ea157740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  citizenPrefab: {fileID: 1445007973301265266, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+    type: 3}
 --- !u!1 &2124590068
 GameObject:
   m_ObjectHideFlags: 0

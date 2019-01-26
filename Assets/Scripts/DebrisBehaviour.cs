@@ -45,10 +45,10 @@ public class DebrisBehaviour : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData) {
         Debug.Log("cliquei no entulho");
-        CleanDebris();
         CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
         selectedCitizenBehaviour.SetTurnAction(
             delegate () {
+                CleanDebris();
             }, actions.cleanDebris);
     }
 }
