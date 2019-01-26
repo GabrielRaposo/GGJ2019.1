@@ -6,6 +6,13 @@ public class GameManager : MonoBehaviour
 {
 
 	private DayBehaviour dayBehaviour;
+	private GameObject selectedCitizen;
+
+	public GameObject SelectedCitizen
+	{
+		get { return selectedCitizen; }
+		set { selectedCitizen = value; }
+	}
 
 	public List<GameObject> GetInteractableItemsInCurrentDay
 	{
