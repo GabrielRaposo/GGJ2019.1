@@ -3,19 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-
-public class TentBehaviour : MonoBehaviour, IPointerClickHandler
+public class FoodTileBehaviour : MonoBehaviour, IPointerClickHandler
 {
 
-	[SerializeField] private GameObject citizenOwner;
-
-	public GameObject CitizenOwner
-	{
-		get { return citizenOwner; }
-		set { citizenOwner = value; }
-	}
-
-	public GameManager gameManager;
+	GameManager gameManager;
 
 	// Start is called before the first frame update
 	void Start()
@@ -26,8 +17,13 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
-        
-    }
+
+	}
+
+	public void CollectFood()
+	{
+		gameManager.FoodQuantity = 3;
+	}
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
@@ -35,16 +31,15 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 		{
 			if (gameManager.GetInteractableItemsInCurrentDay.Exists(go => go == gameObject))
 			{
-				print("alo");
 				CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
 				selectedCitizenBehaviour.SetTurnAction(
 					delegate () {
-						citizenOwner = gameManager.SelectedCitizen;
 						selectedCitizenBehaviour.OnPointerClick(null);
-						selectedCitizenBehaviour.hasTent = true;
-					}, actions.cleanTent);
+						gameManager.GetInteractableItemsInCurrentDay.Remove(gameObject);
+						CollectFood();
+					}, actions.getFood);
 			}
-		} 
+		}
 	}
 
 }

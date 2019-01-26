@@ -9,17 +9,22 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	[SerializeField] GameManager gameManager;
 	public bool hasTent;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	public delegate void TurnAction();
+	public TurnAction turnAction = null;
+	public actions turnActionType;
+	
+	// Start is called before the first frame update
+	void Start()
+	{
 		hasTent = false;
-    }
+		turnActionType = actions.none;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
 
 	public void ShowInfo()
 	{
@@ -28,21 +33,34 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 
 	public void HighlightInteractable()
 	{
-		List<GameObject> itemsCurrentDay = gameManager.GetInteractableItemsInCurrentDay;
-		foreach (GameObject gameObject in itemsCurrentDay)
+		foreach (GameObject gameObject in gameManager.GetInteractableItemsInCurrentDay)
 		{
-			if (gameObject.CompareTag("tent"))
+			if (!hasTent)
 			{
-				if (!hasTent)
+				if (gameObject.CompareTag("tent"))
 				{
 					gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
 				}
 				continue;
 			}
-			gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
+			if (!gameObject.CompareTag("tent"))
+			{
+				gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
+			}
 		}
 	}
-	
+
+	public void SetTurnAction(TurnAction action, actions actionType) {
+		turnAction = action;
+		turnActionType = actionType;
+	}
+
+	public void ResetTurnAction()
+	{
+		turnAction = delegate () { };
+		turnActionType = actions.none;
+	}
+
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		if (gameManager.SelectedCitizen == null)
