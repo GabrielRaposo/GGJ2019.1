@@ -4,6 +4,8 @@ using UnityEngine;
 using Ink.Runtime;
 using TMPro;
 
+public enum Barks { GET_FOOD, REMOVE_DEBRIE, GET_DECOR_WATER, GET_DECOR_FIRE, GET_DECOR_EARTH, GET_DECOR_AIR, GET_STONE, GET_WOOD}
+
 public class StoryMaster : MonoBehaviour
 {
     public TextAsset inkAsset;
@@ -19,12 +21,6 @@ public class StoryMaster : MonoBehaviour
         story.ChoosePathString("Leaving_camp");
 
         citizens = new List<CitizenData> { new CitizenData(), new CitizenData(), new CitizenData(), new CitizenData() };
-
-        citizens[0].citizenName = "Joao";
-        citizens[1].citizenName = "Roberto";
-        citizens[2].citizenName = "Carlinhos";
-        citizens[3].citizenName = "Maria";
-
 
         SetExternalInkFunctions();
 
@@ -44,7 +40,7 @@ public class StoryMaster : MonoBehaviour
             }
             else
             {
-                //Segue para proximo ponto da historia
+                //Segue para proximo ponto da historia ou do jogo
             }
         }       
     }
@@ -79,9 +75,7 @@ public class StoryMaster : MonoBehaviour
                 r--;
                 if (r == 0)
                 {
-                    ReorderCitizens(j);
-                    citizens[j].revealedLike = true;
-                    //Go To reveal like story
+					GoToLikeStory(j);
                 }
             }
             if (!citizens[j].revealedDislike)
@@ -89,9 +83,7 @@ public class StoryMaster : MonoBehaviour
                 r--;
                 if(r == 0)
                 {
-                    ReorderCitizens(j);
-                    citizens[j].revealedDislike = true;
-                    // Go to reveal dislike story
+					GoToDislikeStory(j);
                 }
             }
             if (!citizens[j].revealProficience)
@@ -99,16 +91,110 @@ public class StoryMaster : MonoBehaviour
                 r--;
                 if(r == 0)
                 {
-                    ReorderCitizens(j);
-                    citizens[j].revealProficience = true;
-                    //go to reveal proficience story
+					GoToProficiencyStory(j);
                 }
             }
         }
-
     }
 
-    private void SetExternalInkFunctions()
+	private void GoToLikeStory(int citizenIndex)
+	{
+		citizens[citizenIndex].revealedLike = true;
+		ReorderCitizens(citizenIndex);
+
+		switch (citizens[0].like)
+		{
+			case Theme.WATER:
+				story.ChoosePathString($"LikeWater{Random.Range(0,4).ToString()}");
+				break;
+			case Theme.FIRE:
+				story.ChoosePathString($"LikeFire{Random.Range(0, 4).ToString()}");
+				break;
+			case Theme.EARTH:
+				story.ChoosePathString($"LikeEarth{Random.Range(0, 4).ToString()}");
+				break;
+			case Theme.AIR:
+				story.ChoosePathString($"LikeAir{Random.Range(0, 4).ToString()}");
+				break;
+		}
+	}
+
+	private void GoToDislikeStory(int citizenIndex)
+	{
+		citizens[citizenIndex].revealedDislike = true;
+		ReorderCitizens(citizenIndex);
+
+		switch (citizens[0].dislike)
+		{
+			case Theme.WATER:
+				story.ChoosePathString($"DislikeWater{Random.Range(0, 4).ToString()}");
+				break;
+			case Theme.FIRE:
+				story.ChoosePathString($"DislikeFire{Random.Range(0, 4).ToString()}");
+				break;
+			case Theme.EARTH:
+				story.ChoosePathString($"DislikeEarth{Random.Range(0, 4).ToString()}");
+				break;
+			case Theme.AIR:
+				story.ChoosePathString($"DislikeAir{Random.Range(0, 4).ToString()}");
+				break;
+		}
+	}
+
+	private void GoToProficiencyStory(int citizenIndex)
+	{
+		citizens[citizenIndex].revealProficience = true;
+		ReorderCitizens(citizenIndex);
+
+		switch (citizens[0].proficience)
+		{
+			case Theme.WATER:
+				story.ChoosePathString($"ProficienceWater{Random.Range(0, 4).ToString()}");
+				break;
+			case Theme.FIRE:
+				story.ChoosePathString($"ProficienceFire{Random.Range(0, 4).ToString()}");
+				break;
+			case Theme.EARTH:
+				story.ChoosePathString($"ProficienceEarth{Random.Range(0, 4).ToString()}");
+				break;
+			case Theme.AIR:
+				story.ChoosePathString($"ProficienceWater{Random.Range(0, 4).ToString()}");
+				break;
+		}
+	}
+
+	public void Bark(Barks barks)
+	{
+		switch (barks)
+		{
+			case Barks.GET_FOOD:
+				story.ChoosePathString($"BarkFood{Random.Range(0, 4).ToString()}");
+				break;
+			case Barks.REMOVE_DEBRIE:
+				story.ChoosePathString($"BarkDebrie{Random.Range(0, 4).ToString()}");
+				break;
+			case Barks.GET_DECOR_WATER:
+				story.ChoosePathString($"BarkWater{Random.Range(0, 4).ToString()}");
+				break;
+			case Barks.GET_DECOR_FIRE:
+				story.ChoosePathString($"BarkFire{Random.Range(0, 4).ToString()}");
+				break;
+			case Barks.GET_DECOR_EARTH:
+				story.ChoosePathString($"BarkEarth{Random.Range(0, 4).ToString()}");
+				break;
+			case Barks.GET_DECOR_AIR:
+				story.ChoosePathString($"BarkAir{Random.Range(0, 4).ToString()}");
+				break;
+			case Barks.GET_STONE:
+				story.ChoosePathString($"BarkStone{Random.Range(0, 4).ToString()}");
+				break;
+			case Barks.GET_WOOD:
+				story.ChoosePathString($"BarkWood{Random.Range(0, 4).ToString()}");
+				break;
+		}
+	}
+
+	private void SetExternalInkFunctions()
     {
         story.BindExternalFunction("GetName", (int p) => { return citizens[p].citizenName; });
         story.BindExternalFunction("GetSurname", (int p) => { return citizens[p].citizenSurname; });

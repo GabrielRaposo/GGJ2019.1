@@ -12,7 +12,9 @@ public class SORecipe : ScriptableObject
 
     public GameObject[] results;
 
-    public ThemeSet[] themes;   
+    public ThemeSet[] themes;
+
+	public float variableNumber;
 
 }
 

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 163a09c45bf423c4db68fdd433bbd8eb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - image: {instanceID: 0}
+  - filledImageW: {fileID: 21300000, guid: f80e6018130e6a94884197f7f57b21be, type: 3}
+  - filledImageE: {fileID: 21300000, guid: ec57586729a281f4c8455f8d4ec4aa16, type: 3}
+  - filledImageF: {fileID: 21300000, guid: 188a889fbec141f44b733e2f0039f34d, type: 3}
+  - filledImageA: {fileID: 21300000, guid: 4abafa826dfc8c14187285bdaac68cd5, type: 3}
+  - emptyImage: {fileID: 21300000, guid: 0f82b046f7a145a4a84e6f9502f43dcd, type: 3}
+  - display: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
