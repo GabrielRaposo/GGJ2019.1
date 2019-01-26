@@ -9,7 +9,10 @@ public enum actions
 	none,
 	cleanTent,
 	getFood,
-    cleanDebris
+    cleanDebris,
+    getWood,
+    getStone,
+    getDecoration
 }
 
 public enum resourceTypes 

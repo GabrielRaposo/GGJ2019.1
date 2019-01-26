@@ -32,7 +32,6 @@ public class DayBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
 	IEnumerator showDayText()
@@ -40,6 +39,7 @@ public class DayBehaviour : MonoBehaviour
 		int counterMax = 100;
 		float alpha = 1;
 		dayTextObject.GetComponent<TextMeshProUGUI>().text = "Day " + dayCounter;
+		dayCounter++;
 		dayTextObject.SetActive(true);
 		for (int i = 0; i < counterMax; i++) {
 			alpha = alpha - 1.0f / counterMax;
@@ -47,7 +47,6 @@ public class DayBehaviour : MonoBehaviour
 			yield return new WaitForSeconds(dayTextDuration / counterMax);
 		}
 		dayTextObject.SetActive(false);
-		dayCounter++;
 	}
 
 	public void InitInteractableObjects()
@@ -74,6 +73,10 @@ public class DayBehaviour : MonoBehaviour
         if (dayCounter == 2)
         {
             peopleBehaviour.SpawnNewcomers(1);
+        }
+
+        if (dayCounter == 4) {
+            peopleBehaviour.SpawnNewcomers(2);
         }
     }
 

@@ -9,6 +9,10 @@ TagManager:
   - Game Manager
   - Citizen
   - Fade Background
+  - StoneWay
+  - WoodWay
+  - DecorationWay
+  - FoodWay
   layers:
   - Default
   - TransparentFX

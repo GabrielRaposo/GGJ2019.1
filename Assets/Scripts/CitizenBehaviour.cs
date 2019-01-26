@@ -8,6 +8,7 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	GameManager gameManager;
 
 	public bool hasTent;
+    public GameObject tent;
 	public delegate void TurnAction();
 	public TurnAction turnAction = null;
 	public actions turnActionType;
@@ -16,6 +17,7 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	void Start()
 	{
 		hasTent = false;
+        tent = null;
 		turnActionType = actions.none;
 		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
 	}
