@@ -24,8 +24,7 @@ public class StoryMaster : MonoBehaviour
         citizens[1].citizenName = "Roberto";
         citizens[2].citizenName = "Carlinhos";
         citizens[3].citizenName = "Maria";
-
-
+        
         SetExternalInkFunctions();
 
         text.text = "";
