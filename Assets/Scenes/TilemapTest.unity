@@ -7465,6 +7465,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &999128850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999128845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85e5a88556563245befe7ab3009b1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceChance: 10
 --- !u!1 &1270181403
 GameObject:
   m_ObjectHideFlags: 0
@@ -8086,9 +8099,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2115680895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87bf05a3c8e3ee44ba7033d4ee3d3c96, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c639c9428fb510438921c1aac7810ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wood: 0
+  stone: 0
+  decoration: 0
 --- !u!114 &2115680898
 MonoBehaviour:
   m_ObjectHideFlags: 0
