@@ -7,9 +7,7 @@ using UnityEditor;
 public class RecipeEditor : Editor
 {
     SORecipe recipe;
-
-    private int variableNumber;
-
+   
     private void OnEnable()
     {
         recipe = target as SORecipe;
@@ -110,8 +108,11 @@ public class RecipeEditor : Editor
 
         EditorGUILayout.EndVertical();
 
-        if(recipe.results == null || NumberOfVariables() != variableNumber)
+        if(recipe.results == null || NumberOfVariables() != recipe.variableNumber)
         {
+			Debug.Log("RESETING RESULTS");
+			Debug.Log($"recipe.results == null : {recipe.results == null}");
+			Debug.Log($"NumberOfVariables() != variableNumber : {NumberOfVariables() != recipe.variableNumber}  ({NumberOfVariables().ToString()} != {recipe.variableNumber.ToString()})");
             switch (NumberOfVariables())
             {
                 case 0:
@@ -131,7 +132,7 @@ public class RecipeEditor : Editor
                     break;
             }
 
-            variableNumber = NumberOfVariables();
+			recipe.variableNumber = NumberOfVariables();
 
         }
 

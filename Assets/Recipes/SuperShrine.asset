@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957ecc506084c2940a2e6c701d9a7834, type: 3}
+  m_Name: SuperShrine
+  m_EditorClassIdentifier: 
+  slots: []
+  results:
+  - {fileID: 0}
+  themes:
+  - themes: 00000000
+  - themes: 01000000
+  - themes: 02000000
+  - themes: 03000000
+  - themes: 0000000001000000
+  - themes: 0000000002000000
+  - themes: 0000000003000000
+  - themes: 0100000002000000
+  - themes: 0100000003000000
+  - themes: 0200000003000000
+  - themes: 000000000100000002000000
+  - themes: 000000000200000003000000
+  - themes: 000000000100000003000000
+  - themes: 010000000200000003000000
+  - themes: 00000000010000000200000003000000
+  variableNumber: 0
