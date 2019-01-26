@@ -9,6 +9,10 @@ TagManager:
   - Game Manager
   - Citizen
   - Fade Background
+  - container-fire
+  - container-air
+  - container-water
+  - container-earth
   layers:
   - Default
   - TransparentFX

@@ -225,4 +225,28 @@ public class StoryMaster : MonoBehaviour
         }
     }
 
+    static public Theme BarkToTheme(Barks bark)
+    {
+        switch(bark)
+        {
+            case Barks.GET_DECOR_AIR: return Theme.AIR;
+            case Barks.GET_DECOR_WATER: return Theme.WATER;
+            case Barks.GET_DECOR_FIRE: return Theme.FIRE;
+            case Barks.GET_DECOR_EARTH: return Theme.EARTH;
+            default: return Theme.AIR;
+        }
+    }
+
+    static public Barks ThemeToBark(Theme theme)
+    {
+        switch (theme)
+        {
+            case Theme.AIR: return Barks.GET_DECOR_AIR;
+            case Theme.EARTH: return Barks.GET_DECOR_EARTH;
+            case Theme.FIRE: return Barks.GET_DECOR_FIRE;
+            case Theme.WATER: return Barks.GET_DECOR_WATER;
+            default: return Barks.GET_DECOR_AIR;
+        }
+    }
+
 }

@@ -22,12 +22,7 @@ public class InspirationSlot : UISlotScript
 
 	}
 
-	public void Fill()
-	{
-		Remove();
-	}
-
-	public void Fill(Theme theme)
+	public override void Fill(Theme theme)
 	{
 		filed = true;
 
@@ -50,12 +45,12 @@ public class InspirationSlot : UISlotScript
 		}
 	}
 
-	public void Fill(CitizenData citizen)
+	public override void Fill(CitizenData citizen)
 	{
 		Fill(citizen.proficience);
 	}
 
-	public void Remove()
+	public override void Remove()
 	{
 		filed = false;
 		display.sprite = emptyImage;

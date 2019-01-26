@@ -6,6 +6,9 @@ using TMPro;
 
 public class Container : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+
+    private bool isResourceInUse = false;
+
 	public Barks type;
 	[SerializeField] private int amount;
 
@@ -45,26 +48,37 @@ public class Container : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        amount -= 1;
-        print("Aloo");
+        isResourceInUse = TryRemoveOne();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        print(eventData.pointerCurrentRaycast.isValid);
+        if (!isResourceInUse) return;
+        isResourceInUse = false;
         if (!eventData.pointerCurrentRaycast.isValid)
         {
             amount += 1;
             return;
         }
-        StoneSlot stoneSlot = eventData.pointerCurrentRaycast.gameObject.GetComponent<StoneSlot>();
-        print(eventData.pointerCurrentRaycast.gameObject.name);
-        if (stoneSlot == null || !stoneSlot.AssertSlot(type))
+        UISlotScript slot = eventData.pointerCurrentRaycast.gameObject.GetComponent<UISlotScript>();
+        if (slot == null || !slot.AssertSlot(type))
         {
             amount += 1;
             return;
         }
-        stoneSlot.Fill();
+        print(slot.ContentType);
+        if (slot.ContentType != null)
+        {
+            GameObject container = GameObject.FindGameObjectWithTag("container-" + StoryMaster.BarkToTheme(slot.ContentType.Value).ToString().ToLower());
+            print(container);
+            container.GetComponent<Container>().AddOne();
+        }
+        if (eventData.pointerCurrentRaycast.gameObject.GetComponent<DecorationSlot>() != null)
+        {
+            slot.Fill(StoryMaster.BarkToTheme(type));
+                return;
+        }
+        slot.Fill();
     }
 
 }
