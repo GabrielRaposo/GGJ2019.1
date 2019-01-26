@@ -12,6 +12,12 @@ public class DayBehaviour : MonoBehaviour
 	[SerializeField] float dayTextDuration;
 
 	int dayCounter = 0;
+	
+	public int DayCounter
+	{
+		get { return dayCounter; }
+		set { dayCounter = value; }
+	}
 
 	// Start is called before the first frame update
 	void Start()
@@ -63,5 +69,15 @@ public class DayBehaviour : MonoBehaviour
 	public void BeginDay()
 	{
 		InitInteractableObjects();
+	}
+
+	public void AdvanceDay(CitizenBehaviour[] citizens)
+	{
+		foreach (CitizenBehaviour citizen in citizens)
+		{
+			citizen.turnAction();
+		}
+		BeginDay();
+		StartCoroutine("showDayText");
 	}
 }

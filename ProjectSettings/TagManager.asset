@@ -7,6 +7,7 @@ TagManager:
   - DayText
   - tent
   - Game Manager
+  - Citizen
   layers:
   - Default
   - TransparentFX

@@ -1,12 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+public enum actions
+{
+	none,
+	cleanTent,
+	getFood
+}
 
 public class GameManager : MonoBehaviour
 {
 
-	private DayBehaviour dayBehaviour;
-	private GameObject selectedCitizen;
+	[SerializeField] private DayBehaviour dayBehaviour;
+	[SerializeField] private GameObject selectedCitizen;
+	[SerializeField] private GameObject foodPanel;
+	[SerializeField] private int foodQuantity = 0;
+	[SerializeField] private Texture foodFilled, foodUnfilled;
+
+	public const int maxFoodQuantity = 3;
+
+	public int FoodQuantity
+	{
+		get { return foodQuantity; }
+		set { foodQuantity = value; }
+	}
 
 	public GameObject SelectedCitizen
 	{
@@ -27,6 +46,7 @@ public class GameManager : MonoBehaviour
 	void Start()
     {
 		dayBehaviour = GetComponent<DayBehaviour>();
+		foodPanel = GameObject.Find("Food Panel");
     }
 
     // Update is called once per frame
@@ -34,4 +54,63 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+	public void BeginFirstDay()
+	{
+		dayBehaviour.BeginDay();
+		foodQuantity = 1;
+	}
+
+	public bool CanAdvanceDay()
+	{
+		GameObject[] citizens = GameObject.FindGameObjectsWithTag("Citizen");
+		foreach (GameObject citizen in citizens)
+		{
+			if (citizen.GetComponent<CitizenBehaviour>().turnActionType == actions.none) return false;
+		}
+		if (foodQuantity == 0)
+		{
+			bool foodAction = false;
+			foreach (GameObject citizen in citizens)
+			{
+				if (citizen.GetComponent<CitizenBehaviour>().turnActionType == actions.getFood) foodAction = true;
+			}
+			if (!foodAction) return false;
+		}
+		return true;
+	}
+
+	private void UpdateFood()
+	{
+		for (int i = 0; i < maxFoodQuantity; i++)
+		{
+			if (i < foodQuantity)
+			{
+				foodPanel.transform.GetChild(i).GetComponent<RawImage>().texture = foodFilled;
+			} else
+			{
+				foodPanel.transform.GetChild(i).GetComponent<RawImage>().texture = foodUnfilled;
+			}
+		}
+	}
+
+	public void AdvanceDay()
+	{
+		if (CanAdvanceDay())
+		{
+			CitizenBehaviour[] citizens = GameObject.FindObjectsOfType<CitizenBehaviour>();
+			
+			foodQuantity--;
+			dayBehaviour.AdvanceDay(citizens);
+			UpdateFood();
+			foreach (CitizenBehaviour citizen in citizens)
+			{
+				citizen.ResetTurnAction();
+			}
+		}
+		else
+		{
+			print("mano tem que fazer as ações");
+		}
+	}
 }
