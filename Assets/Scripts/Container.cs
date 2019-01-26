@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using TMPro;
 
-public class Container : MonoBehaviour
+public class Container : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 	public Barks type;
-	private int amount;
+	[SerializeField] private int amount;
 
 	public TextMeshProUGUI text;
 
@@ -41,5 +42,29 @@ public class Container : MonoBehaviour
 		else
 			return false;
 	}
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        amount -= 1;
+        print("Aloo");
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        print(eventData.pointerCurrentRaycast.isValid);
+        if (!eventData.pointerCurrentRaycast.isValid)
+        {
+            amount += 1;
+            return;
+        }
+        StoneSlot stoneSlot = eventData.pointerCurrentRaycast.gameObject.GetComponent<StoneSlot>();
+        print(eventData.pointerCurrentRaycast.gameObject.name);
+        if (stoneSlot == null || !stoneSlot.AssertSlot(type))
+        {
+            amount += 1;
+            return;
+        }
+        stoneSlot.Fill();
+    }
 
 }

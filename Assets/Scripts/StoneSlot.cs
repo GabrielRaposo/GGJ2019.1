@@ -13,7 +13,7 @@ public class StoneSlot : UISlotScript
 	private void Awake()
 	{
 		type = SlotType.STONE;
-		display.sprite = emptyImage;
+		// display.sprite = emptyImage;
 
 	}
 
@@ -38,4 +38,9 @@ public class StoneSlot : UISlotScript
 	{
 		Remove();
 	}
+
+    public bool AssertSlot(Barks barks)
+    {
+        return (barks == Barks.GET_STONE);
+    }
 }
