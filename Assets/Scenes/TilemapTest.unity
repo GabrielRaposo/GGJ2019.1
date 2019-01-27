@@ -395,11 +395,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605796945}
     m_Modifications:
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_Name
-      value: basic-highlight
-      objectReference: {fileID: 0}
     - target: {fileID: 64201480709222156, guid: 9848ace46fe79a8479341eee61cac86f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -454,6 +449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_Name
+      value: basic-highlight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9848ace46fe79a8479341eee61cac86f, type: 3}
@@ -568,7 +568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &374673373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +808,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &492591975
 MonoBehaviour:
@@ -7450,11 +7450,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 696525905}
     m_Modifications:
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_Name
-      value: basic-highlight
-      objectReference: {fileID: 0}
     - target: {fileID: 64201480709222156, guid: 9848ace46fe79a8479341eee61cac86f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7510,6 +7505,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_Name
+      value: basic-highlight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9848ace46fe79a8479341eee61cac86f, type: 3}
 --- !u!4 &841727647 stripped
@@ -7559,16 +7559,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 198118643}
     m_Modifications:
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_Name
-      value: basic-highlight
-      objectReference: {fileID: 0}
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 64201480709222156, guid: 9848ace46fe79a8479341eee61cac86f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7633,6 +7623,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_Name
+      value: basic-highlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9848ace46fe79a8479341eee61cac86f, type: 3}
@@ -8731,11 +8731,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2047525740}
     m_Modifications:
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_Name
-      value: basic-highlight
-      objectReference: {fileID: 0}
     - target: {fileID: 64201480709222156, guid: 9848ace46fe79a8479341eee61cac86f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8791,6 +8786,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_Name
+      value: basic-highlight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9848ace46fe79a8479341eee61cac86f, type: 3}
 --- !u!4 &2105128278 stripped
@@ -8833,6 +8833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   citizenPrefab: {fileID: 1445007973301265266, guid: dca7dc88fc9a75246b5a95a1ff94b530,
     type: 3}
+  storyMaster: {fileID: 0}
   go: {fileID: 391389760}
   SpawnY: 3
   SpawnX: 5
@@ -9005,7 +9006,7 @@ PrefabInstance:
     - target: {fileID: 219029708877172892, guid: c0b36711b4efb744eafb1c576db424f8,
         type: 3}
       propertyPath: secondsToDownfall
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 219029708877172892, guid: c0b36711b4efb744eafb1c576db424f8,
         type: 3}

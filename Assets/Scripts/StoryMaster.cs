@@ -55,6 +55,7 @@ public class StoryMaster : MonoBehaviour
         List<CitizenData> list = new List<CitizenData>();
         foreach(GameObject citizenGameObject in GameObject.FindGameObjectsWithTag("Citizen"))
         {
+            print(citizenGameObject.GetComponent<CitizenBehaviour>().CitizenData);
             list.Add(citizenGameObject.GetComponent<CitizenBehaviour>().CitizenData);
         }
         citizens = list;
@@ -68,7 +69,7 @@ public class StoryMaster : MonoBehaviour
         text.text = story.Continue();
     }
 
-    private void BasicSelectionBetweenScenes()
+    public void BasicSelectionBetweenScenes()
     {
         int i = 0;
         int r = 0;
@@ -230,11 +231,11 @@ public class StoryMaster : MonoBehaviour
 
 	private void SetExternalInkFunctions()
     {
-        story.BindExternalFunction("GetName", (int p) => { print(p); return citizens[p].citizenName; });
-        story.BindExternalFunction("GetSurname", (int p) => { print(p); return citizens[p].citizenSurname; });
-        story.BindExternalFunction("GetLike", (int p) => { print(p); return (int)citizens[p].like; });
-        story.BindExternalFunction("GetDislike", (int p) => { print(p); return (int)citizens[p].dislike; });
-        story.BindExternalFunction("GetProficiency", (int p) => { print(p); return (int)citizens[p].proficience; });
+        story.BindExternalFunction("GetName", (int p) => {  return citizens[p].name; });
+        story.BindExternalFunction("GetSurname", (int p) => {  return citizens[p].surname; });
+        story.BindExternalFunction("GetLike", (int p) => {  return (int)citizens[p].like; });
+        story.BindExternalFunction("GetDislike", (int p) => {  return (int)citizens[p].dislike; });
+        story.BindExternalFunction("GetProficiency", (int p) => {  return (int)citizens[p].proficience; });
     }
 
     private void ReorderCitizens(int i)

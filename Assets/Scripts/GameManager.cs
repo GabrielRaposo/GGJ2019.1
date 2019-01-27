@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Cutscener cutscener;
     [SerializeField] private DayBehaviour dayBehaviour;
+    [SerializeField] private PeopleBehaviour peopleBehaviour;
     [SerializeField] private GameObject selectedCitizen;
     [SerializeField] private GameObject foodPanel;
     [SerializeField] private int foodQuantity = 0;
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
 	void Start()
     {
 		dayBehaviour = GetComponent<DayBehaviour>();
+        peopleBehaviour = GetComponent<PeopleBehaviour>();
 		foodPanel = GameObject.Find("Food Panel");
         backgroundFade = GameObject.FindGameObjectWithTag("Fade Background").GetComponent<Image>();
         backgroundFade.canvasRenderer.SetAlpha(0f);
@@ -165,6 +167,17 @@ public class GameManager : MonoBehaviour
 
         storyMaster.text = GameObject.FindGameObjectWithTag("Dialog Box").GetComponent<TextMeshProUGUI>();
         cutscener = GameObject.FindGameObjectWithTag("Cutscener").GetComponent<Cutscener>();
+        
+        if (dayBehaviour.DayCounter == 2)
+        {
+            peopleBehaviour.SpawnNewcomers(1);
+        }
+
+        if (dayBehaviour.DayCounter == 4)
+        {
+            peopleBehaviour.SpawnNewcomers(2);
+        }
+
         cutscener.StartCutscene(dayBehaviour.DayCounter, ref storyMaster);
         AdvanceDayCamp();
         backgroundFade.CrossFadeAlpha(0.0f, secondsToDownfall / 3.0f, false);

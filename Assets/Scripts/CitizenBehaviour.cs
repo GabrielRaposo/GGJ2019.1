@@ -7,7 +7,7 @@ using TMPro;
 public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 {
 	GameManager gameManager;
-    CitizenData citizenData;
+    public CitizenData citizenData;
 
 	public bool hasTent;
     public GameObject tent;
@@ -33,15 +33,19 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
     }
     public CitizenData data;
 	
+    void Awake()
+    {
+        isClickable = true;
+        hasTent = false;
+        tent = null;
+        turnActionType = actions.none;
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        citizenData = CitizenData.CreateCitizen();
+    }
+
 	// Start is called before the first frame update
 	void Start()
 	{
-        isClickable = true;
-		hasTent = false;
-        tent = null;
-		turnActionType = actions.none;
-		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        citizenData = CitizenData.CreateCitizen();
 	}
 
 	// Update is called once per frame
@@ -105,7 +109,6 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
             if (gameManager.SelectedCitizen == null)
             {
                 gameManager.SelectedCitizen = gameObject;
-                Debug.Log(gameManager.SelectedCitizen);
                 ShowInfo();
                 HighlightInteractable();
             }

@@ -6,8 +6,8 @@ public enum Theme {WATER, FIRE, EARTH, AIR}
 
 public class CitizenData
 {
-    public string citizenName;
-    public string citizenSurname;
+    public string name;
+    public string surname;
 
     public GameObject tent;
 
@@ -45,6 +45,9 @@ public class CitizenData
     public static CitizenData CreateCitizen()
     {
         CitizenData citizen = new CitizenData();
+
+        citizen.name = citizen.chooseName();
+        citizen.surname = citizen.chooseName();
 
         citizen.like = (Theme)Random.Range(0, 3);
         citizen.proficience = (Theme)Random.Range(0, 3);
