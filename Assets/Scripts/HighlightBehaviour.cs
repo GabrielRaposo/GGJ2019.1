@@ -9,7 +9,6 @@ public class HighlightBehaviour : MonoBehaviour
     void Start()
     {
 		Vector2 tileSize = GetComponentInParent<Interactable>().tileSize;
-		print(tileSize);
 		transform.localScale = new Vector3(tileSize.x, tileSize.y, 1.0f);
     }
 

@@ -10,10 +10,9 @@ public class PeopleBehaviour : MonoBehaviour
     [SerializeField] int SpawnY = 3;
     [SerializeField] int SpawnX = 5;
 
+    List<GameObject> toBeDestroyed = new List<GameObject>();
+
     void Update() {
-        //if (Input.GetKeyDown(KeyCode.Space)) {
-        //    kickCitizen(go);
-        //}
     } 
 
     public void SpawnNewcomers(int quantity) {
@@ -32,7 +31,7 @@ public class PeopleBehaviour : MonoBehaviour
         citizen.GetComponent<CitizenBehaviour>().tent.GetComponent<TentBehaviour>().CitizenOwner = null;
         citizen.GetComponent<CitizenBehaviour>().tent = null;
 
-        //destruir go da pessoa
-        Destroy(citizen.gameObject);
+        //adiciona na listinha de destuicao
+        toBeDestroyed.Add(citizen.gameObject);
     }
 }
