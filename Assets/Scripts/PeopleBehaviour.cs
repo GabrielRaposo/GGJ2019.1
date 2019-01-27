@@ -36,8 +36,8 @@ public class PeopleBehaviour : MonoBehaviour
 
             GameObject newcomer = Instantiate(citizenPrefab, new Vector3(0.5f, 0.5f, -1f), Quaternion.identity);
             Debug.Log("[x: " + newcomer.transform.position.x + ", y: " + newcomer.transform.position.y + " ]");
-
-			switch (newcomer.GetComponent<CitizenBehaviour>().citizenData.species)
+			
+			switch (newcomer.GetComponent<CitizenBehaviour>().CitizenData.species)
 			{
 				case Animals.BEAR:
 					newcomer.GetComponent<SpriteRenderer>().material = bearMaterial;

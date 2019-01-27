@@ -32,7 +32,8 @@ public class Cutscener : MonoBehaviour
         }
         else
         {
-            storyMaster.BasicSelectionBetweenScenes();
+			if (dayCounter == 6) storyMaster.InkUseOrdered();
+			storyMaster.BasicSelectionBetweenScenes();
         }
     }
 
