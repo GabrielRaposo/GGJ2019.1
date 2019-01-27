@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int foodQuantity = 0;
     [SerializeField] private Texture foodFilled, foodUnfilled;
     [SerializeField] private float secondsToDownfall, counterToFade = 100.0f;
+    [SerializeField] public GameObject craftedItem;
     private StoryMaster storyMaster;
     Image backgroundFade;
 
@@ -76,7 +77,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 	public void BeginFirstDay()
