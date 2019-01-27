@@ -8,25 +8,39 @@ public enum Barks { GET_FOOD, REMOVE_DEBRIE, GET_DECOR_WATER, GET_DECOR_FIRE, GE
 
 public class StoryMaster : MonoBehaviour
 {
-    public TextAsset inkAsset;
-    private Story story;
+	public TextAsset inkAsset;
+	private Story story;
 
-    public TextMeshProUGUI text;
+	public TextMeshProUGUI text;
 
-    private Dictionary<CitizenBehaviour, CitizenData> mapCitizenData;
+	private Dictionary<CitizenBehaviour, CitizenData> mapCitizenData;
 
-    public List<CitizenData> citizens;
+	public List<CitizenData> citizens;
+	private List<CitizenData> orderedCitizensForStory;
 
-    public GameManager gameManager;
+	public GameManager gameManager;
 
-    private void Awake()
+	private delegate string GetName(int index);
+	private delegate string GetSurname(int index);
+	private delegate int GetLike(int index);
+	private delegate int GetDislike(int index);
+	private delegate int GetProficiency(int index);
+
+	private GetName getName;
+	private GetSurname getSurname;
+	private GetLike getLike;
+	private GetDislike getDislike;
+	private GetProficiency getProficiency;
+
+	private void Awake()
     {
         story = new Story(inkAsset.text);
         story.ChoosePathString("Leaving_camp");
 
         // citizens = new List<CitizenData> { new CitizenData(), new CitizenData(), new CitizenData(), new CitizenData() };
 
-        SetExternalInkFunctions();   
+        SetExternalInkFunctions();
+		InkUseCitizens();
     }
 
     private void Start()
@@ -125,8 +139,8 @@ public class StoryMaster : MonoBehaviour
     }
 
     public void UpdateCurrentStory(string pathString)
-    {
-        UpdateCitizenData();
+	{
+		UpdateCitizenData();
         story.ChoosePathString(pathString);
         text.text = "";
         text.text = story.Continue();
@@ -136,6 +150,7 @@ public class StoryMaster : MonoBehaviour
     {
         int i = 0;
         int r = 0;
+		orderedCitizensForStory = new List<CitizenData>(citizens);
 
         foreach(CitizenData cd in citizens)
         {
@@ -294,31 +309,54 @@ public class StoryMaster : MonoBehaviour
 
 	private void SetExternalInkFunctions()
     {
-        story.BindExternalFunction("GetName", (int p) => {  return citizens[p].name; });
-        story.BindExternalFunction("GetSurname", (int p) => {  return citizens[p].surname; });
-        story.BindExternalFunction("GetLike", (int p) => {  return (int)citizens[p].like; });
-        story.BindExternalFunction("GetDislike", (int p) => {  return (int)citizens[p].dislike; });
-        story.BindExternalFunction("GetProficiency", (int p) => {  return (int)citizens[p].proficience; });
+        story.BindExternalFunction("GetName", (int p) => { return getName(p); });
+        story.BindExternalFunction("GetSurname", (int p) => { return getSurname(p);  });
+        story.BindExternalFunction("GetLike", (int p) => {  return getLike(p); });
+        story.BindExternalFunction("GetDislike", (int p) => {  return getDislike(p); });
+        story.BindExternalFunction("GetProficiency", (int p) => {  return getProficiency(p); });
     }
 
-    private void ReorderCitizens(int i)
-    {
-        if(i == 0)
+	public void InkUseCitizens()
+	{
+		getName = delegate (int index) { return citizens[index].name; };
+		getSurname = delegate (int index) { return citizens[index].surname; };
+		getLike = delegate (int index) { return (int) citizens[index].like; };
+		getDislike = delegate (int index) { return (int) citizens[index].dislike; };
+		getDislike = delegate (int index) { return (int) citizens[index].proficience; };
+	}
+
+	public void InkUseOrdered()
+	{
+		getName = delegate (int index) { return orderedCitizensForStory[index].name; };
+		getSurname = delegate (int index) { return orderedCitizensForStory[index].surname; };
+		getLike = delegate (int index) { return (int)orderedCitizensForStory[index].like; };
+		getDislike = delegate (int index) { return (int)orderedCitizensForStory[index].dislike; };
+		getDislike = delegate (int index) { return (int)orderedCitizensForStory[index].proficience; };
+	}
+
+	private void ReorderCitizens(int i)
+	{
+
+		if (i == 0)
         {
             return;
         }
-        if(i == citizens.Count - 1)
+
+		if (i == orderedCitizensForStory.Count - 1)
         {
-            citizens.Reverse();
+			orderedCitizensForStory.Reverse();
             return;
         }
         else
         {
-            CitizenData placeHolder;
+            CitizenData placeholder;
 
-            placeHolder = citizens[0];
-            citizens[0] = citizens[i];
-            citizens[i] = placeHolder;
+			for (int j = 1; j <= i; j++)
+			{
+				placeholder = orderedCitizensForStory[j-1];
+				orderedCitizensForStory[j-1] = orderedCitizensForStory[j];
+				orderedCitizensForStory[j] = placeholder;
+			}
             return;
         }
     }

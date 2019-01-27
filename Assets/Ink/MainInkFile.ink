@@ -506,15 +506,15 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 ->DONE
 
 = DislikingItemP0
-{GetName(0)}: Who in their right mind would want something like a {GetItem(0)} in their camp?
+{GetName(0)}: {GetItem(0)} gives me goosebumps.
 ->DONE
 
 = DislikingItemP1
-{GetName(0)}: It boggles my mind how someone likes {GetItem(0)}. I'm truly puzzled.
+{GetName(0)}: I don't get {GetItem(0)}. Care to explain why do you like it?
 ->DONE
 
 = DislikingItemP2
-{GetName(0)}: {GetItem(0)} is utterly revolting, how would someone even do such a thing?
+{GetName(0)}: I'm not particularly fond of {GetItem(0)}. But at least somebody around here is.
 ->DONE
 === function GetName(p) ===
 
