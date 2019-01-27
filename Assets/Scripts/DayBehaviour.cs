@@ -5,7 +5,6 @@ using TMPro;
 
 public class DayBehaviour : MonoBehaviour
 {
-
 	public List<GameObject> interactableItemsInCurrentDay;
 	[SerializeField] GameManager gameManager;
 	[SerializeField] GameObject dayTextObject;
