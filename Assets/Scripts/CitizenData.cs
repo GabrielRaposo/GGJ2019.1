@@ -23,24 +23,41 @@ public class CitizenData
     public int strikes;
 
     List<string> names = new List<string>() {
-        "Allegro",
-        "Alpine",
-        "Baron",
-        "Bentley",
-        "Buttermilk'",
-        "Cider",
-        "Denali",
-        "Ermine",
-        "Figaro",
-        "Guru",
-        "Jigjag",
-        "Mithra",
-        "Mocha",
-        "Nova",
-        "Rishi",
-        "Yukon",
-        "Reese",
-        "Kamryn"
+        "Allegro", "Silvana",
+        "Alpine", "Marceline",
+        "Baron", "Masha",
+        "Bentley", "Sarah",
+        "Buttermilk'", "Yulia",
+        "Cider", "Yukito",
+        "Denali", "Whisky",
+        "Ermine", "Cosmo",
+        "Figaro", "Luna",
+        "Guru", "Maya",
+        "Jigjag", "Flocos",
+        "Mithra", "Dima",
+        "Mocha", "Gretchen",
+        "Nova", "Madgalina",
+        "Rishi", "Kalinina",
+        "Yukon", "Jocione",
+        "Reese", "Olya",
+        "Kamryn", "Vinizinho"
+    };
+
+    List<string> surnames = new List<string>(){
+        "Makarovich", "Ivanovich",
+        "Raposo", "Guio",
+        "Pimpão", "Carneiro",
+        "Cohen", "Lichtman",
+        "Silva", "Sousa",
+        "Bastos", "Barros",
+        "Marques", "Garcia",
+        "Moreno", "Gherman",
+        "Nogueira", "Corrêa",
+        "Barcellos", "Lima",
+        "Mendonça", "Guina",
+        "Moraes", "Valente",
+        "Soares", "Bandeira",
+        "Montes", "Domingues"
     };
 
     public static CitizenData CreateCitizen()
@@ -48,7 +65,7 @@ public class CitizenData
         CitizenData citizen = new CitizenData();
 
         citizen.name = citizen.chooseName();
-        citizen.surname = citizen.chooseName();
+        citizen.surname = citizen.chooseSurname();
 
         citizen.like = (Theme)Random.Range(0, 3);
         citizen.proficience = (Theme)Random.Range(0, 3);
@@ -66,6 +83,13 @@ public class CitizenData
         int index = Random.Range(0, names.Count);
         Debug.Log(names[index]);
         return names[index];
+    }
+
+    string chooseSurname()
+    {
+        int index = Random.Range(0, surnames.Count);
+        Debug.Log(surnames[index]);
+        return surnames[index];
     }
 
 }
