@@ -5,9 +5,7 @@ using UnityEngine.EventSystems;
 
 public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] [Range(0f, 10f)] float chanceOfGettingBasicResources;
     [SerializeField] [Range(0f, 10f)] float chanceOfGettingDecorationResources;
-    [SerializeField] [Range(0f, 10f)] float chanceOfGettingBonus;
     GameObject gameManager;
     GameObject selectedCitizen;
 
@@ -17,7 +15,11 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
 
     void collectBasic(resourceTypes resource, Theme proficience) {
         gameManager.GetComponent<MaterialManager>().updateBasicResources(resource, 1);
-        gameManager.GetComponent<MaterialManager>().updateDecorationResources(proficience, 1);
+
+        float rand = Random.Range(0f, 10f);
+        if (rand <= chanceOfGettingDecorationResources) {
+            gameManager.GetComponent<MaterialManager>().updateDecorationResources(proficience, 1);
+        }
     }
 
     void collectDecoration(Theme proficience) {
