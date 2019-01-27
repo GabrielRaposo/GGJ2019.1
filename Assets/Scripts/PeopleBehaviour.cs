@@ -13,8 +13,7 @@ public class PeopleBehaviour : MonoBehaviour
 
     List<GameObject> toBeDestroyed = new List<GameObject>();
 
-
-	public Material bearMaterial;
+    public Material bearMaterial;
 	public Material pigMaterial;
 	public Material birdMaterial;
 	public Material dogMaterial;
@@ -39,6 +38,7 @@ public class PeopleBehaviour : MonoBehaviour
             float posX = Random.Range(-SpawnX, SpawnX) + 0.5f;
 
             GameObject newcomer = Instantiate(citizenPrefab, new Vector3(posX, posY, -1), Quaternion.identity);
+            Debug.Log("[x: " + newcomer.transform.position.x + ", y: " + newcomer.transform.position.y + " ]");
 
 			switch (newcomer.GetComponent<CitizenBehaviour>().citizenData.species)
 			{
