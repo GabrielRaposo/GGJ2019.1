@@ -74,25 +74,17 @@ public class DayBehaviour : MonoBehaviour
         foreach(GameObject c in citizens) {
             c.GetComponent<SatisfactionManager>().checkSatisfactionStartOfDay();
         }
-
-        if (dayCounter == 2)
-        {
-            peopleBehaviour.SpawnNewcomers(1);
-        }
-
-        if (dayCounter == 4) {
-            peopleBehaviour.SpawnNewcomers(2);
-        }
     }
 
 	public void AdvanceDay(CitizenBehaviour[] citizens)
 	{
 		foreach (CitizenBehaviour citizen in citizens)
 		{
+            if (citizen.turnActionType == actions.none) continue;
 			citizen.turnAction();
 		}
 		BeginDay();
-		StartCoroutine("showDayText");
+		StartCoroutine(showDayText());
 	}
 
     GameObject[] getAllCitizens() {

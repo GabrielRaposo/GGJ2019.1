@@ -5,6 +5,7 @@ using UnityEngine;
 public class PeopleBehaviour : MonoBehaviour
 {
 	[SerializeField] GameObject citizenPrefab;
+    [SerializeField] StoryMaster storyMaster;
     [SerializeField] GameObject go;
 
     [SerializeField] int SpawnY = 3;

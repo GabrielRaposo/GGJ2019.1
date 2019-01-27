@@ -13,21 +13,26 @@ public class StoryMaster : MonoBehaviour
 
     public TextMeshProUGUI text;
 
+    private Dictionary<CitizenBehaviour, CitizenData> mapCitizenData;
+
     public List<CitizenData> citizens;
+
+    public GameManager gameManager;
 
     private void Awake()
     {
         story = new Story(inkAsset.text);
         story.ChoosePathString("Leaving_camp");
 
-        citizens = new List<CitizenData> { new CitizenData(), new CitizenData(), new CitizenData(), new CitizenData() };
+        // citizens = new List<CitizenData> { new CitizenData(), new CitizenData(), new CitizenData(), new CitizenData() };
 
-        SetExternalInkFunctions();
+        SetExternalInkFunctions();   
+    }
 
-        text.text = "";
+    private void Start()
+    {
+        gameManager = GetComponent<GameManager>();
 
-        
-        text.text += story.Continue();       
     }
 
     private void Update()
@@ -40,12 +45,31 @@ public class StoryMaster : MonoBehaviour
             }
             else
             {
-                //Segue para proximo ponto da historia ou do jogo
+                StartCoroutine(gameManager.Sunrise());
             }
         }       
     }
 
-    private void BasicSelectionBetweenScenes()
+    public void UpdateCitizenData()
+    {
+        List<CitizenData> list = new List<CitizenData>();
+        foreach(GameObject citizenGameObject in GameObject.FindGameObjectsWithTag("Citizen"))
+        {
+            print(citizenGameObject.GetComponent<CitizenBehaviour>().CitizenData);
+            list.Add(citizenGameObject.GetComponent<CitizenBehaviour>().CitizenData);
+        }
+        citizens = list;
+    }
+
+    public void UpdateCurrentStory(string pathString)
+    {
+        UpdateCitizenData();
+        story.ChoosePathString(pathString);
+        text.text = "";
+        text.text = story.Continue();
+    }
+
+    public void BasicSelectionBetweenScenes()
     {
         int i = 0;
         int r = 0;
@@ -68,7 +92,8 @@ public class StoryMaster : MonoBehaviour
 
         r = Random.Range(0, i);
 
-        for(int j = 0; j < citizens.Count; j++)
+        UpdateCitizenData();
+        for (int j = 0; j < citizens.Count; j++)
         {
             if (!citizens[j].revealedLike)
             {
@@ -206,11 +231,11 @@ public class StoryMaster : MonoBehaviour
 
 	private void SetExternalInkFunctions()
     {
-        story.BindExternalFunction("GetName", (int p) => { return citizens[p].citizenName; });
-        story.BindExternalFunction("GetSurname", (int p) => { return citizens[p].citizenSurname; });
-        story.BindExternalFunction("GetLike", (int p) => { return (int)citizens[p].like; });
-        story.BindExternalFunction("GetDislike", (int p) => { return (int)citizens[p].dislike; });
-        story.BindExternalFunction("GetProficiency", (int p) => { return (int)citizens[p].proficience; });
+        story.BindExternalFunction("GetName", (int p) => {  return citizens[p].name; });
+        story.BindExternalFunction("GetSurname", (int p) => {  return citizens[p].surname; });
+        story.BindExternalFunction("GetLike", (int p) => {  return (int)citizens[p].like; });
+        story.BindExternalFunction("GetDislike", (int p) => {  return (int)citizens[p].dislike; });
+        story.BindExternalFunction("GetProficiency", (int p) => {  return (int)citizens[p].proficience; });
     }
 
     private void ReorderCitizens(int i)
