@@ -8,9 +8,6 @@ public class PeopleBehaviour : MonoBehaviour
     [SerializeField] StoryMaster storyMaster;
     [SerializeField] GameObject go;
 
-    [SerializeField] int SpawnY = 3;
-    [SerializeField] int SpawnX = 5;
-
     List<GameObject> toBeDestroyed = new List<GameObject>();
 
     public Material bearMaterial;
@@ -34,10 +31,10 @@ public class PeopleBehaviour : MonoBehaviour
     public void SpawnNewcomers(int quantity) {
         for (int i = 0; i < quantity; i++) {
 
-            float posY = Random.Range(-SpawnY, SpawnY) + 0.5f;
-            float posX = Random.Range(-SpawnX, SpawnX) + 0.5f;
+            float posY = Random.Range(-3, 3) + 0.5f;
+            float posX = Random.Range(-5, 5) + 0.5f;
 
-            GameObject newcomer = Instantiate(citizenPrefab, new Vector3(posX, posY, -1), Quaternion.identity);
+            GameObject newcomer = Instantiate(citizenPrefab, new Vector3(0.5f, 0.5f, -1f), Quaternion.identity);
             Debug.Log("[x: " + newcomer.transform.position.x + ", y: " + newcomer.transform.position.y + " ]");
 			
 			switch (newcomer.GetComponent<CitizenBehaviour>().CitizenData.species)

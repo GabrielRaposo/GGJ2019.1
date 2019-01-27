@@ -55,6 +55,8 @@ public class StoryMaster : MonoBehaviour
             if (story.canContinue)
             {
                 text.text = story.Continue();
+                string name = text.text.Substring(0,text.text.IndexOf(':'));
+                Debug.Log(name);
                 text.text = FormatKeyword(text.text, "tomorrow", 'i');
                 text.text = FormatKeyword(text.text, "never need to swim", 'i');
                 text.text = FormatKeyword(text.text, "hope it rains", 'i');
