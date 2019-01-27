@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957ecc506084c2940a2e6c701d9a7834, type: 3}
   m_Name: Flamingo
   m_EditorClassIdentifier: 
-  slots: []
+  slots:
+  - type: 1
+  - type: 0
   results:
-  - {fileID: 0}
+  - {fileID: 2343159781610556005, guid: 9e1e45f502c43dc478fb19644c9028d5, type: 3}
   themes:
   - themes: 00000000
   - themes: 01000000

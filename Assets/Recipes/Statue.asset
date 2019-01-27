@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957ecc506084c2940a2e6c701d9a7834, type: 3}
   m_Name: Statue
   m_EditorClassIdentifier: 
-  slots: []
+  slots:
+  - type: 0
+  - type: 0
+  - type: 3
   results:
-  - {fileID: 0}
+  - {fileID: 2558380288467994847, guid: 566170c94e1e81a4a88e1c1a21c05557, type: 3}
+  - {fileID: 8095571804513991712, guid: 5c7b3391069a9c64196c8e7bc13eee00, type: 3}
+  - {fileID: 3236249617707401345, guid: cd81a7148888bde40915c96588ba598b, type: 3}
+  - {fileID: 3168789428785567623, guid: 826ae447431ca0042a5728166b232624, type: 3}
   themes:
   - themes: 00000000
   - themes: 01000000
@@ -31,4 +37,4 @@ MonoBehaviour:
   - themes: 000000000100000003000000
   - themes: 010000000200000003000000
   - themes: 00000000010000000200000003000000
-  variableNumber: 0
+  variableNumber: 1
