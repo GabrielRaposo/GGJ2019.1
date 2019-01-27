@@ -32,7 +32,9 @@ public class StoryMaster : MonoBehaviour
 	private GetDislike getDislike;
 	private GetProficiency getProficiency;
 
-	private void Awake()
+    public string newItemName;
+
+    private void Awake()
     {
         story = new Story(inkAsset.text);
         story.ChoosePathString("Leaving_camp");
@@ -315,7 +317,8 @@ public class StoryMaster : MonoBehaviour
         story.BindExternalFunction("GetSurname", (int p) => { return getSurname(p);  });
         story.BindExternalFunction("GetLike", (int p) => {  return getLike(p); });
         story.BindExternalFunction("GetDislike", (int p) => {  return getDislike(p); });
-        story.BindExternalFunction("GetProficiency", (int p) => {  return getProficiency(p); });
+        story.BindExternalFunction("GetProficiency", (int p) => { return getProficiency(p); });
+        story.BindExternalFunction("GetItem", (int p) => { return newItemName; });
     }
 
 	public void InkUseCitizens()

@@ -44,22 +44,24 @@ public class Cutscener : MonoBehaviour
         {
             float posY = Random.Range(-3, 3) + 0.5f;
             float posX = Random.Range(-5, 5) + 0.5f;
-            Vector3 currentVector = new Vector3(posX, posY, 0f);
+            Vector3 currentVector = new Vector3(posX, posY, -1f);
 
             CitizenBehaviour citizenBehaviour = citizen.GetComponent<CitizenBehaviour>();
             if (citizenBehaviour.hasTent)
             {
-                citizen.transform.position = citizenBehaviour.tent.transform.position;
+                citizen.transform.position = new Vector3(citizenBehaviour.tent.transform.position.x , citizenBehaviour.tent.transform.position.y, -1);
             } else
             {
                 citizen.transform.position = currentVector;
-                posY = Random.Range(-3, 3) + 0.5f;
-                posX = Random.Range(-5, 5) + 0.5f;
-                Vector3 newVector = new Vector3(posX, posY, 0f);
-
-                if (newVector.x != currentVector.x && newVector.y != currentVector.y) {
+                Vector3 newVector = Vector3.zero;
+                do
+                {
+                    posY = Random.Range(-3, 3) + 0.5f;
+                    posX = Random.Range(-5, 5) + 0.5f;
+                    newVector = new Vector3(posX, posY, -1f);
                     currentVector = newVector;
                 }
+                while (newVector.x != currentVector.x && newVector.y != currentVector.y);
 
             }
             citizen.transform.localScale = new Vector3(1f, 1f, 0f);
