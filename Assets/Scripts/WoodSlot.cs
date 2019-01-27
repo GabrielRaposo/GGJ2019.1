@@ -26,5 +26,10 @@ public class WoodSlot : UISlotScript
 	{
 		filed = false;
 		display.sprite = emptyImage;
-	}
+    }
+
+    public override bool AssertSlot(Barks barks)
+    {
+        return (barks == Barks.GET_WOOD);
+    }
 }
