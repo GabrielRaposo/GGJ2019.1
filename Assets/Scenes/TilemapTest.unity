@@ -395,6 +395,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605796945}
     m_Modifications:
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_Name
+      value: basic-highlight
+      objectReference: {fileID: 0}
     - target: {fileID: 64201480709222156, guid: 9848ace46fe79a8479341eee61cac86f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -449,11 +454,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_Name
-      value: basic-highlight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9848ace46fe79a8479341eee61cac86f, type: 3}
@@ -7256,9 +7256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389a6d713a583ac4398b0c395c14fd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfGettingBasicResources: 0
-  chanceOfGettingDecorationResources: 0
-  chanceOfGettingBonus: 0
+  chanceOfGettingDecorationResources: 10
 --- !u!61 &696525908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7450,6 +7448,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 696525905}
     m_Modifications:
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_Name
+      value: basic-highlight
+      objectReference: {fileID: 0}
     - target: {fileID: 64201480709222156, guid: 9848ace46fe79a8479341eee61cac86f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7505,11 +7508,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_Name
-      value: basic-highlight
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9848ace46fe79a8479341eee61cac86f, type: 3}
 --- !u!4 &841727647 stripped
@@ -7559,6 +7557,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 198118643}
     m_Modifications:
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_Name
+      value: basic-highlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 64201480709222156, guid: 9848ace46fe79a8479341eee61cac86f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7623,16 +7631,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_Name
-      value: basic-highlight
-      objectReference: {fileID: 0}
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9848ace46fe79a8479341eee61cac86f, type: 3}
@@ -8294,9 +8292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389a6d713a583ac4398b0c395c14fd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfGettingBasicResources: 0
-  chanceOfGettingDecorationResources: 0
-  chanceOfGettingBonus: 0
+  chanceOfGettingDecorationResources: 8
 --- !u!61 &1605796948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8607,9 +8603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389a6d713a583ac4398b0c395c14fd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfGettingBasicResources: 0
-  chanceOfGettingDecorationResources: 0
-  chanceOfGettingBonus: 0
+  chanceOfGettingDecorationResources: 8
 --- !u!61 &2047525743
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8731,6 +8725,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2047525740}
     m_Modifications:
+    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
+        type: 3}
+      propertyPath: m_Name
+      value: basic-highlight
+      objectReference: {fileID: 0}
     - target: {fileID: 64201480709222156, guid: 9848ace46fe79a8479341eee61cac86f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8785,11 +8784,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 64201480709222157, guid: 9848ace46fe79a8479341eee61cac86f,
-        type: 3}
-      propertyPath: m_Name
-      value: basic-highlight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9848ace46fe79a8479341eee61cac86f, type: 3}
@@ -9377,6 +9371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698040133395711402, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dca7dc88fc9a75246b5a95a1ff94b530, type: 3}

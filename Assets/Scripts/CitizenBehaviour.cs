@@ -31,7 +31,6 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
         get { return citizenData; }
         set { citizenData = value; }
     }
-    public CitizenData data;
 	
     void Awake()
     {

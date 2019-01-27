@@ -5,8 +5,7 @@ using UnityEngine;
 public class MaterialManager : MonoBehaviour {
     [SerializeField] int wood;
     [SerializeField] int stone;
-    [SerializeField]
-    Dictionary<Theme, int> decorations = new Dictionary<Theme, int>()
+    [SerializeField] Dictionary<Theme, int> decorations = new Dictionary<Theme, int>()
     {
         { Theme.EARTH, 0 },
         { Theme.FIRE, 0 },
@@ -35,15 +34,19 @@ public class MaterialManager : MonoBehaviour {
         switch (type) {
             case Theme.FIRE:
                 decorations[Theme.FIRE]++;
+                Debug.Log("FIRE: " + decorations[Theme.FIRE]);
                 break;
             case Theme.WATER:
                 decorations[Theme.WATER]++;
+                Debug.Log("WATER: " + decorations[Theme.WATER]);
                 break;
             case Theme.EARTH:
                 decorations[Theme.EARTH]++;
+                Debug.Log("EARTH: " + decorations[Theme.EARTH]);
                 break;
             case Theme.AIR:
                 decorations[Theme.AIR]++;
+                Debug.Log("AIR: " + decorations[Theme.AIR]);
                 break;
         }
     }
