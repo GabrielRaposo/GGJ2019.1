@@ -7,17 +7,6 @@ public class Cutscener : MonoBehaviour
 
     public List<GameObject> spawnPlaces;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartCutscene(int dayCounter, ref StoryMaster storyMaster)
     {
         List<GameObject> l = new List<GameObject>(spawnPlaces);
@@ -26,6 +15,7 @@ public class Cutscener : MonoBehaviour
             int rand = Random.Range(0, l.Count);
             print(rand);
             citizen.transform.position = l[rand].transform.position;
+            citizen.transform.localScale = new Vector3 (2, 2, 0);
             citizen.GetComponent<CitizenBehaviour>().IsClickable = false;
             citizen.GetComponent<CitizenBehaviour>().UnhighlightInteractable();
             citizen.GetComponent<CitizenBehaviour>().HideInfo();
@@ -48,9 +38,13 @@ public class Cutscener : MonoBehaviour
 
     public void StopCutscene()
     {
-        Vector3 currentVector = Vector3.zero;
+
         foreach (GameObject citizen in GameObject.FindGameObjectsWithTag("Citizen"))
         {
+            float posY = Random.Range(-3, 3) + 0.5f;
+            float posX = Random.Range(-5, 5) + 0.5f;
+            Vector3 currentVector = new Vector3(posX, posY, 0f);
+
             CitizenBehaviour citizenBehaviour = citizen.GetComponent<CitizenBehaviour>();
             if (citizenBehaviour.hasTent)
             {
@@ -58,8 +52,16 @@ public class Cutscener : MonoBehaviour
             } else
             {
                 citizen.transform.position = currentVector;
-                currentVector += new Vector3(2.0f, 0.0f, 0.0f);
+                posY = Random.Range(-3, 3) + 0.5f;
+                posX = Random.Range(-5, 5) + 0.5f;
+                Vector3 newVector = new Vector3(posX, posY, 0f);
+
+                if (newVector.x != currentVector.x && newVector.y != currentVector.y) {
+                    currentVector = newVector;
+                }
+
             }
+            citizen.transform.localScale = new Vector3(1f, 1f, 0f);
             citizen.GetComponent<CitizenBehaviour>().IsClickable = true;
             citizen.GetComponent<CitizenBehaviour>().UnhighlightInteractable();
             citizen.GetComponent<CitizenBehaviour>().HideInfo();
