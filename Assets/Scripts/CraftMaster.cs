@@ -29,6 +29,9 @@ public class CraftMaster : MonoBehaviour
 
 	public GameObject craftedObject;
 
+    public CraftTileBehaviour craftTileBehaviour;
+    public GameManager gameManager;
+
 	Dictionary<string, int> dic = new Dictionary<string, int>();
 
 	
@@ -68,7 +71,13 @@ public class CraftMaster : MonoBehaviour
 
 	}
 
-	private void Update()
+    void Start()
+    {
+        craftTileBehaviour = GameObject.FindGameObjectWithTag("CraftTile").GetComponent<CraftTileBehaviour>();
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+    }
+
+    private void Update()
 	{
 		checkFunction = IsCraftReady();
 
@@ -100,23 +109,37 @@ public class CraftMaster : MonoBehaviour
 		return true;
 	}
 
-	public void DoTheCraft()
-	{
-	
+    public void DoTheCraft()
+    {
 
-		if (currentRecipe.results.Length == 1)
-		{
-			craftedObject = currentRecipe.results[0];
-			return;
-		}
+        int v = 0;
 
-		int v = 0;
-		dic.TryGetValue(GetIngredientsCode(), out v);
+        if (!(currentRecipe.results.Length == 1))
+        {
+            dic.TryGetValue(GetIngredientsCode(), out v);
+        }
 
-		craftedObject = currentRecipe.results[v];
-
-		EmptyAllSlots();
-
+        MaterialManager materialManager = gameManager.GetComponent<MaterialManager>();
+        int themeIndex = 0;
+        foreach(Slot slot in currentRecipe.slots)
+        {
+            if (slot.type == SlotType.DECORATION)
+            {
+                materialManager.updateDecorationResources(currentRecipe.themes[v].themes[themeIndex], -1);
+            }
+            if (slot.type == SlotType.STONE)
+            {
+                materialManager.updateBasicResources(resourceTypes.stone, -1);
+            }
+            if (slot.type == SlotType.WOOD)
+            {
+                materialManager.updateBasicResources(resourceTypes.stone, -1);
+            }
+            themeIndex++;
+        }
+        
+        EmptyAllSlots();
+        craftTileBehaviour.PrepareCraftItem(craftedObject);
 	}
 
 	public string GetIngredientsCode()

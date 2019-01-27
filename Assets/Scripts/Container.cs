@@ -11,6 +11,7 @@ public class Container : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 	public Barks type;
 	[SerializeField] private int amount;
+    [SerializeField] private GameManager gameManager;
 
 	public TextMeshProUGUI text;
 
@@ -21,7 +22,19 @@ public class Container : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 		Amount = amount;
 	}
 
-	public bool TryRemoveOne()
+    private void Start()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        print(type);
+        if (type == Barks.GET_DECOR_AIR || type == Barks.GET_DECOR_EARTH || type == Barks.GET_DECOR_FIRE || type == Barks.GET_DECOR_WATER)
+            Amount = gameManager.GetComponent<MaterialManager>().decorations[StoryMaster.BarkToTheme(type)];
+        if (type == Barks.GET_STONE)
+            Amount = gameManager.GetComponent<MaterialManager>().Stone;
+        if (type == Barks.GET_WOOD)
+            Amount = gameManager.GetComponent<MaterialManager>().Wood;
+    }
+
+    public bool TryRemoveOne()
 	{
 		if(Amount == 0)
 		{
