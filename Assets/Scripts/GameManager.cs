@@ -13,7 +13,8 @@ public enum actions
     cleanDebris,
     getWood,
     getStone,
-    getDecoration
+    getDecoration,
+    craft
 }
 
 public enum resourceTypes
