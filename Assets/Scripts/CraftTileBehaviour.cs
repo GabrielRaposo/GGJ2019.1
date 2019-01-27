@@ -36,6 +36,7 @@ public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
         {
             if (obj.CompareTag("MainCanvas")) obj.SetActive(false);
         }
+        
         //mainCanvas.SetActive(false);
     }
 
@@ -72,5 +73,6 @@ public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
 
             OpenCraftTable();
         }
+
     }
 }

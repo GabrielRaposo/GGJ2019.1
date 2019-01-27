@@ -9,7 +9,7 @@ public class UISlotScript : MonoBehaviour
 	public bool filed;
 
     private Barks contentType;
-	private Theme content;
+	public Theme content;
 
     [SerializeField] private Container container;
 

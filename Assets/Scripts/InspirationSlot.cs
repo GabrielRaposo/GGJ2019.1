@@ -22,27 +22,48 @@ public class InspirationSlot : UISlotScript
 
 	}
 
-	public override void Fill(Theme theme)
+    private void Update()
+    {
+        Debug.Log($"{FindObjectOfType<CraftMaster>().crafter.proficience}");
+
+        switch (FindObjectOfType<CraftMaster>().crafter.proficience)
+        {
+            case Theme.WATER:
+                display.sprite = filledImageW;
+                break;
+            case Theme.FIRE:
+                display.sprite = filledImageF;
+                break;
+            case Theme.EARTH:
+                display.sprite = filledImageE;
+                break;
+            case Theme.AIR:
+                display.sprite = filledImageA;
+                break;
+        }
+    }
+
+    public override void Fill(Theme theme)
 	{
 		filed = true;
 
 		Content = theme;
 
-		switch (theme)
-		{
-			case Theme.WATER:
-				display.sprite = filledImageW;
-				break;
-			case Theme.FIRE:
-				display.sprite = filledImageF;
-				break;
-			case Theme.EARTH:
-				display.sprite = filledImageE;
-				break;
-			case Theme.AIR:
-				display.sprite = filledImageA;
-				break;
-		}
+		//switch (theme)
+		//{
+		//	case Theme.WATER:
+		//		display.sprite = filledImageW;
+		//		break;
+		//	case Theme.FIRE:
+		//		display.sprite = filledImageF;
+		//		break;
+		//	case Theme.EARTH:
+		//		display.sprite = filledImageE;
+		//		break;
+		//	case Theme.AIR:
+		//		display.sprite = filledImageA;
+		//		break;
+		//}
 	}
 
 	public override void Fill(CitizenData citizen)

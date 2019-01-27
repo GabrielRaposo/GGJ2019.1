@@ -81,7 +81,9 @@ public class CraftMaster : MonoBehaviour
 	{
 		checkFunction = IsCraftReady();
 
-		if (IsCraftReady())
+        crafter = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>().citizenData;
+
+        if (IsCraftReady())
 			confirmButton.interactable = true;
 		else
 			confirmButton.interactable = false;
@@ -157,7 +159,7 @@ public class CraftMaster : MonoBehaviour
 				if (s.activeInHierarchy)
 				{
 					UISlotScript uISlot = s.GetComponent<UISlotScript>();
-					if(uISlot.GetType() == typeof(InspirationSlot) || uISlot.GetType() == typeof(DecorationSlot))
+					if(uISlot.GetType() == typeof(DecorationSlot))
 					{
 						switch (uISlot.Container.type)
 						{
@@ -174,12 +176,30 @@ public class CraftMaster : MonoBehaviour
 								a = true;
 								break;
 						}
-
 					}
-				}
-		}
+                    if (uISlot.GetType() == typeof(InspirationSlot))
+                    {
+                        switch (crafter.proficience)
+                        {
+                            case Theme.WATER:
+                                w = true;
+                                break;
+                            case Theme.FIRE:
+                                f = true;
+                                break;
+                            case Theme.EARTH:
+                                e = true;
+                                break;
+                            case Theme.AIR:
+                                a = true;
+                                break;
+                        }
 
-		string key = "";
+                    }
+                }
+        }
+
+        string key = "";
 
 		if (w)
 			key += "w";
@@ -193,9 +213,9 @@ public class CraftMaster : MonoBehaviour
 
 		return key;
 
-	}
+    }
 
-	private void UpdateSlots(int x)
+    private void UpdateSlots(int x)
 	{
 		Debug.Log($"UPDATE SLOTS {x}");
 		currentRecipe = recipes[x];
