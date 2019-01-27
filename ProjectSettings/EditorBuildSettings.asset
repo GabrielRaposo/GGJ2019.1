@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fogueira.unity
     guid: 6ad172d446709bd45b8e3c3a47549cb7
+  - enabled: 1
+    path: Assets/Scenes/CraftingScene.unity
+    guid: 57cbcbe2f335cdb499bb48e95f71c4ec
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
