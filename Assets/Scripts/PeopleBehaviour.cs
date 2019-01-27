@@ -38,8 +38,8 @@ public class PeopleBehaviour : MonoBehaviour
             float posY = Random.Range(-SpawnY, SpawnY) + 0.5f;
             float posX = Random.Range(-SpawnX, SpawnX) + 0.5f;
 
-            GameObject newcomer = Instantiate(citizenPrefab, new Vector2(posX, posY), Quaternion.identity);
-
+            GameObject newcomer = Instantiate(citizenPrefab, new Vector3(posX, posY, -1), Quaternion.identity);
+			
 			switch (newcomer.GetComponent<CitizenBehaviour>().CitizenData.species)
 			{
 				case Animals.BEAR:

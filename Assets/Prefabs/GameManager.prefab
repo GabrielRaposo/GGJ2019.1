@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 219029708877172892}
   - component: {fileID: 219029708877172894}
   - component: {fileID: 4944606557416081227}
+  - component: {fileID: 2115680896}
+  - component: {fileID: 2115680898}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: Game Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,12 +52,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66746c9ce108f34184ca467a21127c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutscener: {fileID: 0}
   dayBehaviour: {fileID: 0}
+  peopleBehaviour: {fileID: 0}
   selectedCitizen: {fileID: 0}
   foodPanel: {fileID: 0}
-  foodQuantity: 0
+  foodQuantity: 1
   foodFilled: {fileID: 2800000, guid: d16412bf842096a4d9922b9d837861ac, type: 3}
   foodUnfilled: {fileID: 2800000, guid: ff41c4968c335b14fbd754f0e199753b, type: 3}
+  secondsToDownfall: 6
+  counterToFade: 100
 --- !u!114 &219029708877172894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,3 +92,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkAsset: {fileID: 4900000, guid: cc5060353a4866c49ae1c7fa5b56291d, type: 3}
   text: {fileID: 0}
+  citizens: []
+  gameManager: {fileID: 0}
+--- !u!114 &2115680896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219029708877172893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c639c9428fb510438921c1aac7810ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wood: 0
+  stone: 0
+--- !u!114 &2115680898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219029708877172893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fadfaaa8c7acb14fa0addb1ea157740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  citizenPrefab: {fileID: 1445007973301265266, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+    type: 3}
+  storyMaster: {fileID: 0}
+  go: {fileID: 0}
+  SpawnY: 3
+  SpawnX: 5
+  bearMaterial: {fileID: 2100000, guid: bb8604225ef85da4fade18f1166f26df, type: 2}
+  pigMaterial: {fileID: 2100000, guid: ab7e36ca88f63d34ab32ee7566183549, type: 2}
+  birdMaterial: {fileID: 2100000, guid: 146add85c21be474098f62365a1ebfd2, type: 2}
+  dogMaterial: {fileID: 2100000, guid: 1e8a325e1fd24f047b3effd58802cdf6, type: 2}
+  mouseMaterial: {fileID: 2100000, guid: cd3dc1745eac23244bcdd9cceb89b89f, type: 2}
+  catMaterial: {fileID: 2100000, guid: 9efea05a5d69f73468dd3fae4ae66d8c, type: 2}
+  bearSprite: {fileID: 21300000, guid: f588759cdabf4aa489ec7bb7ca5a10f8, type: 3}
+  pigSprite: {fileID: 21300000, guid: 201f3538b549dde42878bb54fe41fe85, type: 3}
+  birdSprite: {fileID: 21300000, guid: 5f237ccbc82ea454386e8e5d6cdc3c11, type: 3}
+  dogSprite: {fileID: 21300000, guid: 089b0559424be904ab73286254f4c1a3, type: 3}
+  mouseSprite: {fileID: 21300000, guid: 24293228c4850a947814e3abf5b278f5, type: 3}
+  catSprite: {fileID: 21300000, guid: 831dd0dbd839d1c43a7ec035eb4590b9, type: 3}
