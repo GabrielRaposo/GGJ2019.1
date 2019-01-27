@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: Cactus
-  description: This humble cactus is a reliable source of water and a good companion.
-    But don't rely on him to receive hugs.
-  themes: 00000000
+  displayName: Bamboo
+  description: Charming and slim, these bamboos make for excelent companions for lonesome
+    days. Although they don't talk; after all, they're bamboos.
+  themes: 03000000
   cursor: {fileID: 0}

@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: Mineral-decorated Vase
+  displayName: Burning Vase
   description: Vases have a variety of possible uses, and this one's only a nicely
-    decorated piece of pottery made with three nice flowers.
-  themes: 02000000
+    decorated.
+  themes: 01000000
   cursor: {fileID: 0}
