@@ -20,7 +20,28 @@ public class CitizenData
     public bool revealProficience;
 
     public int strikes;
-    
+
+    List<string> names = new List<string>() {
+        "Allegro",
+        "Alpine",
+        "Baron",
+        "Bentley",
+        "Buttermilk'",
+        "Cider",
+        "Denali",
+        "Ermine",
+        "Figaro",
+        "Guru",
+        "Jigjag",
+        "Mithra",
+        "Mocha",
+        "Nova",
+        "Rishi",
+        "Yukon",
+        "Reese",
+        "Kamryn"
+    };
+
     public static CitizenData CreateCitizen()
     {
         CitizenData citizen = new CitizenData();
@@ -35,6 +56,12 @@ public class CitizenData
 
         return citizen;
 
+    }
+
+    string chooseName() {
+        int index = Random.Range(0, names.Count);
+        Debug.Log(names[index]);
+        return names[index];
     }
 
 }
