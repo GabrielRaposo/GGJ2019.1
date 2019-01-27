@@ -33,7 +33,7 @@ public class CitizenData
         "Buttermilk'", "Yulia",
         "Cider", "Yukito",
         "Denali", "Whisky",
-        "Ermine", "Cosmo",
+        "Kleidson", "Cosmo",
         "Figaro", "Luna",
         "Guru", "Maya",
         "Jigjag", "Flocos",
