@@ -9,4 +9,9 @@ public class DecorationScript : MonoBehaviour
 	public List<Theme> themes;
 	public GameObject cursor;
 
+	void ShowDescrption()
+	{
+		FindObjectOfType<ItemDescriptorScript>().DisplayInfo(this);
+	}
+
 }
