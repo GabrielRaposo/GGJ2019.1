@@ -32,7 +32,6 @@ public class StoryMaster : MonoBehaviour
     private void Start()
     {
         gameManager = GetComponent<GameManager>();
-
     }
 
     private void Update()
@@ -42,12 +41,76 @@ public class StoryMaster : MonoBehaviour
             if (story.canContinue)
             {
                 text.text = story.Continue();
+                text.text = FormatKeyword(text.text, "tomorrow", 'i');
+                text.text = FormatKeyword(text.text, "never need to swim", 'i');
+                text.text = FormatKeyword(text.text, "hope it rains", 'i');
+                text.text = FormatKeyword(text.text, "live by the beach", 'i');
+                text.text = FormatKeyword(text.text, "fish", 'i');
+                text.text = FormatKeyword(text.text, "No more alcohol", 'i');
+                text.text = FormatKeyword(text.text, "hiking", 'i');
+                text.text = FormatKeyword(text.text, "used to plant", 'i');
+                text.text = FormatKeyword(text.text, "jewelry", 'i');
+                text.text = FormatKeyword(text.text, "home", 'i');
+                text.text = FormatKeyword(text.text, "dirt", 'i');
+                text.text = FormatKeyword(text.text, "cliff", 'i');
+                text.text = FormatKeyword(text.text, "mine", 'i');
+                text.text = FormatKeyword(text.text, "fire", 'i');
+                text.text = FormatKeyword(text.text, "lighting", 'i');
+                text.text = FormatKeyword(text.text, "warmer", 'i');
+                text.text = FormatKeyword(text.text, "incense", 'i');
+                text.text = FormatKeyword(text.text, "spicy", 'i');
+                text.text = FormatKeyword(text.text, "cooler", 'i');
+                text.text = FormatKeyword(text.text, "wound", 'i');
+                text.text = FormatKeyword(text.text, "kite", 'i');
+                text.text = FormatKeyword(text.text, "clouds", 'i');
+                text.text = FormatKeyword(text.text, "tornado", 'i');
+                text.text = FormatKeyword(text.text, "sea", 'i');
+                text.text = FormatKeyword(text.text, "home", 'i');
+                text.text = FormatKeyword(text.text, "alright", 'i');
+                text.text = FormatKeyword(text.text, "best", 'i');
+                text.text = FormatKeyword(text.text, "Leaving", 'i');
+                text.text = FormatKeyword(text.text, "leave", 'i');
+                text.text = FormatKeyword(text.text, "didn't matter", 'i');
+                text.text = FormatKeyword(text.text, "bad day", 'i');
+                text.text = FormatKeyword(text.text, "feathers", 'i');
+                text.text = FormatKeyword(text.text, "tree", 'i');
+                text.text = FormatKeyword(text.text, "waves", 'i');
+                text.text = FormatKeyword(text.text, "meat", 'i');
+                text.text = FormatKeyword(text.text, "food", 'i');
+                text.text = FormatKeyword(text.text, "bard", 'i');
+                text.text = FormatKeyword(text.text, "glide", 'i');
+                text.text = FormatKeyword(text.text, "craft", 'i');
+                text.text = FormatKeyword(text.text, "craftsman", 'i');
+                text.text = FormatKeyword(text.text, "dance", 'i');
+                text.text = FormatKeyword(text.text, "hot", 'i');
+                text.text = FormatKeyword(text.text, "mines", 'i');
+                text.text = FormatKeyword(text.text, "burn", 'i');
+                text.text = FormatKeyword(text.text, "memories", 'i');
+                text.text = FormatKeyword(text.text, "barman", 'i');
+                text.text = FormatKeyword(text.text, "self-healing", 'i');
+                text.text = FormatKeyword(text.text, "love", 'i');
+                text.text = FormatKeyword(text.text, "revolting", 'i');
             }
             else
             {
                 StartCoroutine(gameManager.Sunrise());
             }
         }       
+    }
+
+    private string FormatKeyword(string str, string keyword, char richTextCommand)
+    {
+        int strLength = str.Length;
+        int keywordLength = keyword.Length;
+        if (str.Contains(keyword))
+        {
+            int parsePosition = str.IndexOf(keyword);
+            return str.Substring(0, parsePosition) + "<" + richTextCommand + ">" + keyword + "</" + richTextCommand + ">" + str.Substring(parsePosition + keywordLength, strLength - parsePosition - keywordLength);
+        }
+        else
+        {
+            return str;
+        }
     }
 
     public void UpdateCitizenData()
