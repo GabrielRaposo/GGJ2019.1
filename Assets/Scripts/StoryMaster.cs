@@ -324,6 +324,12 @@ public class StoryMaster : MonoBehaviour
 
 	}
 
+	private void GoToLeavingCamp(int citizenIndex)
+	{
+		ReorderCitizens(citizenIndex);
+		UpdateCurrentStory($"LosingMember{Random.Range(0, 4).ToString()}");
+	}
+
 	public void Bark(Barks barks, CitizenBehaviour dude)
 	{
 		ReorderCitizens(citizens.IndexOf(dude.GetComponent<CitizenData>()));
