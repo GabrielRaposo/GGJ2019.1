@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -407,6 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 276676322}
   - component: {fileID: 276676321}
+  - component: {fileID: 276676323}
   m_Layer: 0
   m_Name: Item-Flamingo
   m_TagString: Untagged
@@ -476,6 +477,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &276676323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276676320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Flamingo
+  description: It's a well known fact that flamingos enjoy being on the spotlight.
+    Well, actually it isn't, but this one sure doesn't seem to mind.
+  themes: 03000000
+  cursor: {fileID: 0}
 --- !u!1 &318809654
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 374155123}
   - component: {fileID: 374155122}
+  - component: {fileID: 374155124}
   m_Layer: 0
   m_Name: Item-Cactus
   m_TagString: Untagged
@@ -794,6 +813,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &374155124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374155121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Cactus
+  description: This humble cactus is a reliable source of water and a good companion.
+    But don't rely on him to receive hugs.
+  themes: 00000000
+  cursor: {fileID: 0}
 --- !u!1001 &387862680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13014,6 +13050,111 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.newSize.y
       value: 2.88
       objectReference: {fileID: 0}
+    - target: {fileID: 1445007974614876581, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007974540063860, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007974540063860, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007974540063860, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007974540063860, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973356902800, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973356902800, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973356902800, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973356902800, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975256571048, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975256571048, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975256571048, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975256571048, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973721283549, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973721283549, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973721283549, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973721283549, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975355820249, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975355820249, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975355820249, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975355820249, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dca7dc88fc9a75246b5a95a1ff94b530, type: 3}
 --- !u!1 &770454199
@@ -13026,6 +13167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 770454201}
   - component: {fileID: 770454200}
+  - component: {fileID: 770454202}
   m_Layer: 0
   m_Name: Item-Table (2)
   m_TagString: Untagged
@@ -13095,6 +13237,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &770454202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770454199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Table
+  description: This table is always ready to help weary people to rest their arms,
+    their heads and the stuff they might be carrying.
+  themes: 
+  cursor: {fileID: 0}
 --- !u!1 &1027944290
 GameObject:
   m_ObjectHideFlags: 0
@@ -13304,6 +13463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1157718988}
   - component: {fileID: 1157718987}
+  - component: {fileID: 1157718989}
   m_Layer: 0
   m_Name: Item-Bush
   m_TagString: Untagged
@@ -13373,6 +13533,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1157718989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157718986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Bush
+  description: Bushes aren't exactly special, nor they are exceptionaly pretty, but
+    sometimes they may store a surprise. Not this one, though.
+  themes: 02000000
+  cursor: {fileID: 0}
 --- !u!1 &1283357098
 GameObject:
   m_ObjectHideFlags: 0
@@ -13482,6 +13659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1297299292}
   - component: {fileID: 1297299291}
+  - component: {fileID: 1297299293}
   m_Layer: 0
   m_Name: Item-Table (1)
   m_TagString: Untagged
@@ -13551,6 +13729,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1297299293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297299290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Table
+  description: This table is always ready to help weary people to rest their arms,
+    their heads and the stuff they might be carrying.
+  themes: 
+  cursor: {fileID: 0}
 --- !u!1001 &1397438635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13719,6 +13914,111 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1445007974614876581, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007974540063860, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007974540063860, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007974540063860, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007974540063860, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973356902800, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973356902800, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973356902800, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973356902800, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975256571048, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975256571048, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975256571048, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975256571048, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973721283549, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973721283549, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973721283549, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007973721283549, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975355820249, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975355820249, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975355820249, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445007975355820249, guid: dca7dc88fc9a75246b5a95a1ff94b530,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dca7dc88fc9a75246b5a95a1ff94b530, type: 3}
 --- !u!1 &1399561164
@@ -13815,6 +14115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1421074667}
   - component: {fileID: 1421074666}
+  - component: {fileID: 1421074668}
   m_Layer: 0
   m_Name: Item-Table
   m_TagString: Untagged
@@ -13884,6 +14185,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1421074668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421074665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Table
+  description: This table is always ready to help weary people to rest their arms,
+    their heads and the stuff they might be carrying.
+  themes: 
+  cursor: {fileID: 0}
 --- !u!1 &1499225709
 GameObject:
   m_ObjectHideFlags: 0
@@ -19840,6 +20158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530839447}
   - component: {fileID: 1530839446}
+  - component: {fileID: 1530839448}
   m_Layer: 0
   m_Name: Item-VaseEarth
   m_TagString: Untagged
@@ -19909,6 +20228,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1530839448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530839445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Mineral-decorated Vase
+  description: Vases have a variety of possible uses, and this one's only a nicely
+    decorated piece of pottery made with beautiful (and trivial) minerals.
+  themes: 02000000
+  cursor: {fileID: 0}
 --- !u!1 &1593786100
 GameObject:
   m_ObjectHideFlags: 0
@@ -19919,6 +20255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1593786102}
   - component: {fileID: 1593786101}
+  - component: {fileID: 1593786103}
   m_Layer: 0
   m_Name: Item-VaseWater
   m_TagString: Untagged
@@ -19988,6 +20325,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1593786103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593786100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Water-filled vase
+  description: Vases have a variety of possible uses, and this one's being used as
+    a way to store water.
+  themes: 00000000
+  cursor: {fileID: 0}
 --- !u!1 &1606525544
 GameObject:
   m_ObjectHideFlags: 0
@@ -19998,6 +20352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1606525546}
   - component: {fileID: 1606525545}
+  - component: {fileID: 1606525547}
   m_Layer: 0
   m_Name: Item-RockPile
   m_TagString: Untagged
@@ -20067,6 +20422,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1606525547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606525544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Pile of rocks
+  description: People tend to associate these rocks to the ideas of equilibrium and
+    inner peace. But these tiny rocks don't know how people've come up with this idea.
+  themes: 
+  cursor: {fileID: 0}
 --- !u!1 &1609472392
 GameObject:
   m_ObjectHideFlags: 0
@@ -20350,6 +20722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1697607415}
   - component: {fileID: 1697607414}
+  - component: {fileID: 1697607416}
   m_Layer: 0
   m_Name: Item-Rock
   m_TagString: Untagged
@@ -20419,6 +20792,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1697607416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697607413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Rock
+  description: This big boulder is an old, lazy kind of rock. We asked it to talk
+    about itself, but it kept sleeping.
+  themes: 
+  cursor: {fileID: 0}
 --- !u!1 &1886163710
 GameObject:
   m_ObjectHideFlags: 0
@@ -20691,6 +21081,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2045563759}
   - component: {fileID: 2045563758}
+  - component: {fileID: 2045563760}
   m_Layer: 0
   m_Name: Item-Bench
   m_TagString: Untagged
@@ -20760,6 +21151,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2045563760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045563757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Bench
+  description: A perfect sitting spot for good friends, dear lovers and tired travellers
+    that want to feel at peace.
+  themes: 
+  cursor: {fileID: 0}
 --- !u!1001 &2614101188431954544
 PrefabInstance:
   m_ObjectHideFlags: 0
