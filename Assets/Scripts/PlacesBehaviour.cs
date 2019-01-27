@@ -5,27 +5,52 @@ using UnityEngine.EventSystems;
 
 public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] [Range(0f, 10f)] float chanceOfGettingResources;
-    [SerializeField] int maxResource = 5;
+    [SerializeField] [Range(0f, 10f)] float chanceOfGettingBasicResources;
+    [SerializeField] [Range(0f, 10f)] float chanceOfGettingDecorationResources;
+    [SerializeField] [Range(0f, 10f)] float chanceOfGettingBonus;
     GameObject gameManager;
+    GameObject selectedCitizen;
 
     void Start() {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager");
     }
 
-    void collect(resourceTypes resource) {
-        float rand = Random.Range(0f, 10f);
-        if (rand <= chanceOfGettingResources) {
-            int quantity = Random.Range(1, maxResource + 1);
-            gameManager.GetComponent<MaterialManager>().updateResources(resource, quantity);
+    void collectBasic(resourceTypes resource, Theme proficience) {
+        gameManager.GetComponent<MaterialManager>().updateBasicResources(resource, 1);
+        gameManager.GetComponent<MaterialManager>().updateDecorationResources(proficience, 1);
+    }
+
+    void collectDecoration(Theme proficience) {
+        gameManager.GetComponent<MaterialManager>().updateDecorationResources(proficience, 1);
+        int other = Random.Range(0, System.Enum.GetNames(typeof(Theme)).Length);
+
+        Theme bonus = Theme.FIRE;
+        switch (other) {
+            case 0:
+                bonus = Theme.FIRE;
+                break;
+            case 1:
+                bonus = Theme.AIR;
+                break;
+            case 2:
+                bonus = Theme.EARTH;
+                break;
+            case 3:
+                bonus = Theme.WATER;
+                break;
         }
+        gameManager.GetComponent<MaterialManager>().updateDecorationResources(bonus, 1);
     }
 
     public void OnPointerClick(PointerEventData eventData) {
         GameObject selectedCitizen = gameManager.GetComponent<GameManager>().SelectedCitizen;
+
         actions act = actions.getWood;
         resourceTypes type = resourceTypes.wood;
+
         if (selectedCitizen != null) {
+            Theme proficience = selectedCitizen.GetComponent<CitizenBehaviour>().data.proficience;
+            Debug.Log(proficience);
             switch (this.gameObject.tag) {
                 case "WoodWay":
                     Debug.Log("wood");
@@ -40,15 +65,21 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
                 case "DecorationWay":
                     Debug.Log("decoration");
                     act = actions.getDecoration;
-                    type = resourceTypes.decoration;
                     break;
 
             }
             if (act != null && type != null) {
+                if (this.gameObject.tag == "DecorationWay") {
+                    selectedCitizen.GetComponent<CitizenBehaviour>().SetTurnAction(
+                    delegate () {
+                        collectDecoration(proficience);
+                    }, act);
+                } else {
                 selectedCitizen.GetComponent<CitizenBehaviour>().SetTurnAction(
                     delegate () {
-                        collect(type);
+                        collectBasic(type, proficience);
                     }, act);
+                }
             }
         }
     }
