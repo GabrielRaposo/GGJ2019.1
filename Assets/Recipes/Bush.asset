@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 957ecc506084c2940a2e6c701d9a7834, type: 3}
-  m_Name: Chair
+  m_Name: Bush
   m_EditorClassIdentifier: 
-  slots:
-  - type: 1
+  slots: []
   results:
-  - {fileID: 905077811582721492, guid: a2d671d3d5b309248a68b4708f06f779, type: 3}
+  - {fileID: 0}
   themes:
   - themes: 00000000
   - themes: 01000000
