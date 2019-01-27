@@ -184,12 +184,38 @@ public class StoryMaster : MonoBehaviour
         text.text = "";
         text.text = story.Continue();
     }
+    
 
     public void BasicSelectionBetweenScenes()
     {
         int i = 0;
         int r = 0;
 		orderedCitizensForStory = new List<CitizenData>(citizens);
+
+        foreach (GameObject citizen in GameObject.FindGameObjectsWithTag("Citizen"))
+        {
+            SatisfactionManager sm = citizen.GetComponent<SatisfactionManager>();
+            int index = citizens.IndexOf(citizen.GetComponent<CitizenBehaviour>().citizenData);
+            if (sm.strikes == 3)
+            {
+                GoToLeavingCamp(index);
+            }
+            if (sm.increased == true)
+            {
+                GoToDislikeStory(index);
+            } else
+            {
+                if (sm.strikes > 0)
+                {
+                    GoToGotBetterCalll(index);
+                }
+            }
+        }
+
+        if (gameManager.craftedItem != null)
+        {
+            GoToItemComent(Random.Range(0, citizens.Count));
+        }
 
         foreach(CitizenData cd in citizens)
         {

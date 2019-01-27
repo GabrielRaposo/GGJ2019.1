@@ -179,17 +179,17 @@ public class GameManager : MonoBehaviour
         {
             peopleBehaviour.SpawnNewcomers(2);
         }
-
         updateAllMoods();
         cutscener.StartCutscene(dayBehaviour.DayCounter, ref storyMaster);
         backgroundFade.CrossFadeAlpha(0.0f, secondsToDownfall / 3.0f, false);
+        AdvanceDayCamp();
         yield return new WaitForSeconds(secondsToDownfall / 3.0f);
         storyMaster.passStory = true;
     }
 
     public IEnumerator Sunrise()
     {
-        AdvanceDayCamp();
+        craftedItem = null;
         backgroundFade.CrossFadeAlpha(1.0f, secondsToDownfall / 3.0f, false);
         yield return new WaitForSeconds(secondsToDownfall / 3.0f);
 
@@ -223,18 +223,23 @@ public class GameManager : MonoBehaviour
             Theme prof = c.GetComponent<CitizenBehaviour>().citizenData.proficience;
             Theme like = c.GetComponent<CitizenBehaviour>().citizenData.like;
             Theme dislike = c.GetComponent<CitizenBehaviour>().citizenData.dislike;
-            List<Theme> itemThemes = craftedItem.GetComponent<DecorationScript>().themes;
-            foreach (Theme theme in itemThemes)
+            if (craftedItem != null)
             {
-                if (prof == theme)
+                List<Theme> itemThemes = craftedItem.GetComponent<DecorationScript>().themes;
+                foreach (Theme theme in itemThemes)
                 {
-                    c.GetComponent<SatisfactionManager>().updateSatisfaction(2);
-                } else if (like == theme)
-                {
-                    c.GetComponent<SatisfactionManager>().updateSatisfaction(4);
-                } else if (prof == theme)
-                {
-                    c.GetComponent<SatisfactionManager>().updateSatisfaction(-3);
+                    if (prof == theme)
+                    {
+                        c.GetComponent<SatisfactionManager>().updateSatisfaction(2);
+                    }
+                    else if (like == theme)
+                    {
+                        c.GetComponent<SatisfactionManager>().updateSatisfaction(4);
+                    }
+                    else if (prof == theme)
+                    {
+                        c.GetComponent<SatisfactionManager>().updateSatisfaction(-3);
+                    }
                 }
             }
             c.GetComponent<SatisfactionManager>().checkSatisfactionEndOfDay();
