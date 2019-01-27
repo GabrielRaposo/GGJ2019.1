@@ -35,6 +35,8 @@ public class StoryMaster : MonoBehaviour
 
     public GameObject newItem;
 
+    public bool passStory = false;
+
     private void Awake()
     {
         story = new Story(inkAsset.text);
@@ -53,7 +55,7 @@ public class StoryMaster : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && passStory)
         {
             if (story.canContinue)
             {
@@ -143,6 +145,7 @@ public class StoryMaster : MonoBehaviour
             }
             else
             {
+                passStory = false;
                 StartCoroutine(gameManager.Sunrise());
             }
         }       
