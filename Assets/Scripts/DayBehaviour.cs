@@ -9,7 +9,7 @@ public class DayBehaviour : MonoBehaviour
 	public List<GameObject> interactableItemsInCurrentDay;
 	[SerializeField] GameManager gameManager;
 	[SerializeField] GameObject dayTextObject;
-	[SerializeField] float dayTextDuration;
+    [SerializeField] float dayTextDuration;
     PeopleBehaviour peopleBehaviour;
 
     int dayCounter = 0;
@@ -70,13 +70,9 @@ public class DayBehaviour : MonoBehaviour
 	public void BeginDay()
 	{
 		InitInteractableObjects();
-        if (dayCounter == 2)
-        {
-            peopleBehaviour.SpawnNewcomers(1);
-        }
-
-        if (dayCounter == 4) {
-            peopleBehaviour.SpawnNewcomers(2);
+        GameObject[] citizens = getAllCitizens();
+        foreach(GameObject c in citizens) {
+            c.GetComponent<SatisfactionManager>().checkSatisfactionStartOfDay();
         }
     }
 
@@ -84,9 +80,15 @@ public class DayBehaviour : MonoBehaviour
 	{
 		foreach (CitizenBehaviour citizen in citizens)
 		{
+            if (citizen.turnActionType == actions.none) continue;
 			citizen.turnAction();
 		}
 		BeginDay();
-		StartCoroutine("showDayText");
+		StartCoroutine(showDayText());
 	}
+
+    GameObject[] getAllCitizens() {
+        GameObject[] citizens = GameObject.FindGameObjectsWithTag("Citizen");
+        return citizens;
+    }
 }

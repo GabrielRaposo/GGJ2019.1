@@ -8,6 +8,7 @@ EXTERNAL GetSurname(p)
 EXTERNAL GetLike(p)
 EXTERNAL GetDislike(p)
 EXTERNAL GetProficiency(p)
+EXTERNAL GetItem(p)
 
 = Leaving_camp
 
@@ -492,6 +493,29 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(1)}: Farewell, {GetName(0)}.
 ->DONE
 
+= LikingItemP0
+{GetName(0)}: That's a nice {GetItem(0)}. I'm glad somebody built one.
+->DONE
+
+= LikingItemP1
+{GetName(0)}: I love that now I've got a {GetItem(0)} in my tent!
+->DONE
+
+= LikingItemP2
+{GetName(0)}: Finally got a {GetItem(0)}. I'm starting to feel at home!
+->DONE
+
+= DislikingItemP0
+{GetName(0)}: Who in their right mind would want something like a {GetItem(0)} in their camp?
+->DONE
+
+= DislikingItemP1
+{GetName(0)}: It boggles my mind how someone likes {GetItem(0)}. I'm truly puzzled.
+->DONE
+
+= DislikingItemP2
+{GetName(0)}: {GetItem(0)} is utterly revolting, how would someone even do such a thing?
+->DONE
 === function GetName(p) ===
 
 ~ return "P{p}"
@@ -509,3 +533,6 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 
 === function GetProficiency(p) ===
 ~ return "Prof(p)"
+
+=== function GetItem(p) ===
+~ return "Item(p)"

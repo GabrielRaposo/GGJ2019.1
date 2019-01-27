@@ -22,15 +22,4 @@ MonoBehaviour:
     jsonAssetPath: {fileID: 0}
     jsonAsset: {fileID: 4900000, guid: 6cf48bb6d89824cc69e35b43f9a1aca6, type: 3}
   pendingCompilationStack: []
-  compilationStack:
-  - state: 1
-    inkFile:
-      compileAutomatically: 0
-      inkAsset: {fileID: 102900000, guid: 22f1b014ab489d64eb3feb10aadbcfa5, type: 3}
-      jsonAssetPath: {fileID: 0}
-      jsonAsset: {fileID: 4900000, guid: cc5060353a4866c49ae1c7fa5b56291d, type: 3}
-    inkAbsoluteFilePath: C:/Users/gabri/Desktop/ProjetosUnity/GGJ2019.1/Assets/Ink/MainInkFile.ink
-    jsonAbsoluteFilePath: C:/Users/gabri/Desktop/ProjetosUnity/GGJ2019.1/Assets/Ink/MainInkFile.json
-    output: []
-    errorOutput: []
-    timeTaken: 0
+  compilationStack: []

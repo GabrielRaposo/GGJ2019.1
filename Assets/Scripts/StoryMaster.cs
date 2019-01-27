@@ -13,21 +13,25 @@ public class StoryMaster : MonoBehaviour
 
     public TextMeshProUGUI text;
 
+    private Dictionary<CitizenBehaviour, CitizenData> mapCitizenData;
+
     public List<CitizenData> citizens;
+
+    public GameManager gameManager;
 
     private void Awake()
     {
         story = new Story(inkAsset.text);
         story.ChoosePathString("Leaving_camp");
 
-        citizens = new List<CitizenData> { new CitizenData(), new CitizenData(), new CitizenData(), new CitizenData() };
+        // citizens = new List<CitizenData> { new CitizenData(), new CitizenData(), new CitizenData(), new CitizenData() };
 
-        SetExternalInkFunctions();
+        SetExternalInkFunctions();   
+    }
 
-        text.text = "";
-
-        
-        text.text += story.Continue();       
+    private void Start()
+    {
+        gameManager = GetComponent<GameManager>();
     }
 
     private void Update()
@@ -37,15 +41,98 @@ public class StoryMaster : MonoBehaviour
             if (story.canContinue)
             {
                 text.text = story.Continue();
+                text.text = FormatKeyword(text.text, "tomorrow", 'i');
+                text.text = FormatKeyword(text.text, "never need to swim", 'i');
+                text.text = FormatKeyword(text.text, "hope it rains", 'i');
+                text.text = FormatKeyword(text.text, "live by the beach", 'i');
+                text.text = FormatKeyword(text.text, "fish", 'i');
+                text.text = FormatKeyword(text.text, "No more alcohol", 'i');
+                text.text = FormatKeyword(text.text, "hiking", 'i');
+                text.text = FormatKeyword(text.text, "used to plant", 'i');
+                text.text = FormatKeyword(text.text, "jewelry", 'i');
+                text.text = FormatKeyword(text.text, "home", 'i');
+                text.text = FormatKeyword(text.text, "dirt", 'i');
+                text.text = FormatKeyword(text.text, "cliff", 'i');
+                text.text = FormatKeyword(text.text, "mine", 'i');
+                text.text = FormatKeyword(text.text, "fire", 'i');
+                text.text = FormatKeyword(text.text, "lighting", 'i');
+                text.text = FormatKeyword(text.text, "warmer", 'i');
+                text.text = FormatKeyword(text.text, "incense", 'i');
+                text.text = FormatKeyword(text.text, "spicy", 'i');
+                text.text = FormatKeyword(text.text, "cooler", 'i');
+                text.text = FormatKeyword(text.text, "wound", 'i');
+                text.text = FormatKeyword(text.text, "kite", 'i');
+                text.text = FormatKeyword(text.text, "clouds", 'i');
+                text.text = FormatKeyword(text.text, "tornado", 'i');
+                text.text = FormatKeyword(text.text, "sea", 'i');
+                text.text = FormatKeyword(text.text, "home", 'i');
+                text.text = FormatKeyword(text.text, "alright", 'i');
+                text.text = FormatKeyword(text.text, "best", 'i');
+                text.text = FormatKeyword(text.text, "Leaving", 'i');
+                text.text = FormatKeyword(text.text, "leave", 'i');
+                text.text = FormatKeyword(text.text, "didn't matter", 'i');
+                text.text = FormatKeyword(text.text, "bad day", 'i');
+                text.text = FormatKeyword(text.text, "feathers", 'i');
+                text.text = FormatKeyword(text.text, "tree", 'i');
+                text.text = FormatKeyword(text.text, "waves", 'i');
+                text.text = FormatKeyword(text.text, "meat", 'i');
+                text.text = FormatKeyword(text.text, "food", 'i');
+                text.text = FormatKeyword(text.text, "bard", 'i');
+                text.text = FormatKeyword(text.text, "glide", 'i');
+                text.text = FormatKeyword(text.text, "craft", 'i');
+                text.text = FormatKeyword(text.text, "craftsman", 'i');
+                text.text = FormatKeyword(text.text, "dance", 'i');
+                text.text = FormatKeyword(text.text, "hot", 'i');
+                text.text = FormatKeyword(text.text, "mines", 'i');
+                text.text = FormatKeyword(text.text, "burn", 'i');
+                text.text = FormatKeyword(text.text, "memories", 'i');
+                text.text = FormatKeyword(text.text, "barman", 'i');
+                text.text = FormatKeyword(text.text, "self-healing", 'i');
+                text.text = FormatKeyword(text.text, "love", 'i');
+                text.text = FormatKeyword(text.text, "revolting", 'i');
             }
             else
             {
-                //Segue para proximo ponto da historia ou do jogo
+                StartCoroutine(gameManager.Sunrise());
             }
         }       
     }
 
-    private void BasicSelectionBetweenScenes()
+    private string FormatKeyword(string str, string keyword, char richTextCommand)
+    {
+        int strLength = str.Length;
+        int keywordLength = keyword.Length;
+        if (str.Contains(keyword))
+        {
+            int parsePosition = str.IndexOf(keyword);
+            return str.Substring(0, parsePosition) + "<" + richTextCommand + ">" + keyword + "</" + richTextCommand + ">" + str.Substring(parsePosition + keywordLength, strLength - parsePosition - keywordLength);
+        }
+        else
+        {
+            return str;
+        }
+    }
+
+    public void UpdateCitizenData()
+    {
+        List<CitizenData> list = new List<CitizenData>();
+        foreach(GameObject citizenGameObject in GameObject.FindGameObjectsWithTag("Citizen"))
+        {
+            print(citizenGameObject.GetComponent<CitizenBehaviour>().CitizenData);
+            list.Add(citizenGameObject.GetComponent<CitizenBehaviour>().CitizenData);
+        }
+        citizens = list;
+    }
+
+    public void UpdateCurrentStory(string pathString)
+    {
+        UpdateCitizenData();
+        story.ChoosePathString(pathString);
+        text.text = "";
+        text.text = story.Continue();
+    }
+
+    public void BasicSelectionBetweenScenes()
     {
         int i = 0;
         int r = 0;
@@ -68,7 +155,8 @@ public class StoryMaster : MonoBehaviour
 
         r = Random.Range(0, i);
 
-        for(int j = 0; j < citizens.Count; j++)
+        UpdateCitizenData();
+        for (int j = 0; j < citizens.Count; j++)
         {
             if (!citizens[j].revealedLike)
             {
@@ -105,16 +193,16 @@ public class StoryMaster : MonoBehaviour
 		switch (citizens[0].like)
 		{
 			case Theme.WATER:
-				story.ChoosePathString($"LikeWater{Random.Range(0,4).ToString()}");
+                UpdateCurrentStory($"LikeWater{Random.Range(0,4).ToString()}");
 				break;
 			case Theme.FIRE:
-				story.ChoosePathString($"LikeFire{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"LikeFire{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.EARTH:
-				story.ChoosePathString($"LikeEarth{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"LikeEarth{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.AIR:
-				story.ChoosePathString($"LikeAir{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"LikeAir{Random.Range(0, 4).ToString()}");
 				break;
 		}
 	}
@@ -127,16 +215,16 @@ public class StoryMaster : MonoBehaviour
 		switch (citizens[0].dislike)
 		{
 			case Theme.WATER:
-				story.ChoosePathString($"DislikeWater{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeWater{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.FIRE:
-				story.ChoosePathString($"DislikeFire{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeFire{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.EARTH:
-				story.ChoosePathString($"DislikeEarth{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeEarth{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.AIR:
-				story.ChoosePathString($"DislikeAir{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeAir{Random.Range(0, 4).ToString()}");
 				break;
 		}
 	}
@@ -149,16 +237,16 @@ public class StoryMaster : MonoBehaviour
 		switch (citizens[0].proficience)
 		{
 			case Theme.WATER:
-				story.ChoosePathString($"ProficienceWater{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceWater{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.FIRE:
-				story.ChoosePathString($"ProficienceFire{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceFire{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.EARTH:
-				story.ChoosePathString($"ProficienceEarth{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceEarth{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.AIR:
-				story.ChoosePathString($"ProficienceWater{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceWater{Random.Range(0, 4).ToString()}");
 				break;
 		}
 	}
@@ -167,7 +255,7 @@ public class StoryMaster : MonoBehaviour
 	{
 		ReorderCitizens(citizens.IndexOf(dude.GetComponent<CitizenData>()));
 
-		if(dude.strikes == 3)
+		if(dude.gameObject.GetComponent<SatisfactionManager>().strikes == 3)
 		{
 			story.ChoosePathString($"StrikeBark{Random.Range(0, 3).ToString()}");
 		}
@@ -206,11 +294,11 @@ public class StoryMaster : MonoBehaviour
 
 	private void SetExternalInkFunctions()
     {
-        story.BindExternalFunction("GetName", (int p) => { return citizens[p].citizenName; });
-        story.BindExternalFunction("GetSurname", (int p) => { return citizens[p].citizenSurname; });
-        story.BindExternalFunction("GetLike", (int p) => { return (int)citizens[p].like; });
-        story.BindExternalFunction("GetDislike", (int p) => { return (int)citizens[p].dislike; });
-        story.BindExternalFunction("GetProficiency", (int p) => { return (int)citizens[p].proficience; });
+        story.BindExternalFunction("GetName", (int p) => {  return citizens[p].name; });
+        story.BindExternalFunction("GetSurname", (int p) => {  return citizens[p].surname; });
+        story.BindExternalFunction("GetLike", (int p) => {  return (int)citizens[p].like; });
+        story.BindExternalFunction("GetDislike", (int p) => {  return (int)citizens[p].dislike; });
+        story.BindExternalFunction("GetProficiency", (int p) => {  return (int)citizens[p].proficience; });
     }
 
     private void ReorderCitizens(int i)

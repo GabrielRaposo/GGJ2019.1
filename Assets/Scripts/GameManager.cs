@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public enum actions
 {
@@ -15,23 +16,26 @@ public enum actions
     getDecoration
 }
 
-public enum resourceTypes 
+public enum resourceTypes
 {
     stone,
     wood,
-    decoration
 }
 
 public class GameManager : MonoBehaviour
 {
-
-	[SerializeField] private DayBehaviour dayBehaviour;
-	[SerializeField] private GameObject selectedCitizen;
-	[SerializeField] private GameObject foodPanel;
-	[SerializeField] private int foodQuantity = 0;
-	[SerializeField] private Texture foodFilled, foodUnfilled;
+    [SerializeField] private Cutscener cutscener;
+    [SerializeField] private DayBehaviour dayBehaviour;
+    [SerializeField] private PeopleBehaviour peopleBehaviour;
+    [SerializeField] private GameObject selectedCitizen;
+    [SerializeField] private GameObject foodPanel;
+    [SerializeField] private int foodQuantity = 0;
+    [SerializeField] private Texture foodFilled, foodUnfilled;
     [SerializeField] private float secondsToDownfall, counterToFade = 100.0f;
+    private StoryMaster storyMaster;
     Image backgroundFade;
+
+    private List<string> persistentObjectsBetweenScenes = new List<string>(new string[] { "canvas-fade", "GameManager", "Citizen" });
 
 
     public const int maxFoodQuantity = 3;
@@ -61,9 +65,11 @@ public class GameManager : MonoBehaviour
 	void Start()
     {
 		dayBehaviour = GetComponent<DayBehaviour>();
+        peopleBehaviour = GetComponent<PeopleBehaviour>();
 		foodPanel = GameObject.Find("Food Panel");
         backgroundFade = GameObject.FindGameObjectWithTag("Fade Background").GetComponent<Image>();
         backgroundFade.canvasRenderer.SetAlpha(0f);
+        storyMaster = GetComponent<StoryMaster>();
     }
 
     // Update is called once per frame
@@ -121,20 +127,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DesactivateCamp()
+    public void DeactivateCamp()
     {
+        selectedCitizen = null;
         foreach (GameObject rootGameObject in SceneManager.GetSceneByName("TilemapTest").GetRootGameObjects())
         {
-            if (rootGameObject.name == "canvas-fade") continue;
+            if (persistentObjectsBetweenScenes.Exists( elem => rootGameObject.name.Contains(elem)) ) continue;
             rootGameObject.SetActive(false);
         }
     }
 
     public void ActivateCamp()
     {
+        selectedCitizen = null;
         foreach (GameObject rootGameObject in SceneManager.GetSceneByName("TilemapTest").GetRootGameObjects())
         {
-            if (rootGameObject.name == "canvas-fade") continue;
+            if (persistentObjectsBetweenScenes.Exists(elem => rootGameObject.name.Contains(elem))) continue;
             rootGameObject.SetActive(true);
         }
     }
@@ -146,17 +154,48 @@ public class GameManager : MonoBehaviour
         foodQuantity--;
         dayBehaviour.AdvanceDay(citizens);
         ResetCamp(citizens);
-        // DesactivateCamp();
+        DeactivateCamp();
     }
     
     public IEnumerator Downfall()
     {
-        // backgroundFade.CrossFadeAlpha(1.0f, secondsToDownfall / 2.0f, false);
-        // yield return new WaitForSeconds(secondsToDownfall / 2.0f);
-        // SceneManager.LoadScene("Fogueira", LoadSceneMode.Additive);
+        backgroundFade.CrossFadeAlpha(1.0f, secondsToDownfall / 3.0f, false);
+        yield return new WaitForSeconds(secondsToDownfall / 3.0f);
+
+        SceneManager.LoadScene("Fogueira", LoadSceneMode.Additive);
+        yield return new WaitForSeconds(secondsToDownfall / 3.0f);
+
+        storyMaster.text = GameObject.FindGameObjectWithTag("Dialog Box").GetComponent<TextMeshProUGUI>();
+        cutscener = GameObject.FindGameObjectWithTag("Cutscener").GetComponent<Cutscener>();
+        
+        if (dayBehaviour.DayCounter == 2)
+        {
+            peopleBehaviour.SpawnNewcomers(1);
+        }
+
+        if (dayBehaviour.DayCounter == 4)
+        {
+            peopleBehaviour.SpawnNewcomers(2);
+        }
+
+        cutscener.StartCutscene(dayBehaviour.DayCounter, ref storyMaster);
         AdvanceDayCamp();
-        // backgroundFade.CrossFadeAlpha(0.0f, secondsToDownfall / 2.0f, false);
-        yield return new WaitForSeconds(secondsToDownfall / 2.0f);
+        backgroundFade.CrossFadeAlpha(0.0f, secondsToDownfall / 3.0f, false);
+        yield return new WaitForSeconds(secondsToDownfall / 3.0f);
+    }
+
+    public IEnumerator Sunrise()
+    {
+        backgroundFade.CrossFadeAlpha(1.0f, secondsToDownfall / 3.0f, false);
+        yield return new WaitForSeconds(secondsToDownfall / 3.0f);
+
+        ActivateCamp();
+        cutscener.StopCutscene();
+        SceneManager.UnloadSceneAsync("Fogueira");
+        yield return new WaitForSeconds(secondsToDownfall / 3.0f);
+
+        backgroundFade.CrossFadeAlpha(0.0f, secondsToDownfall / 3.0f, false);
+        yield return new WaitForSeconds(secondsToDownfall / 3.0f);
     }
 
 	public void AdvanceDay()

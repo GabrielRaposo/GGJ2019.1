@@ -16,22 +16,27 @@ public class Container : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 	public int Amount { get => amount; set { if (value < 0) { amount = 0; } else { amount = value; } text.text = value.ToString(); } }
 
+	private void Awake()
+	{
+		Amount = amount;
+	}
+
 	public bool TryRemoveOne()
 	{
-		if(amount == 0)
+		if(Amount == 0)
 		{
 			return false;
 		}
 		else
 		{
-			amount--;
+			Amount--;
 			return true;
 		}
 	}
 
 	public void AddOne()
 	{
-		amount++;
+		Amount++;
 	}
 
 	public bool TryGiveItem(ItemCursor cursor)
@@ -57,13 +62,13 @@ public class Container : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         isResourceInUse = false;
         if (!eventData.pointerCurrentRaycast.isValid)
         {
-            amount += 1;
+            Amount += 1;
             return;
         }
         UISlotScript slot = eventData.pointerCurrentRaycast.gameObject.GetComponent<UISlotScript>();
         if (slot == null || !slot.AssertSlot(type))
         {
-            amount += 1;
+            Amount += 1;
             return;
         }
         if (slot.Container != null)
