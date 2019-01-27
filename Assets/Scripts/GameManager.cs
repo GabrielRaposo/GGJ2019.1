@@ -13,7 +13,8 @@ public enum actions
     cleanDebris,
     getWood,
     getStone,
-    getDecoration
+    getDecoration,
+    craft
 }
 
 public enum resourceTypes
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
     private StoryMaster storyMaster;
     Image backgroundFade;
 
-    private List<string> persistentObjectsBetweenScenes = new List<string>(new string[] { "canvas-fade", "GameManager", "Citizen" });
+    private List<string> persistentObjectsBetweenScenes = new List<string>(new string[] { "canvas-fade", "GameManager", "Citizen", "Main Camera" });
 
 
     public const int maxFoodQuantity = 3;
