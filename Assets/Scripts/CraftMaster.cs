@@ -114,8 +114,8 @@ public class CraftMaster : MonoBehaviour
 		dic.TryGetValue(GetIngredientsCode(), out v);
 
 		craftedObject = currentRecipe.results[v];
-		
-		//Faz algo com o objeto
+
+		EmptyAllSlots();
 
 	}
 
@@ -217,6 +217,18 @@ public class CraftMaster : MonoBehaviour
 			}
 		}
 
+	}
+
+	private void EmptyAllSlots()
+	{
+		foreach (GameObject s in slots)
+		{
+			if (s != null)
+				if (s.activeInHierarchy)
+				{
+					s.GetComponent<UISlotScript>().Remove();
+				}
+		}
 	}
 
 }
