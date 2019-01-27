@@ -32,7 +32,8 @@ public class StoryMaster : MonoBehaviour
 	private GetDislike getDislike;
 	private GetProficiency getProficiency;
 
-    public string newItemName;
+
+    public GameObject newItem;
 
     private void Awake()
     {
@@ -301,6 +302,28 @@ public class StoryMaster : MonoBehaviour
 		}
 	}
 
+	private void GoToItemComent(int citizenIndex)
+	{
+		CitizenData dude = citizens[citizenIndex];
+		DecorationScript item = newItem.GetComponent<DecorationScript>();
+
+		ReorderCitizens(citizenIndex);
+
+		if (item.themes.Contains(dude.like) || (item.themes.Contains(dude.proficience)))
+		{
+			UpdateCurrentStory($"LikingItemP{Random.Range(0, 4).ToString()}");
+		}
+		else if (item.themes.Contains(dude.dislike))
+		{
+			UpdateCurrentStory($"DislikingItemP{Random.Range(0, 4).ToString()}");
+		}
+		else
+		{
+			UpdateCurrentStory($"NeutralItemP{Random.Range(0, 4).ToString()}");
+		}
+
+	}
+
 	public void Bark(Barks barks, CitizenBehaviour dude)
 	{
 		ReorderCitizens(citizens.IndexOf(dude.GetComponent<CitizenData>()));
@@ -349,7 +372,7 @@ public class StoryMaster : MonoBehaviour
         story.BindExternalFunction("GetLike", (int p) => {  return getLike(p); });
         story.BindExternalFunction("GetDislike", (int p) => {  return getDislike(p); });
         story.BindExternalFunction("GetProficiency", (int p) => { return getProficiency(p); });
-        story.BindExternalFunction("GetItem", (int p) => { return newItemName; });
+        story.BindExternalFunction("GetItem", (int p) => { return newItem.GetComponent<DecorationScript>().displayName; });
     }
 
 	public void InkUseCitizens()
