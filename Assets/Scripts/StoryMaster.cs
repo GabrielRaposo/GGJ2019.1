@@ -330,6 +330,19 @@ public class StoryMaster : MonoBehaviour
 		UpdateCurrentStory($"LosingMember{Random.Range(0, 4).ToString()}");
 	}
 
+	private void GoToStrikeCall(int citizenIndex)
+	{
+		ReorderCitizens(citizenIndex);
+		UpdateCurrentStory($"Strike{Random.Range(0, 4).ToString()}");
+	}
+
+	private void GoToGotBetterCalll(int citizenIndex)
+	{
+		ReorderCitizens(citizenIndex);
+		UpdateCurrentStory($"StrikeLoss{Random.Range(0, 4).ToString()}");
+
+	}
+
 	public void Bark(Barks barks, CitizenBehaviour dude)
 	{
 		ReorderCitizens(citizens.IndexOf(dude.GetComponent<CitizenData>()));
