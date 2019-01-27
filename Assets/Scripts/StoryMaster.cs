@@ -35,6 +35,8 @@ public class StoryMaster : MonoBehaviour
 
     public GameObject newItem;
 
+    public bool passStory = false;
+
     private void Awake()
     {
         story = new Story(inkAsset.text);
@@ -53,13 +55,13 @@ public class StoryMaster : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && passStory)
         {
             if (story.canContinue)
             {
                 text.text = story.Continue();
+                if (text.text[0] == '<') return;
                 string name = text.text.Substring(0,text.text.IndexOf(':'));
-                Debug.Log(name);
                 bool gambiarra = false; int index = 0;
                 foreach(CitizenData singleCitizens in citizens)
                 {
@@ -143,6 +145,7 @@ public class StoryMaster : MonoBehaviour
             }
             else
             {
+                passStory = false;
                 StartCoroutine(gameManager.Sunrise());
             }
         }       
@@ -181,12 +184,38 @@ public class StoryMaster : MonoBehaviour
         text.text = "";
         text.text = story.Continue();
     }
+    
 
     public void BasicSelectionBetweenScenes()
     {
         int i = 0;
         int r = 0;
 		orderedCitizensForStory = new List<CitizenData>(citizens);
+
+        foreach (GameObject citizen in GameObject.FindGameObjectsWithTag("Citizen"))
+        {
+            SatisfactionManager sm = citizen.GetComponent<SatisfactionManager>();
+            int index = citizens.IndexOf(citizen.GetComponent<CitizenBehaviour>().citizenData);
+            if (sm.strikes == 3)
+            {
+                GoToLeavingCamp(index);
+            }
+            if (sm.increased == true)
+            {
+                GoToDislikeStory(index);
+            } else
+            {
+                if (sm.strikes > 0)
+                {
+                    GoToGotBetterCalll(index);
+                }
+            }
+        }
+
+        if (gameManager.craftedItem != null)
+        {
+            GoToItemComent(Random.Range(0, citizens.Count));
+        }
 
         foreach(CitizenData cd in citizens)
         {
