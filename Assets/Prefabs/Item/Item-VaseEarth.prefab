@@ -94,6 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Mineral-decorated Vase
   description: Vases have a variety of possible uses, and this one's only a nicely
-    decorated piece of pottery made with beautiful (and trivial) minerals.
+    decorated piece of pottery made with three nice flowers.
   themes: 02000000
   cursor: {fileID: 0}
