@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2558380288467994844}
   - component: {fileID: 2558380288467994845}
+  - component: {fileID: 7980271720048609588}
   m_Layer: 0
   m_Name: Item-StatueWater
   m_TagString: Untagged
@@ -79,3 +80,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7980271720048609588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2558380288467994847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Fish Statue
+  description: 'Fun fact: Pegasus actually were normal horses who liked to hang out
+    with owls. But they are shy, so most people only see horses with wings in the
+    distance.'
+  themes: 00000000
+  cursor: {fileID: 0}

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8095571804513991713}
   - component: {fileID: 8095571804513991714}
+  - component: {fileID: 6459835443612770160}
   m_Layer: 0
   m_Name: Item-StatueFire
   m_TagString: Untagged
@@ -79,3 +80,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6459835443612770160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8095571804513991712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Dragon Statue
+  description: Komodo dragons usually doesn't like when people talk about fantasy
+    dragons. "We are the true dragons, not those big mouthed dumdums" they like to
+    say.
+  themes: 01000000
+  cursor: {fileID: 0}

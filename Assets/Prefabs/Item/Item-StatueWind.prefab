@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3168789428785567622}
   - component: {fileID: 3168789428785567621}
+  - component: {fileID: 8610807541769773378}
   m_Layer: 0
   m_Name: Item-StatueWind
   m_TagString: Untagged
@@ -79,3 +80,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8610807541769773378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168789428785567623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2056f6ee791d4382cc3a1b6a55cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Pegasus Statue
+  description: Never play "Go Fish" with a real fish. They can get really offended.
+    But playing "Go Fish" with this statue is okay.
+  themes: 03000000
+  cursor: {fileID: 0}
