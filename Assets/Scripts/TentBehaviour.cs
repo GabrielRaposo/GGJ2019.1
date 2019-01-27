@@ -41,6 +41,7 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 						citizenOwner = gameManager.SelectedCitizen;
 						selectedCitizenBehaviour.OnPointerClick(null);
 						selectedCitizenBehaviour.hasTent = true;
+                        selectedCitizenBehaviour.tent = this.gameObject;
 					}, actions.cleanTent);
 			}
 		} 

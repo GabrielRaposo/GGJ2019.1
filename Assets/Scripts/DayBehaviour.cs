@@ -9,7 +9,7 @@ public class DayBehaviour : MonoBehaviour
 	public List<GameObject> interactableItemsInCurrentDay;
 	[SerializeField] GameManager gameManager;
 	[SerializeField] GameObject dayTextObject;
-	[SerializeField] float dayTextDuration;
+    [SerializeField] float dayTextDuration;
     PeopleBehaviour peopleBehaviour;
 
     int dayCounter = 0;
@@ -32,7 +32,6 @@ public class DayBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
 	IEnumerator showDayText()
@@ -40,6 +39,7 @@ public class DayBehaviour : MonoBehaviour
 		int counterMax = 100;
 		float alpha = 1;
 		dayTextObject.GetComponent<TextMeshProUGUI>().text = "Day " + dayCounter;
+		dayCounter++;
 		dayTextObject.SetActive(true);
 		for (int i = 0; i < counterMax; i++) {
 			alpha = alpha - 1.0f / counterMax;
@@ -47,7 +47,6 @@ public class DayBehaviour : MonoBehaviour
 			yield return new WaitForSeconds(dayTextDuration / counterMax);
 		}
 		dayTextObject.SetActive(false);
-		dayCounter++;
 	}
 
 	public void InitInteractableObjects()
@@ -71,9 +70,18 @@ public class DayBehaviour : MonoBehaviour
 	public void BeginDay()
 	{
 		InitInteractableObjects();
+        GameObject[] citizens = getAllCitizens();
+        foreach(GameObject c in citizens) {
+            c.GetComponent<SatisfactionManager>().checkSatisfactionStartOfDay();
+        }
+
         if (dayCounter == 2)
         {
             peopleBehaviour.SpawnNewcomers(1);
+        }
+
+        if (dayCounter == 4) {
+            peopleBehaviour.SpawnNewcomers(2);
         }
     }
 
@@ -86,4 +94,9 @@ public class DayBehaviour : MonoBehaviour
 		BeginDay();
 		StartCoroutine("showDayText");
 	}
+
+    GameObject[] getAllCitizens() {
+        GameObject[] citizens = GameObject.FindGameObjectsWithTag("Citizen");
+        return citizens;
+    }
 }

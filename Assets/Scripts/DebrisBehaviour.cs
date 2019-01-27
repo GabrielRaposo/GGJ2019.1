@@ -13,6 +13,7 @@ public class DebrisBehaviour : MonoBehaviour, IPointerClickHandler {
 
     void Start() {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        
     }
 
     public void CleanDebris() {
@@ -21,7 +22,7 @@ public class DebrisBehaviour : MonoBehaviour, IPointerClickHandler {
         List<resourceTypes> resourceList = rollForResources();
         if (resourceList.Count > 0) {
             foreach (resourceTypes resource in resourceList) {
-                gameManager.gameObject.GetComponent<MaterialManager>().updateResources(resource, 1);
+                gameManager.gameObject.GetComponent<MaterialManager>().updateBasicResources(resource, 1);
             }
         }
     }
@@ -44,7 +45,6 @@ public class DebrisBehaviour : MonoBehaviour, IPointerClickHandler {
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        Debug.Log("cliquei no entulho");
         CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
         selectedCitizenBehaviour.SetTurnAction(
             delegate () {

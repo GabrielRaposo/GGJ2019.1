@@ -191,7 +191,7 @@ public class StoryMaster : MonoBehaviour
 	{
 		ReorderCitizens(citizens.IndexOf(dude.GetComponent<CitizenData>()));
 
-		if(dude.strikes == 3)
+		if(dude.gameObject.GetComponent<SatisfactionManager>().strikes == 3)
 		{
 			story.ChoosePathString($"StrikeBark{Random.Range(0, 3).ToString()}");
 		}

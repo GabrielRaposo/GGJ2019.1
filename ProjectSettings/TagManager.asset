@@ -11,6 +11,10 @@ TagManager:
   - Fade Background
   - Cutscener
   - Dialog Box
+  - StoneWay
+  - WoodWay
+  - DecorationWay
+  - FoodWay
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,7 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
     CitizenData citizenData;
 
 	public bool hasTent;
+    public GameObject tent;
 	public delegate void TurnAction();
 	public TurnAction turnAction = null;
 	public actions turnActionType;
@@ -30,12 +31,14 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
         get { return citizenData; }
         set { citizenData = value; }
     }
+    public CitizenData data;
 	
 	// Start is called before the first frame update
 	void Start()
 	{
         isClickable = true;
 		hasTent = false;
+        tent = null;
 		turnActionType = actions.none;
 		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         citizenData = CitizenData.CreateCitizen();
@@ -79,7 +82,6 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 			}
 			if (!gameObject.CompareTag("tent"))
 			{
-				Debug.Log(gameObject);
 				gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
 			}
 		}
