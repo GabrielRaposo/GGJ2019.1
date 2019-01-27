@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Theme {WATER, FIRE, EARTH, AIR}
+public enum Animals { BEAR, BIRD, CAT, DOG, MOUSE, PIG}
 
 [System.Serializable]
 public class CitizenData
 {
     public string name;
     public string surname;
+
+	public Animals species;
 
     public GameObject tent;
 
@@ -57,6 +60,13 @@ public class CitizenData
         {
             citizen.dislike = (Theme)Random.Range(0, 3);
         } while (citizen.like == citizen.dislike || citizen.proficience == citizen.dislike);
+
+		citizen.species = (Animals)Random.Range(0, 7);
+
+		Debug.Log($"Like: {citizen.like}");
+		Debug.Log($"Dislike: {citizen.dislike}");
+		Debug.Log($"Proficience: {citizen.proficience}");
+		Debug.Log($"Speciees: {citizen.species}");
 
         return citizen;
 

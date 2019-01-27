@@ -3,7 +3,22 @@ guid: 9fadfaaa8c7acb14fa0addb1ea157740
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - citizenPrefab: {instanceID: 0}
+  - storyMaster: {instanceID: 0}
+  - go: {instanceID: 0}
+  - bearMaterial: {fileID: 2100000, guid: bb8604225ef85da4fade18f1166f26df, type: 2}
+  - pigMaterial: {fileID: 2100000, guid: ab7e36ca88f63d34ab32ee7566183549, type: 2}
+  - birdMaterial: {fileID: 2100000, guid: 146add85c21be474098f62365a1ebfd2, type: 2}
+  - dogMaterial: {fileID: 2100000, guid: 1e8a325e1fd24f047b3effd58802cdf6, type: 2}
+  - mouseMaterial: {fileID: 2100000, guid: cd3dc1745eac23244bcdd9cceb89b89f, type: 2}
+  - catMaterial: {fileID: 2100000, guid: 9efea05a5d69f73468dd3fae4ae66d8c, type: 2}
+  - bearSprite: {fileID: 21300000, guid: f588759cdabf4aa489ec7bb7ca5a10f8, type: 3}
+  - pigSprite: {fileID: 21300000, guid: 201f3538b549dde42878bb54fe41fe85, type: 3}
+  - birdSprite: {fileID: 21300000, guid: 5f237ccbc82ea454386e8e5d6cdc3c11, type: 3}
+  - dogSprite: {fileID: 21300000, guid: 089b0559424be904ab73286254f4c1a3, type: 3}
+  - mouseSprite: {fileID: 21300000, guid: 24293228c4850a947814e3abf5b278f5, type: 3}
+  - catSprite: {fileID: 21300000, guid: 831dd0dbd839d1c43a7ec035eb4590b9, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
