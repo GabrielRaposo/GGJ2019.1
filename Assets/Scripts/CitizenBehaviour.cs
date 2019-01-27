@@ -15,6 +15,7 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	public actions turnActionType;
 	public GameObject textBox;
 	public TextMeshProUGUI text;
+    public CitizenData data;
 
 	public int strikes;
 	
@@ -25,7 +26,8 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
         tent = null;
 		turnActionType = actions.none;
 		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-	}
+        CitizenData data = new CitizenData();
+    }
 
 	// Update is called once per frame
 	void Update()

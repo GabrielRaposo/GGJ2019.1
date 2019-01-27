@@ -15,11 +15,10 @@ public enum actions
     getDecoration
 }
 
-public enum resourceTypes 
+public enum resourceTypes
 {
     stone,
     wood,
-    decoration
 }
 
 public class GameManager : MonoBehaviour
