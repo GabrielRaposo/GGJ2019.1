@@ -516,6 +516,27 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 = DislikingItemP2
 {GetName(0)}: I'm not particularly fond of {GetItem(0)}. But at least somebody around here is.
 ->DONE
+
+= NeutralItemP0
+{GetName(1)}: So, what do you think of {GetItem(0)}?
+{GetName(0)}: I'm not in love by it, but I don't dislike it either.
+{GetName(1)}: So... Neutral?
+{GetName(0)}: As neutral as I can be.
+->DONE
+
+= NeutralItemP1
+{GetName(0)}: Have you seen {GetItem(0)}?
+{GetName(1)}: Yup. Did you like it?
+{GetName(0)}: Don't have any strong feelings by it. I thought you'd like to see it, that's all.
+->DONE
+
+= NeutralItemP2
+{GetName(1)}: How are you?
+{GetName(0)}: Puzzled by {GetItem(0)}.
+{GetName(1)}: Why, didn't you like it?
+{GetName(0)}: That's not it. I didn't hate it, but I don't see the point of it.
+->DONE
+
 === function GetName(p) ===
 
 ~ return "P{p}"
