@@ -57,6 +57,37 @@ public class StoryMaster : MonoBehaviour
                 text.text = story.Continue();
                 string name = text.text.Substring(0,text.text.IndexOf(':'));
                 Debug.Log(name);
+                bool gambiarra = false; int index = 0;
+                foreach(CitizenData singleCitizens in citizens)
+                {
+                    if (name.Equals(singleCitizens.name))
+                    {
+                        gambiarra = true;
+                        break;
+                    }
+                    index++;
+                }
+                if (gambiarra == true)
+                {
+                    switch (index)
+                    {
+                        case 0:
+                            text.text = "<color=red>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
+                            break;
+                        case 1:
+                            text.text = "<color=blue>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
+                            break;
+                        case 2:
+                            text.text = "<color=green>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
+                            break;
+                        case 3:
+                            text.text = "<color=purple>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
+                            break;
+                        default:
+                            Debug.Log("Não deveria entrar aqui");
+                            break;
+                    }
+                }
                 text.text = FormatKeyword(text.text, "tomorrow", 'i');
                 text.text = FormatKeyword(text.text, "never need to swim", 'i');
                 text.text = FormatKeyword(text.text, "hope it rains", 'i');
