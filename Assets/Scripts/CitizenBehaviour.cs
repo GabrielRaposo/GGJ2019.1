@@ -7,6 +7,7 @@ using TMPro;
 public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 {
 	GameManager gameManager;
+    CitizenData citizenData;
 
 	public bool hasTent;
 	public delegate void TurnAction();
@@ -16,13 +17,28 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	public TextMeshProUGUI text;
 
 	public int strikes;
+
+    private bool isClickable;
+    public bool IsClickable
+    {
+        get { return isClickable; }
+        set { isClickable = value; }
+    }
+
+    public CitizenData CitizenData
+    {
+        get { return citizenData; }
+        set { citizenData = value; }
+    }
 	
 	// Start is called before the first frame update
 	void Start()
 	{
+        isClickable = true;
 		hasTent = false;
 		turnActionType = actions.none;
 		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        citizenData = CitizenData.CreateCitizen();
 	}
 
 	// Update is called once per frame
@@ -35,6 +51,11 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	{
 		transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeSelf);
 	}
+    
+    public void HideInfo()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
+    }
 
     public void UnhighlightInteractable()
     {
@@ -77,21 +98,25 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (gameManager.SelectedCitizen == null)
-		{
-			gameManager.SelectedCitizen = gameObject;
-			Debug.Log(gameManager.SelectedCitizen);
-			ShowInfo();
-			HighlightInteractable();
-		} else
-		{
-			if (gameManager.SelectedCitizen == gameObject)
-			{
-				gameManager.SelectedCitizen = null;
-				ShowInfo();
-				UnhighlightInteractable();
-			}
-		}
+        if (IsClickable)
+        {
+            if (gameManager.SelectedCitizen == null)
+            {
+                gameManager.SelectedCitizen = gameObject;
+                Debug.Log(gameManager.SelectedCitizen);
+                ShowInfo();
+                HighlightInteractable();
+            }
+            else
+            {
+                if (gameManager.SelectedCitizen == gameObject)
+                {
+                    gameManager.SelectedCitizen = null;
+                    ShowInfo();
+                    UnhighlightInteractable();
+                }
+            }
+        }
 	}
 
 	public void ShowText(string recievedText)

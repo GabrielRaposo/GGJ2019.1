@@ -9,6 +9,8 @@ TagManager:
   - Game Manager
   - Citizen
   - Fade Background
+  - Cutscener
+  - Dialog Box
   layers:
   - Default
   - TransparentFX
