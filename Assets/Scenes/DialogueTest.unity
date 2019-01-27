@@ -303,6 +303,7 @@ MonoBehaviour:
   text: {fileID: 0}
   citizens: []
   gameManager: {fileID: 0}
+  newItem: {fileID: 0}
 --- !u!4 &525590550
 Transform:
   m_ObjectHideFlags: 0
@@ -392,7 +393,7 @@ PrefabInstance:
     - target: {fileID: 6820624496764283676, guid: fad61f76d4a583246b3a656a135aca42,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -176
+      value: -161
       objectReference: {fileID: 0}
     - target: {fileID: 6820624496764283676, guid: fad61f76d4a583246b3a656a135aca42,
         type: 3}
@@ -434,27 +435,42 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6517624437539720267, guid: fad61f76d4a583246b3a656a135aca42,
+    - target: {fileID: 6820624497357424192, guid: fad61f76d4a583246b3a656a135aca42,
         type: 3}
-      propertyPath: maxY
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517624437539720267, guid: fad61f76d4a583246b3a656a135aca42,
-        type: 3}
-      propertyPath: minY
-      value: -176
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517624437539720267, guid: fad61f76d4a583246b3a656a135aca42,
-        type: 3}
-      propertyPath: speed
+      propertyPath: m_havePropertiesChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820624497357424192, guid: fad61f76d4a583246b3a656a135aca42,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820624497733400055, guid: fad61f76d4a583246b3a656a135aca42,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820624497733400055, guid: fad61f76d4a583246b3a656a135aca42,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820624497733400055, guid: fad61f76d4a583246b3a656a135aca42,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4284506208
       objectReference: {fileID: 0}
     - target: {fileID: 6517624437539720267, guid: fad61f76d4a583246b3a656a135aca42,
         type: 3}
       propertyPath: testObject
       value: 
-      objectReference: {fileID: 905077811582721492, guid: a2d671d3d5b309248a68b4708f06f779,
+      objectReference: {fileID: 3236249617707401345, guid: cd81a7148888bde40915c96588ba598b,
         type: 3}
+    - target: {fileID: 6517624437539720267, guid: fad61f76d4a583246b3a656a135aca42,
+        type: 3}
+      propertyPath: visible
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fad61f76d4a583246b3a656a135aca42, type: 3}
 --- !u!1 &1312148473
