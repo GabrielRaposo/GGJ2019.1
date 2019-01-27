@@ -60,8 +60,8 @@ public class StoryMaster : MonoBehaviour
             if (story.canContinue)
             {
                 text.text = story.Continue();
+                if (text.text[0] == '<') return;
                 string name = text.text.Substring(0,text.text.IndexOf(':'));
-                Debug.Log(name);
                 bool gambiarra = false; int index = 0;
                 foreach(CitizenData singleCitizens in citizens)
                 {
