@@ -16,8 +16,6 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	public GameObject textBox;
 	public TextMeshProUGUI text;
     public CitizenData data;
-
-	public int strikes;
 	
 	// Start is called before the first frame update
 	void Start()
@@ -28,12 +26,6 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         CitizenData data = new CitizenData();
     }
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
 
 	public void ShowInfo()
 	{
@@ -62,7 +54,6 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 			}
 			if (!gameObject.CompareTag("tent"))
 			{
-				Debug.Log(gameObject);
 				gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
 			}
 		}

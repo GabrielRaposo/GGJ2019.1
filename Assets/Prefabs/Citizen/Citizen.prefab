@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1445007973301265270}
   - component: {fileID: 1445007973301265269}
   - component: {fileID: 1445007973301265268}
+  - component: {fileID: 7998989664504569596}
   m_Layer: 0
   m_Name: Citizen
   m_TagString: Citizen
@@ -100,7 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasTent: 0
+  tent: {fileID: 0}
   turnActionType: 0
+  textBox: {fileID: 0}
+  text: {fileID: 0}
+  strikes: 0
 --- !u!61 &1445007973301265268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127,6 +132,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7998989664504569596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445007973301265266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9417e46b4769e8748b778b264074e576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  happiness: 5
+  sadness: 2
 --- !u!1 &1445007973356902895
 GameObject:
   m_ObjectHideFlags: 0

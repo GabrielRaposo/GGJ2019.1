@@ -7256,8 +7256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389a6d713a583ac4398b0c395c14fd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfGettingResources: 10
-  maxResource: 5
+  chanceOfGettingBasicResources: 0
+  chanceOfGettingDecorationResources: 0
+  chanceOfGettingBonus: 0
 --- !u!61 &696525908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8293,8 +8294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389a6d713a583ac4398b0c395c14fd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfGettingResources: 10
-  maxResource: 5
+  chanceOfGettingBasicResources: 0
+  chanceOfGettingDecorationResources: 0
+  chanceOfGettingBonus: 0
 --- !u!61 &1605796948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8605,8 +8607,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389a6d713a583ac4398b0c395c14fd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfGettingResources: 10
-  maxResource: 5
+  chanceOfGettingBasicResources: 0
+  chanceOfGettingDecorationResources: 0
+  chanceOfGettingBonus: 0
 --- !u!61 &2047525743
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8816,7 +8819,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wood: 0
   stone: 0
-  decoration: 0
 --- !u!114 &2115680898
 MonoBehaviour:
   m_ObjectHideFlags: 0
