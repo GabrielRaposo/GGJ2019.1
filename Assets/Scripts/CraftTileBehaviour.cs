@@ -39,6 +39,7 @@ public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
         CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
         selectedCitizenBehaviour.SetTurnAction(
             delegate () {
+                gameManager.GetComponent<StoryMaster>().newItemName = item.name;
             }, actions.craft);
         selectedCitizenBehaviour.OnPointerClick(null);
     }
