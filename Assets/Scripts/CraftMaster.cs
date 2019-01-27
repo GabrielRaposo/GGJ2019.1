@@ -139,7 +139,9 @@ public class CraftMaster : MonoBehaviour
         }
         
         EmptyAllSlots();
+        craftedObject = currentRecipe.results[v];
         craftTileBehaviour.PrepareCraftItem(craftedObject);
+        craftTileBehaviour.CloseCraftTable();
 	}
 
 	public string GetIngredientsCode()
@@ -202,6 +204,7 @@ public class CraftMaster : MonoBehaviour
 		{
 			if (i < currentRecipe.slots.Count)
 			{
+                print(currentRecipe.slots[i]);
 				slots[i].SetActive(true);
 
 				Vector3 position = slots[i].transform.position;

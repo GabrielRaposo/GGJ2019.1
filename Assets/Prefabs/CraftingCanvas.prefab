@@ -375,7 +375,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26.5
+  m_fontSize: 26.4
   m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26.5
+  m_fontSize: 26.4
   m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -974,6 +974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   amount: 99
+  gameManager: {fileID: 0}
   text: {fileID: 6016305413453974763}
 --- !u!1 &6016305412630527089
 GameObject:
@@ -1351,7 +1352,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26.5
+  m_fontSize: 26.4
   m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1757,6 +1758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   amount: 99
+  gameManager: {fileID: 0}
   text: {fileID: 6016305413778736028}
 --- !u!1 &6016305413088809574
 GameObject:
@@ -1996,6 +1998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   amount: 99
+  gameManager: {fileID: 0}
   text: {fileID: 6016305413200175044}
 --- !u!1 &6016305413200175098
 GameObject:
@@ -2090,7 +2093,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26.5
+  m_fontSize: 26.4
   m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2279,14 +2282,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropdown: {fileID: 6016305412042463439}
   recipes:
-  - {fileID: 11400000, guid: acfd17ef51c2ccf42998ab741c4d9e4c, type: 2}
-  - {fileID: 11400000, guid: efdec0a1fb45bde47aff982539877cb3, type: 2}
-  - {fileID: 11400000, guid: f430dc0b48f964949be754dd446d92fe, type: 2}
-  - {fileID: 11400000, guid: e0da4b1d89640d945b6e7b2985164630, type: 2}
-  - {fileID: 11400000, guid: 5971d5689a562fe42a5e25b50af7c347, type: 2}
+  - {fileID: 11400000, guid: 37c38dc13580d914392a0ed866b0557f, type: 2}
+  - {fileID: 11400000, guid: b48a823e5361eb24085ac59aeef95b5a, type: 2}
+  - {fileID: 11400000, guid: fae06d497845b9b42afda9ce419b447f, type: 2}
+  - {fileID: 11400000, guid: 92ec7dacaf2c6fc46ae0db42f345c4fd, type: 2}
+  - {fileID: 11400000, guid: 95fd82d776622dd4cbf203a1def7cbc0, type: 2}
+  - {fileID: 11400000, guid: d8ac2aba8b9db554ab5b94df6a0132ae, type: 2}
   - {fileID: 11400000, guid: f965ce1457ff4fb4ab1a67813d83f7e0, type: 2}
-  - {fileID: 11400000, guid: 2d51e95e91edba44a9fb2609145dedb5, type: 2}
-  - {fileID: 11400000, guid: 330693165036949478f33f8e251f18b0, type: 2}
   decorationSlot: {fileID: 6598753513810696278, guid: cec37e944a76f5848a2568485e7e4e1c,
     type: 3}
   inspirationSlot: {fileID: 6598753513810696278, guid: 9daaff83f8dc22743971ee9d9d9c01a4,
@@ -2316,6 +2318,8 @@ MonoBehaviour:
     strikes: 0
   checkFunction: 0
   craftedObject: {fileID: 0}
+  craftTileBehaviour: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &6016305413294214398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2602,6 +2606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 7
   amount: 99
+  gameManager: {fileID: 0}
   text: {fileID: 6016305412166333940}
 --- !u!1 &6016305413453974761
 GameObject:
@@ -2696,7 +2701,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26.5
+  m_fontSize: 26.4
   m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3037,6 +3042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 4
   amount: 99
+  gameManager: {fileID: 0}
   text: {fileID: 6016305412779312565}
 --- !u!1 &6016305413778736018
 GameObject:
@@ -3131,7 +3137,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26.5
+  m_fontSize: 26.4
   m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3471,6 +3477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 6
   amount: 99
+  gameManager: {fileID: 0}
   text: {fileID: 6016305412350241204}
 --- !u!1001 &8679446817033381920
 PrefabInstance:

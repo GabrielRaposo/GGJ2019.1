@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957ecc506084c2940a2e6c701d9a7834, type: 3}
   m_Name: Table
   m_EditorClassIdentifier: 
-  slots: []
+  slots:
+  - type: 1
   results:
-  - {fileID: 0}
+  - {fileID: 3699114568210576133, guid: 8118d37c540327e4f8f0793f4be107da, type: 3}
   themes:
   - themes: 00000000
   - themes: 01000000
