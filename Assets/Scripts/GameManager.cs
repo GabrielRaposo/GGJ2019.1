@@ -42,33 +42,33 @@ public class GameManager : MonoBehaviour
 
     public const int maxFoodQuantity = 3;
 
-	public int FoodQuantity
-	{
-		get { return foodQuantity; }
-		set { foodQuantity = value; }
-	}
-
-	public GameObject SelectedCitizen
-	{
-		get { return selectedCitizen; }
-		set { selectedCitizen = value; }
-	}
-
-	public List<GameObject> GetInteractableItemsInCurrentDay
-	{
-		get
-		{
-			dayBehaviour.InitInteractableObjects();
-			return dayBehaviour.interactableItemsInCurrentDay;
-		}
-	}
-
-	// Start is called before the first frame update
-	void Start()
+    public int FoodQuantity
     {
-		dayBehaviour = GetComponent<DayBehaviour>();
+        get { return foodQuantity; }
+        set { foodQuantity = value; }
+    }
+
+    public GameObject SelectedCitizen
+    {
+        get { return selectedCitizen; }
+        set { selectedCitizen = value; }
+    }
+
+    public List<GameObject> GetInteractableItemsInCurrentDay
+    {
+        get
+        {
+            dayBehaviour.InitInteractableObjects();
+            return dayBehaviour.interactableItemsInCurrentDay;
+        }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        dayBehaviour = GetComponent<DayBehaviour>();
         peopleBehaviour = GetComponent<PeopleBehaviour>();
-		foodPanel = GameObject.Find("Food Panel");
+        foodPanel = GameObject.Find("Food Panel");
         backgroundFade = GameObject.FindGameObjectWithTag("Fade Background").GetComponent<Image>();
         backgroundFade.canvasRenderer.SetAlpha(0f);
         storyMaster = GetComponent<StoryMaster>();
@@ -80,44 +80,44 @@ public class GameManager : MonoBehaviour
 
     }
 
-	public void BeginFirstDay()
-	{
-		dayBehaviour.BeginDay();
-		foodQuantity = 1;
-	}
+    public void BeginFirstDay()
+    {
+        dayBehaviour.BeginDay();
+        foodQuantity = 1;
+    }
 
-	public bool CanAdvanceDay()
-	{
-		GameObject[] citizens = GameObject.FindGameObjectsWithTag("Citizen");
-		foreach (GameObject citizen in citizens)
-		{
-			if (citizen.GetComponent<CitizenBehaviour>().turnActionType == actions.none) return false;
-		}
-		if (foodQuantity == 0)
-		{
-			bool foodAction = false;
-			foreach (GameObject citizen in citizens)
-			{
-				if (citizen.GetComponent<CitizenBehaviour>().turnActionType == actions.getFood) foodAction = true;
-			}
-			if (!foodAction) return false;
-		}
-		return true;
-	}
+    public bool CanAdvanceDay()
+    {
+        GameObject[] citizens = GameObject.FindGameObjectsWithTag("Citizen");
+        foreach (GameObject citizen in citizens)
+        {
+            if (citizen.GetComponent<CitizenBehaviour>().turnActionType == actions.none) return false;
+        }
+        if (foodQuantity == 0)
+        {
+            bool foodAction = false;
+            foreach (GameObject citizen in citizens)
+            {
+                if (citizen.GetComponent<CitizenBehaviour>().turnActionType == actions.getFood) foodAction = true;
+            }
+            if (!foodAction) return false;
+        }
+        return true;
+    }
 
-	private void UpdateFood()
-	{
-		for (int i = 0; i < maxFoodQuantity; i++)
-		{
-			if (i < foodQuantity)
-			{
-				foodPanel.transform.GetChild(i).GetComponent<RawImage>().texture = foodFilled;
-			} else
-			{
-				foodPanel.transform.GetChild(i).GetComponent<RawImage>().texture = foodUnfilled;
-			}
-		}
-	}
+    private void UpdateFood()
+    {
+        for (int i = 0; i < maxFoodQuantity; i++)
+        {
+            if (i < foodQuantity)
+            {
+                foodPanel.transform.GetChild(i).GetComponent<RawImage>().texture = foodFilled;
+            } else
+            {
+                foodPanel.transform.GetChild(i).GetComponent<RawImage>().texture = foodUnfilled;
+            }
+        }
+    }
 
     public void ResetCamp(CitizenBehaviour[] citizens)
     {
@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
         selectedCitizen = null;
         foreach (GameObject rootGameObject in SceneManager.GetSceneByName("TilemapTest").GetRootGameObjects())
         {
-            if (persistentObjectsBetweenScenes.Exists( elem => rootGameObject.name.Contains(elem)) ) continue;
+            if (persistentObjectsBetweenScenes.Exists(elem => rootGameObject.name.Contains(elem))) continue;
             rootGameObject.SetActive(false);
         }
     }
@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
         ResetCamp(citizens);
         DeactivateCamp();
     }
-    
+
     public IEnumerator Downfall()
     {
         backgroundFade.CrossFadeAlpha(1.0f, secondsToDownfall / 3.0f, false);
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
 
         storyMaster.text = GameObject.FindGameObjectWithTag("Dialog Box").GetComponent<TextMeshProUGUI>();
         cutscener = GameObject.FindGameObjectWithTag("Cutscener").GetComponent<Cutscener>();
-        
+
         if (dayBehaviour.DayCounter == 2)
         {
             peopleBehaviour.SpawnNewcomers(1);
@@ -200,15 +200,41 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(secondsToDownfall / 3.0f);
     }
 
-	public void AdvanceDay()
-	{
-		if (CanAdvanceDay())
-		{
+    public void AdvanceDay()
+    {
+        if (CanAdvanceDay())
+        {
             StartCoroutine(Downfall());
-		}
-		else
-		{
-			print("mano tem que fazer as ações");
-		}
-	}
+        }
+        else
+        {
+            print("mano tem que fazer as ações");
+        }
+    }
+
+
+    public void updateAllMoods()
+    {
+        GameObject[] citizens = GameObject.FindGameObjectsWithTag("Citizen");
+        foreach (GameObject c in citizens)
+        {
+            Theme prof = c.GetComponent<CitizenBehaviour>().citizenData.proficience;
+            Theme like = c.GetComponent<CitizenBehaviour>().citizenData.like;
+            Theme dislike = c.GetComponent<CitizenBehaviour>().citizenData.dislike;
+            List<Theme> itemThemes = craftedItem.GetComponent<DecorationScript>().themes;
+            foreach (Theme theme in itemThemes)
+            {
+                if (prof == theme)
+                {
+                    c.GetComponent<SatisfactionManager>().updateSatisfaction(2);
+                } else if (like == theme)
+                {
+                    c.GetComponent<SatisfactionManager>().updateSatisfaction(4);
+                } else if (prof == theme)
+                {
+                    c.GetComponent<SatisfactionManager>().updateSatisfaction(-3);
+                }
+            }
+        }
+    }
 }

@@ -12,11 +12,15 @@ public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
     public float alphaCreation = 0.5f;
     public GameObject mainCanvas;
 
+    void Awake()
+    {
+        // mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
     }
 
     // Update is called once per frame
@@ -28,13 +32,20 @@ public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
     public void OpenCraftTable()
     {
         SceneManager.LoadScene("CraftingScene", LoadSceneMode.Additive);
-        mainCanvas.SetActive(false);
+        foreach (GameObject obj in SceneManager.GetSceneByName("TilemapTest").GetRootGameObjects())
+        {
+            if (obj.CompareTag("MainCanvas")) obj.SetActive(false);
+        }
+        //mainCanvas.SetActive(false);
     }
 
     public void CloseCraftTable()
     {
-        SceneManager.UnloadSceneAsync("CraftingScene");
-        mainCanvas.SetActive(true);
+        SceneManager.UnloadScene("CraftingScene");
+        foreach(GameObject obj in SceneManager.GetSceneByName("TilemapTest").GetRootGameObjects())
+        {
+            if (obj.CompareTag("MainCanvas")) obj.SetActive(true);
+        }
     }
 
     public void PrepareCraftItem(GameObject item)
