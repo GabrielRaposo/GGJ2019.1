@@ -130,16 +130,16 @@ public class StoryMaster : MonoBehaviour
 		switch (citizens[0].like)
 		{
 			case Theme.WATER:
-				story.ChoosePathString($"LikeWater{Random.Range(0,4).ToString()}");
+                UpdateCurrentStory($"LikeWater{Random.Range(0,4).ToString()}");
 				break;
 			case Theme.FIRE:
-				story.ChoosePathString($"LikeFire{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"LikeFire{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.EARTH:
-				story.ChoosePathString($"LikeEarth{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"LikeEarth{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.AIR:
-				story.ChoosePathString($"LikeAir{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"LikeAir{Random.Range(0, 4).ToString()}");
 				break;
 		}
 	}
@@ -152,16 +152,16 @@ public class StoryMaster : MonoBehaviour
 		switch (citizens[0].dislike)
 		{
 			case Theme.WATER:
-				story.ChoosePathString($"DislikeWater{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeWater{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.FIRE:
-				story.ChoosePathString($"DislikeFire{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeFire{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.EARTH:
-				story.ChoosePathString($"DislikeEarth{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeEarth{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.AIR:
-				story.ChoosePathString($"DislikeAir{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeAir{Random.Range(0, 4).ToString()}");
 				break;
 		}
 	}
@@ -174,16 +174,16 @@ public class StoryMaster : MonoBehaviour
 		switch (citizens[0].proficience)
 		{
 			case Theme.WATER:
-				story.ChoosePathString($"ProficienceWater{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceWater{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.FIRE:
-				story.ChoosePathString($"ProficienceFire{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceFire{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.EARTH:
-				story.ChoosePathString($"ProficienceEarth{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceEarth{Random.Range(0, 4).ToString()}");
 				break;
 			case Theme.AIR:
-				story.ChoosePathString($"ProficienceWater{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceWater{Random.Range(0, 4).ToString()}");
 				break;
 		}
 	}

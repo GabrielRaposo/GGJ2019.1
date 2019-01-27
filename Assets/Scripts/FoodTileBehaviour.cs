@@ -36,7 +36,6 @@ public class FoodTileBehaviour : MonoBehaviour, IPointerClickHandler
 				selectedCitizenBehaviour.SetTurnAction(
 					delegate () {
 						selectedCitizenBehaviour.OnPointerClick(null);
-						gameManager.GetInteractableItemsInCurrentDay.Remove(gameObject);
 						CollectFood();
 					}, actions.getFood);
 			}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum Theme {WATER, FIRE, EARTH, AIR}
 
+[System.Serializable]
 public class CitizenData
 {
     public string name;

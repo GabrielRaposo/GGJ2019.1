@@ -49,7 +49,7 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
         resourceTypes type = resourceTypes.wood;
 
         if (selectedCitizen != null) {
-            Theme proficience = selectedCitizen.GetComponent<CitizenBehaviour>().data.proficience;
+            Theme proficience = selectedCitizen.GetComponent<CitizenBehaviour>().CitizenData.proficience;
             Debug.Log(proficience);
             switch (this.gameObject.tag) {
                 case "WoodWay":

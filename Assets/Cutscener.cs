@@ -31,27 +31,18 @@ public class Cutscener : MonoBehaviour
             citizen.GetComponent<CitizenBehaviour>().HideInfo();
             l.RemoveAt(rand);
         }
-        if (dayCounter == 1)
+        if (dayCounter < 6)
         {
-            storyMaster.UpdateCurrentStory("Alone_by_bonfire");
+
+            if (dayCounter == 1) storyMaster.UpdateCurrentStory("Alone_by_bonfire");
+            if (dayCounter == 2) storyMaster.UpdateCurrentStory("Day_two");
+            if (dayCounter == 3) storyMaster.UpdateCurrentStory("Day_three");
+            if (dayCounter == 4) storyMaster.UpdateCurrentStory("Day_four");
+            if (dayCounter == 5) storyMaster.UpdateCurrentStory("Day_five");
         }
         else
         {
-            if (dayCounter == 2)
-            {
-                storyMaster.UpdateCurrentStory("Day_two");
-            }
-            else
-            {
-                if (dayCounter == 4)
-                {
-
-                }
-                else
-                {
-                    storyMaster.BasicSelectionBetweenScenes();
-                }
-            }
+            storyMaster.BasicSelectionBetweenScenes();
         }
     }
 
