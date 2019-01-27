@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8bceb3c0678c1844d988cd2097c61c8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6f63cb828594fa64681f2b11b926b415, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -88,9 +88,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filed: 0
-  filledImageW: {fileID: 21300000, guid: 3a99388c1aea6e742acd58c75bf1fd4c, type: 3}
-  filledImageE: {fileID: 21300000, guid: a50daaf0551f36542ad384d63f6888d3, type: 3}
-  filledImageF: {fileID: 21300000, guid: 1c447bcdcd01378488b22a130dd7fb67, type: 3}
-  filledImageA: {fileID: 21300000, guid: f408cc31815eb3f4bae0681442a61b17, type: 3}
-  emptyImage: {fileID: 21300000, guid: 8bceb3c0678c1844d988cd2097c61c8f, type: 3}
+  container: {fileID: 0}
+  filledImageW: {fileID: 21300000, guid: e23e1765640861a429e7354ee7e370b9, type: 3}
+  filledImageE: {fileID: 21300000, guid: be3f46f027b1bbd4480b95adf94b5c3a, type: 3}
+  filledImageF: {fileID: 21300000, guid: b5a86ac3964a6c74289ddca58fe20aa3, type: 3}
+  filledImageA: {fileID: 21300000, guid: 165aafff99bf0c940827eb93e52ba33c, type: 3}
+  emptyImage: {fileID: 21300000, guid: 6f63cb828594fa64681f2b11b926b415, type: 3}
   display: {fileID: 3937106692181831484}
