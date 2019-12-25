@@ -23,19 +23,16 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (gameManager.SelectedCitizen != null)
+		Debug.Log($"{gameObject}: Click tent");
+	
+		if (gameManager.SelectedCitizen != null && citizenOwner == null)
 		{
 			if (gameManager.GetInteractableItemsInCurrentDay.Exists(go => go == gameObject))
 			{
 				CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
+				Debug.Log($"{selectedCitizenBehaviour.name} vai limpar a tenda {gameObject}");
 				selectedCitizenBehaviour.SetTurnAction(
 					delegate () {
 						citizenOwner = gameManager.SelectedCitizen;

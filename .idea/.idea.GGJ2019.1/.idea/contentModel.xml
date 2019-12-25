@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\UnityProjects\GGJ2019.1" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Cutscener.cs" t="Include" />
+        <e p="ItemDescriptorScript.cs" t="Include" />
+        <e p="Plugins" t="Include">
+          <e p="Ink" t="Include">
+            <e p="Editor" t="Include">
+              <e p="Compiler" t="Include">
+                <e p="Auto Compiler" t="Include">
+                  <e p="InkPostProcessor.cs" t="Include" />
+                </e>
+                <e p="InkCompiler.cs" t="Include" />
+              </e>
+              <e p="Ink Inspector" t="Include">
+                <e p="File Icons" t="Include">
+                  <e p="InkBrowserIcons.cs" t="Include" />
+                </e>
+                <e p="Ink Inspector" t="Include">
+                  <e p="DefaultAssetEditor.cs" t="Include" />
+                  <e p="DefaultAssetInspector.cs" t="Include" />
+                  <e p="InkInspector.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Ink Library" t="Include">
+                <e p="InkFile.cs" t="Include" />
+                <e p="InkLibrary.cs" t="Include" />
+                <e p="InkLibraryEditor.cs" t="Include" />
+                <e p="InkMetaFile.cs" t="Include" />
+                <e p="InkMetaLibrary.cs" t="Include" />
+              </e>
+              <e p="Ink Settings" t="Include">
+                <e p="InkSettings.cs" t="Include" />
+                <e p="InkSettingsEditor.cs" t="Include" />
+              </e>
+              <e p="Player Window" t="Include">
+                <e p="InkPlayerWindow.cs" t="Include" />
+              </e>
+              <e p="Resources" t="Include">
+                <e p="InkDefaultTemplate.txt" t="Include" />
+              </e>
+              <e p="Tools" t="Include">
+                <e p="InkEditorUtils.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Example" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="BasicInkExample.cs" t="Include" />
+              </e>
+            </e>
+            <e p="InkRuntime" t="Include">
+              <e p="CallStack.cs" t="Include" />
+              <e p="Choice.cs" t="Include" />
+              <e p="ChoicePoint.cs" t="Include" />
+              <e p="Container.cs" t="Include" />
+              <e p="ControlCommand.cs" t="Include" />
+              <e p="DebugMetadata.cs" t="Include" />
+              <e p="Divert.cs" t="Include" />
+              <e p="Glue.cs" t="Include" />
+              <e p="INamedContent.cs" t="Include" />
+              <e p="InkList.cs" t="Include" />
+              <e p="JsonSerialisation.cs" t="Include" />
+              <e p="ListDefinition.cs" t="Include" />
+              <e p="ListDefinitionsOrigin.cs" t="Include" />
+              <e p="NativeFunctionCall.cs" t="Include" />
+              <e p="Object.cs" t="Include" />
+              <e p="Path.cs" t="Include" />
+              <e p="Profiler.cs" t="Include" />
+              <e p="PushPop.cs" t="Include" />
+              <e p="SimpleJson.cs" t="Include" />
+              <e p="Story.cs" t="Include" />
+              <e p="StoryException.cs" t="Include" />
+              <e p="StoryState.cs" t="Include" />
+              <e p="StringJoinExtension.cs" t="Include" />
+              <e p="Tag.cs" t="Include" />
+              <e p="Value.cs" t="Include" />
+              <e p="VariableAssignment.cs" t="Include" />
+              <e p="VariableReference.cs" t="Include" />
+              <e p="VariablesState.cs" t="Include" />
+              <e p="Void.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="CitizenBehaviour.cs" t="Include" />
+          <e p="CitizenData.cs" t="Include" />
+          <e p="Container.cs" t="Include" />
+          <e p="CraftMaster.cs" t="Include" />
+          <e p="CraftTileBehaviour.cs" t="Include" />
+          <e p="DayBehaviour.cs" t="Include" />
+          <e p="DebrisBehaviour.cs" t="Include" />
+          <e p="DecorationScript.cs" t="Include" />
+          <e p="DecorationSlot.cs" t="Include" />
+          <e p="FoodTileBehaviour.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="HighlightBehaviour.cs" t="Include" />
+          <e p="HoverManager.cs" t="Include" />
+          <e p="InspirationSlot.cs" t="Include" />
+          <e p="Interactable.cs" t="Include" />
+          <e p="ItemCursor.cs" t="Include" />
+          <e p="MaterialManager.cs" t="Include" />
+          <e p="PeopleBehaviour.cs" t="Include" />
+          <e p="PlacesBehaviour.cs" t="Include" />
+          <e p="RecipeEditor.cs" t="Include" />
+          <e p="SatisfactionManager.cs" t="Include" />
+          <e p="SORecipe.cs" t="Include" />
+          <e p="StoneSlot.cs" t="Include" />
+          <e p="StoryMaster.cs" t="Include" />
+          <e p="TentBehaviour.cs" t="Include" />
+          <e p="TitleButton.cs" t="Include" />
+          <e p="WoodSlot.cs" t="Include" />
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+        <e p="UISlotScript.cs" t="Include" />
+      </e>
+      <e p="GGJ2019.1.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\Usuário\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Usuário\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_GGJ2019.1.-557190574.00" t="ExcludeRecursive" />
+  </component>
+</project>

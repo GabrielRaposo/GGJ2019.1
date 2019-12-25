@@ -45,7 +45,15 @@ public class DebrisBehaviour : MonoBehaviour, IPointerClickHandler {
     }
 
     public void OnPointerClick(PointerEventData eventData) {
+        
+        if(gameManager.SelectedCitizen == null)
+            return;
+        
         CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
+        
+        if(selectedCitizenBehaviour == null)
+            return;
+        
         selectedCitizenBehaviour.SetTurnAction(
             delegate () {
                 CleanDebris();

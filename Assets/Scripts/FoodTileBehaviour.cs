@@ -33,6 +33,7 @@ public class FoodTileBehaviour : MonoBehaviour, IPointerClickHandler
 			if (gameManager.GetInteractableItemsInCurrentDay.Exists(go => go == gameObject))
 			{
 				CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
+				Debug.Log($"{selectedCitizenBehaviour.name} vai pegar comida");
 				selectedCitizenBehaviour.SetTurnAction(
 					delegate () {
 						selectedCitizenBehaviour.OnPointerClick(null);
