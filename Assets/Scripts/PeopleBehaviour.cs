@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PeopleBehaviour : MonoBehaviour
 {
@@ -24,11 +26,13 @@ public class PeopleBehaviour : MonoBehaviour
 	public Sprite mouseSprite;
 	public Sprite catSprite;
 
+	private void Awake()
+	{
+		SetCitizenVisual(go);
+		
+	}
 
-    void Update() {
-    } 
-
-    public void SpawnNewcomers(int quantity) {
+	public void SpawnNewcomers(int quantity) {
         for (int i = 0; i < quantity; i++) {
 
             float posY = Random.Range(-3, 3) + 0.5f;
@@ -37,35 +41,53 @@ public class PeopleBehaviour : MonoBehaviour
             GameObject newcomer = Instantiate(citizenPrefab, new Vector3(0.5f, 0.5f, -1f), Quaternion.identity);
             Debug.Log("[x: " + newcomer.transform.position.x + ", y: " + newcomer.transform.position.y + " ]");
 			
-			switch (newcomer.GetComponent<CitizenBehaviour>().CitizenData.species)
-			{
-				case Animals.BEAR:
-					//newcomer.GetComponent<SpriteRenderer>().material = bearMaterial;
-					newcomer.GetComponent<SpriteRenderer>().sprite = bearSprite;
-					break;
-				case Animals.BIRD:
-					//newcomer.GetComponent<SpriteRenderer>().material = birdMaterial;
-					newcomer.GetComponent<SpriteRenderer>().sprite = birdSprite;
-					break;
-				case Animals.CAT:
-					//newcomer.GetComponent<SpriteRenderer>().material = catMaterial;
-					newcomer.GetComponent<SpriteRenderer>().sprite = catSprite;
-					break;
-				case Animals.DOG:
-					//newcomer.GetComponent<SpriteRenderer>().material = dogMaterial;
-					newcomer.GetComponent<SpriteRenderer>().sprite = dogSprite;
-					break;
-				case Animals.MOUSE:
-					//newcomer.GetComponent<SpriteRenderer>().material = mouseMaterial;
-					newcomer.GetComponent<SpriteRenderer>().sprite = mouseSprite;
-					break;
-				case Animals.PIG:
-					//newcomer.GetComponent<SpriteRenderer>().material = pigMaterial;
-					newcomer.GetComponent<SpriteRenderer>().sprite = pigSprite;
-					break;
-			}
+			SetCitizenVisual(newcomer);
 
+        }
+	}
+
+	private void SetCitizenVisual(GameObject citizen)
+	{
+		switch (citizen.GetComponent<CitizenBehaviour>().CitizenData.species)
+		{
+			case Animals.BEAR:
+				//newcomer.GetComponent<SpriteRenderer>().material = bearMaterial;
+				citizen.GetComponent<SpriteRenderer>().sprite = bearSprite;
+				break;
+			case Animals.BIRD:
+				//newcomer.GetComponent<SpriteRenderer>().material = birdMaterial;
+				citizen.GetComponent<SpriteRenderer>().sprite = birdSprite;
+				break;
+			case Animals.CAT:
+				//newcomer.GetComponent<SpriteRenderer>().material = catMaterial;
+				citizen.GetComponent<SpriteRenderer>().sprite = catSprite;
+				break;
+			case Animals.DOG:
+				//newcomer.GetComponent<SpriteRenderer>().material = dogMaterial;
+				citizen.GetComponent<SpriteRenderer>().sprite = dogSprite;
+				break;
+			case Animals.MOUSE:
+				//newcomer.GetComponent<SpriteRenderer>().material = mouseMaterial;
+				citizen.GetComponent<SpriteRenderer>().sprite = mouseSprite;
+				break;
+			case Animals.PIG:
+				//newcomer.GetComponent<SpriteRenderer>().material = pigMaterial;
+				citizen.GetComponent<SpriteRenderer>().sprite = pigSprite;
+				break;
 		}
+
+		citizen.GetComponent<SpriteRenderer>().color =
+			GetSoftColor(citizen.GetComponent<CitizenBehaviour>().citizenData.color);
+	}
+
+	public Color GetSoftColor(Color color)
+	{
+		Color.RGBToHSV(color, out float h, out float s, out float v);
+
+		s = 0.25f;
+
+		return Color.HSVToRGB(h, s, v);
+
 	}
 
 	public void kickCitizen(GameObject citizen) {

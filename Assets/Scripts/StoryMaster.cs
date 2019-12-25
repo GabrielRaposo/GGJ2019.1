@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using Ink.Runtime;
 using TMPro;
@@ -59,89 +60,96 @@ public class StoryMaster : MonoBehaviour
         {
             if (story.canContinue)
             {
-                text.text = story.Continue();
-                if (text.text[0] == '<') return;
-                string name = text.text.Substring(0,text.text.IndexOf(':'));
-                bool gambiarra = false; int index = 0;
-                foreach(CitizenData singleCitizens in citizens)
-                {
-                    if (name.Equals(singleCitizens.name))
-                    {
-                        gambiarra = true;
-                        break;
-                    }
-                    index++;
-                }
-                if (gambiarra == true)
-                {
-                    switch (index)
-                    {
-                        case 0:
-                            text.text = "<color=red>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
-                            break;
-                        case 1:
-                            text.text = "<color=blue>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
-                            break;
-                        case 2:
-                            text.text = "<color=green>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
-                            break;
-                        case 3:
-                            text.text = "<color=purple>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
-                            break;
-                        default:
-                            Debug.Log("Não deveria entrar aqui");
-                            break;
-                    }
-                }
-                text.text = FormatKeyword(text.text, "tomorrow", 'i');
-                text.text = FormatKeyword(text.text, "never need to swim", 'i');
-                text.text = FormatKeyword(text.text, "hope it rains", 'i');
-                text.text = FormatKeyword(text.text, "live by the beach", 'i');
-                text.text = FormatKeyword(text.text, "fish", 'i');
-                text.text = FormatKeyword(text.text, "No more alcohol", 'i');
-                text.text = FormatKeyword(text.text, "hiking", 'i');
-                text.text = FormatKeyword(text.text, "used to plant", 'i');
-                text.text = FormatKeyword(text.text, "jewelry", 'i');
-                text.text = FormatKeyword(text.text, "home", 'i');
-                text.text = FormatKeyword(text.text, "dirt", 'i');
-                text.text = FormatKeyword(text.text, "cliff", 'i');
-                text.text = FormatKeyword(text.text, "mine", 'i');
-                text.text = FormatKeyword(text.text, "fire", 'i');
-                text.text = FormatKeyword(text.text, "lighting", 'i');
-                text.text = FormatKeyword(text.text, "warmer", 'i');
-                text.text = FormatKeyword(text.text, "incense", 'i');
-                text.text = FormatKeyword(text.text, "spicy", 'i');
-                text.text = FormatKeyword(text.text, "cooler", 'i');
-                text.text = FormatKeyword(text.text, "wound", 'i');
-                text.text = FormatKeyword(text.text, "kite", 'i');
-                text.text = FormatKeyword(text.text, "clouds", 'i');
-                text.text = FormatKeyword(text.text, "tornado", 'i');
-                text.text = FormatKeyword(text.text, "sea", 'i');
-                text.text = FormatKeyword(text.text, "home", 'i');
-                text.text = FormatKeyword(text.text, "alright", 'i');
-                text.text = FormatKeyword(text.text, "best", 'i');
-                text.text = FormatKeyword(text.text, "Leaving", 'i');
-                text.text = FormatKeyword(text.text, "leave", 'i');
-                text.text = FormatKeyword(text.text, "didn't matter", 'i');
-                text.text = FormatKeyword(text.text, "bad day", 'i');
-                text.text = FormatKeyword(text.text, "feathers", 'i');
-                text.text = FormatKeyword(text.text, "tree", 'i');
-                text.text = FormatKeyword(text.text, "waves", 'i');
-                text.text = FormatKeyword(text.text, "meat", 'i');
-                text.text = FormatKeyword(text.text, "food", 'i');
-                text.text = FormatKeyword(text.text, "bard", 'i');
-                text.text = FormatKeyword(text.text, "glide", 'i');
-                text.text = FormatKeyword(text.text, "craft", 'i');
-                text.text = FormatKeyword(text.text, "craftsman", 'i');
-                text.text = FormatKeyword(text.text, "dance", 'i');
-                text.text = FormatKeyword(text.text, "hot", 'i');
-                text.text = FormatKeyword(text.text, "mines", 'i');
-                text.text = FormatKeyword(text.text, "burn", 'i');
-                text.text = FormatKeyword(text.text, "memories", 'i');
-                text.text = FormatKeyword(text.text, "barman", 'i');
-                text.text = FormatKeyword(text.text, "self-healing", 'i');
-                text.text = FormatKeyword(text.text, "love", 'i');
-                text.text = FormatKeyword(text.text, "revolting", 'i');
+	            string rawLine = story.Continue();
+	            string parsedText = ParseText(rawLine);
+	            text.text = parsedText;
+				
+	            
+	            
+//                text.text = story.Continue();
+//                if (text.text[0] == '<') return;
+//                string name = text.text.Substring(0,text.text.IndexOf(':'));
+//                bool gambiarra = false; int index = 0;
+//                
+//                foreach(CitizenData singleCitizens in citizens)
+//                {
+//                    if (name.Equals(singleCitizens.name))
+//                    {
+//                        gambiarra = true;
+//                        break;
+//                    }
+//                    index++;
+//                }
+//                if (gambiarra == true)
+//                {
+//                    switch (index)
+//                    {
+//                        case 0:
+//                            text.text = "<color=red>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
+//                            break;
+//                        case 1:
+//                            text.text = "<color=blue>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
+//                            break;
+//                        case 2:
+//                            text.text = "<color=green>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
+//                            break;
+//                        case 3:
+//                            text.text = "<color=purple>" + text.text.Substring(0, text.text.IndexOf(':')+1) + "</color>" + text.text.Substring(text.text.IndexOf(':') + 1, text.text.Length - text.text.IndexOf(':') - 1);
+//                            break;
+//                        default:
+//                            Debug.Log("Não deveria entrar aqui");
+//                            break;
+//                    }
+//                }
+//                text.text = FormatKeyword(text.text, "tomorrow", 'i');
+//                text.text = FormatKeyword(text.text, "never need to swim", 'i');
+//                text.text = FormatKeyword(text.text, "hope it rains", 'i');
+//                text.text = FormatKeyword(text.text, "live by the beach", 'i');
+//                text.text = FormatKeyword(text.text, "fish", 'i');
+//                text.text = FormatKeyword(text.text, "No more alcohol", 'i');
+//                text.text = FormatKeyword(text.text, "hiking", 'i');
+//                text.text = FormatKeyword(text.text, "used to plant", 'i');
+//                text.text = FormatKeyword(text.text, "jewelry", 'i');
+//                text.text = FormatKeyword(text.text, "home", 'i');
+//                text.text = FormatKeyword(text.text, "dirt", 'i');
+//                text.text = FormatKeyword(text.text, "cliff", 'i');
+//                text.text = FormatKeyword(text.text, "mine", 'i');
+//                text.text = FormatKeyword(text.text, "fire", 'i');
+//                text.text = FormatKeyword(text.text, "lighting", 'i');
+//                text.text = FormatKeyword(text.text, "warmer", 'i');
+//                text.text = FormatKeyword(text.text, "incense", 'i');
+//                text.text = FormatKeyword(text.text, "spicy", 'i');
+//                text.text = FormatKeyword(text.text, "cooler", 'i');
+//                text.text = FormatKeyword(text.text, "wound", 'i');
+//                text.text = FormatKeyword(text.text, "kite", 'i');
+//                text.text = FormatKeyword(text.text, "clouds", 'i');
+//                text.text = FormatKeyword(text.text, "tornado", 'i');
+//                text.text = FormatKeyword(text.text, "sea", 'i');
+//                text.text = FormatKeyword(text.text, "home", 'i');
+//                text.text = FormatKeyword(text.text, "alright", 'i');
+//                text.text = FormatKeyword(text.text, "best", 'i');
+//                text.text = FormatKeyword(text.text, "Leaving", 'i');
+//                text.text = FormatKeyword(text.text, "leave", 'i');
+//                text.text = FormatKeyword(text.text, "didn't matter", 'i');
+//                text.text = FormatKeyword(text.text, "bad day", 'i');
+//                text.text = FormatKeyword(text.text, "feathers", 'i');
+//                text.text = FormatKeyword(text.text, "tree", 'i');
+//                text.text = FormatKeyword(text.text, "waves", 'i');
+//                text.text = FormatKeyword(text.text, "meat", 'i');
+//                text.text = FormatKeyword(text.text, "food", 'i');
+//                text.text = FormatKeyword(text.text, "bard", 'i');
+//                text.text = FormatKeyword(text.text, "glide", 'i');
+//                text.text = FormatKeyword(text.text, "craft", 'i');
+//                text.text = FormatKeyword(text.text, "craftsman", 'i');
+//                text.text = FormatKeyword(text.text, "dance", 'i');
+//                text.text = FormatKeyword(text.text, "hot", 'i');
+//                text.text = FormatKeyword(text.text, "mines", 'i');
+//                text.text = FormatKeyword(text.text, "burn", 'i');
+//                text.text = FormatKeyword(text.text, "memories", 'i');
+//                text.text = FormatKeyword(text.text, "barman", 'i');
+//                text.text = FormatKeyword(text.text, "self-healing", 'i');
+//                text.text = FormatKeyword(text.text, "love", 'i');
+//                text.text = FormatKeyword(text.text, "revolting", 'i');
             }
             else
             {
@@ -182,8 +190,11 @@ public class StoryMaster : MonoBehaviour
 		UpdateCitizenData();
         story.ChoosePathString(pathString);
         text.text = "";
-        text.text = story.Continue();
-    }
+        
+        string rawText = story.Continue();
+
+        text.text = ParseText(rawText);
+	}
     
 
     public void BasicSelectionBetweenScenes()
@@ -273,16 +284,16 @@ public class StoryMaster : MonoBehaviour
 		switch (citizens[0].like)
 		{
 			case Theme.WATER:
-                UpdateCurrentStory($"LikeWater{Random.Range(0,4).ToString()}");
+                UpdateCurrentStory($"LikeWater{Random.Range(0,3).ToString()}");
 				break;
 			case Theme.FIRE:
-                UpdateCurrentStory($"LikeFire{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"LikeFire{Random.Range(0, 3).ToString()}");
 				break;
 			case Theme.EARTH:
-                UpdateCurrentStory($"LikeEarth{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"LikeEarth{Random.Range(0, 3).ToString()}");
 				break;
 			case Theme.AIR:
-                UpdateCurrentStory($"LikeAir{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"LikeAir{Random.Range(0, 3).ToString()}");
 				break;
 		}
 	}
@@ -295,16 +306,16 @@ public class StoryMaster : MonoBehaviour
 		switch (citizens[0].dislike)
 		{
 			case Theme.WATER:
-                UpdateCurrentStory($"DislikeWater{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeWater{Random.Range(0, 3).ToString()}");
 				break;
 			case Theme.FIRE:
-                UpdateCurrentStory($"DislikeFire{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeFire{Random.Range(0, 3).ToString()}");
 				break;
 			case Theme.EARTH:
-                UpdateCurrentStory($"DislikeEarth{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeEarth{Random.Range(0, 3).ToString()}");
 				break;
 			case Theme.AIR:
-                UpdateCurrentStory($"DislikeAir{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"DislikeAir{Random.Range(0, 3).ToString()}");
 				break;
 		}
 	}
@@ -317,16 +328,16 @@ public class StoryMaster : MonoBehaviour
 		switch (citizens[0].proficience)
 		{
 			case Theme.WATER:
-                UpdateCurrentStory($"ProficienceWater{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceWater{Random.Range(0, 3).ToString()}");
 				break;
 			case Theme.FIRE:
-                UpdateCurrentStory($"ProficienceFire{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceFire{Random.Range(0, 3).ToString()}");
 				break;
 			case Theme.EARTH:
-                UpdateCurrentStory($"ProficienceEarth{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceEarth{Random.Range(0, 3).ToString()}");
 				break;
 			case Theme.AIR:
-                UpdateCurrentStory($"ProficienceWater{Random.Range(0, 4).ToString()}");
+                UpdateCurrentStory($"ProficienceWater{Random.Range(0, 3).ToString()}");
 				break;
 		}
 	}
@@ -356,19 +367,19 @@ public class StoryMaster : MonoBehaviour
 	private void GoToLeavingCamp(int citizenIndex)
 	{
 		ReorderCitizens(citizenIndex);
-		UpdateCurrentStory($"LosingMember{Random.Range(0, 4).ToString()}");
+		UpdateCurrentStory($"LosingMember{Random.Range(0, 3).ToString()}");
 	}
 
 	private void GoToStrikeCall(int citizenIndex)
 	{
 		ReorderCitizens(citizenIndex);
-		UpdateCurrentStory($"Strike{Random.Range(0, 4).ToString()}");
+		UpdateCurrentStory($"Strike{Random.Range(0, 3).ToString()}");
 	}
 
 	private void GoToGotBetterCalll(int citizenIndex)
 	{
 		ReorderCitizens(citizenIndex);
-		UpdateCurrentStory($"StrikeLoss{Random.Range(0, 4).ToString()}");
+		UpdateCurrentStory($"StrikeLoss{Random.Range(0, 3).ToString()}");
 
 	}
 
@@ -384,28 +395,28 @@ public class StoryMaster : MonoBehaviour
 		switch (barks)
 		{
 			case Barks.GET_FOOD:
-				story.ChoosePathString($"BarkFood{Random.Range(0, 4).ToString()}");
+				story.ChoosePathString($"BarkFood{Random.Range(0, 3).ToString()}");
 				break;
 			case Barks.REMOVE_DEBRIE:
-				story.ChoosePathString($"BarkDebrie{Random.Range(0, 4).ToString()}");
+				story.ChoosePathString($"BarkDebrie{Random.Range(0, 3).ToString()}");
 				break;
 			case Barks.GET_DECOR_WATER:
-				story.ChoosePathString($"BarkWater{Random.Range(0, 4).ToString()}");
+				story.ChoosePathString($"BarkWater{Random.Range(0, 3).ToString()}");
 				break;
 			case Barks.GET_DECOR_FIRE:
-				story.ChoosePathString($"BarkFire{Random.Range(0, 4).ToString()}");
+				story.ChoosePathString($"BarkFire{Random.Range(0, 3).ToString()}");
 				break;
 			case Barks.GET_DECOR_EARTH:
-				story.ChoosePathString($"BarkEarth{Random.Range(0, 4).ToString()}");
+				story.ChoosePathString($"BarkEarth{Random.Range(0, 3).ToString()}");
 				break;
 			case Barks.GET_DECOR_AIR:
-				story.ChoosePathString($"BarkAir{Random.Range(0, 4).ToString()}");
+				story.ChoosePathString($"BarkAir{Random.Range(0, 3).ToString()}");
 				break;
 			case Barks.GET_STONE:
-				story.ChoosePathString($"BarkStone{Random.Range(0, 4).ToString()}");
+				story.ChoosePathString($"BarkStone{Random.Range(0, 3).ToString()}");
 				break;
 			case Barks.GET_WOOD:
-				story.ChoosePathString($"BarkWood{Random.Range(0, 4).ToString()}");
+				story.ChoosePathString($"BarkWood{Random.Range(0, 3).ToString()}");
 				break;
 		}
 
@@ -491,5 +502,35 @@ public class StoryMaster : MonoBehaviour
             default: return Barks.GET_DECOR_AIR;
         }
     }
+
+    public string ParseText(string line)
+    {
+	    if (line[0] == '<')
+		    return line;
+
+	    string[] parts = line.Split(':');
+
+	    foreach (var c in citizens)
+	    {
+		    if (c.name == parts[0])
+		    {
+			    parts[0] = ColorText(parts[0], c.color);
+			    break;
+		    }
+	    }
+
+	    return parts[0] +": " + parts[1];
+	    
+	    string name = text.text.Substring(0,text.text.IndexOf(':'));
+	    
+	    
+	    
+    }
+
+    public string ColorText(string text, Color color)
+    {
+	    return $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>" + text + "</color>";
+    }
+    
 
 }

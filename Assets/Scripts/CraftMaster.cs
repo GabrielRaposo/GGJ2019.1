@@ -113,7 +113,6 @@ public class CraftMaster : MonoBehaviour
 
     public void DoTheCraft()
     {
-
         int v = 0;
 
         if (!(currentRecipe.results.Length == 1))
@@ -128,6 +127,7 @@ public class CraftMaster : MonoBehaviour
             if (slot.type == SlotType.DECORATION) //TODO: Vaso dando erro aqui
             {
                 materialManager.updateDecorationResources(currentRecipe.themes[v].themes[themeIndex], -1);
+                themeIndex++;
             }
             if (slot.type == SlotType.STONE)
             {
@@ -137,7 +137,7 @@ public class CraftMaster : MonoBehaviour
             {
                 materialManager.updateBasicResources(resourceTypes.stone, -1);
             }
-            themeIndex++;
+            
         }
         
         EmptyAllSlots();

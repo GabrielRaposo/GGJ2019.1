@@ -41,18 +41,7 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         citizenData = CitizenData.CreateCitizen();
     }
-
-	// Start is called before the first frame update
-	void Start()
-	{
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
+    
 	public void ShowInfo()
 	{
 		transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeSelf);

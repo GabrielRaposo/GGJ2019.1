@@ -23,6 +23,8 @@ public class CitizenData
     public bool revealedDislike;
     public bool revealProficience;
 
+    public Color color;
+    
     public int strikes;
 
     List<string> names = new List<string>() {
@@ -80,6 +82,8 @@ public class CitizenData
 
 		citizen.species = (Animals)Random.Range(0, 7);
 
+        citizen.color = GetRandomVividColor();
+        
 		Debug.Log($"Like: {citizen.like}");
 		Debug.Log($"Dislike: {citizen.dislike}");
 		Debug.Log($"Proficience: {citizen.proficience}");
@@ -100,6 +104,16 @@ public class CitizenData
         int index = Random.Range(0, surnames.Count);
         Debug.Log(surnames[index]);
         return surnames[index];
+    }
+
+    public static Color GetRandomVividColor()
+    {
+        float h = Random.Range(0f, 1f);
+        float s = 1;
+        float v = 1;
+
+        return Color.HSVToRGB(h, s, v);
+
     }
 
 }
