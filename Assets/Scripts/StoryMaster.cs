@@ -202,7 +202,7 @@ public class StoryMaster : MonoBehaviour
         int i = 0;
         int r = 0;
 		orderedCitizensForStory = new List<CitizenData>(citizens);
-
+		
         foreach (GameObject citizen in GameObject.FindGameObjectsWithTag("Citizen"))
         {
             SatisfactionManager sm = citizen.GetComponent<SatisfactionManager>();
@@ -225,6 +225,7 @@ public class StoryMaster : MonoBehaviour
 
         if (gameManager.craftedItem != null)
         {
+	        newItem = gameManager.craftedItem;
             GoToItemComent(Random.Range(0, citizens.Count));
         }
 
@@ -344,7 +345,7 @@ public class StoryMaster : MonoBehaviour
 
 	private void GoToItemComent(int citizenIndex)
 	{
-		CitizenData dude = citizens[citizenIndex];
+		CitizenData dude = citizens[citizenIndex]; //TODO: Isso aqui ta dando erro
 		DecorationScript item = newItem.GetComponent<DecorationScript>();
 
 		ReorderCitizens(citizenIndex);

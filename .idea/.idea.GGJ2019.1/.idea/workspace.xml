@@ -55,9 +55,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/CraftTileBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PeopleBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
       </list>
     </option>
   </component>
