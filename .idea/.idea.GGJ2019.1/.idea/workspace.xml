@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2741c2dc-02e8-43e0-8b59-010f3fdbc378" name="Default Changelist" comment="" />
@@ -24,13 +24,17 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DayBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Ink/InkRuntime/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HoverManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PeopleBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@1.3.0/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/712D4FD8-31E1-48F0-BA51-24A22B81CAC4/ec/dac3f163/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RecipeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WoodSlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MaterialManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6F65ABCB-040A-47DB-87DC-20D5520A125D/5e/2757c6c7/CanvasScaler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Ink/InkRuntime/CallStack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/712D4FD8-31E1-48F0-BA51-24A22B81CAC4/28/6fc15616/InvokableCall.cs" root0="SKIP_HIGHLIGHTING" />
@@ -52,12 +56,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TentBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CraftTileBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PeopleBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CraftTileBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HoverManager.cs" />
       </list>
     </option>
   </component>
@@ -113,6 +118,7 @@
       <option name="presentableId" value="Default" />
       <updated>1577228643240</updated>
       <workItem from="1577228651185" duration="3817000" />
+      <workItem from="1577308586275" duration="599000" />
     </task>
     <servers />
   </component>
@@ -126,7 +132,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -154,19 +162,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs</url>
-          <line>59</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" initialLine="58">
-            <startOffsets>
-              <option value="1524" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1525" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

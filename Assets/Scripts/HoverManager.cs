@@ -13,12 +13,6 @@ public class HoverManager : MonoBehaviour, IPointerEnterHandler, IPointerClickHa
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();   
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (gameManager.craftedItem != null)
