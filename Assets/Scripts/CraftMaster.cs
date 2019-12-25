@@ -125,7 +125,7 @@ public class CraftMaster : MonoBehaviour
         int themeIndex = 0;
         foreach(Slot slot in currentRecipe.slots)
         {
-            if (slot.type == SlotType.DECORATION)
+            if (slot.type == SlotType.DECORATION) //TODO: Vaso dando erro aqui
             {
                 materialManager.updateDecorationResources(currentRecipe.themes[v].themes[themeIndex], -1);
             }

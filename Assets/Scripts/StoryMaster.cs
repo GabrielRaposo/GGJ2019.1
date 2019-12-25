@@ -340,15 +340,15 @@ public class StoryMaster : MonoBehaviour
 
 		if (item.themes.Contains(dude.like) || (item.themes.Contains(dude.proficience)))
 		{
-			UpdateCurrentStory($"LikingItemP{Random.Range(0, 4).ToString()}");
+			UpdateCurrentStory($"LikingItemP{Random.Range(0, 3).ToString()}");
 		}
 		else if (item.themes.Contains(dude.dislike))
 		{
-			UpdateCurrentStory($"DislikingItemP{Random.Range(0, 4).ToString()}");
+			UpdateCurrentStory($"DislikingItemP{Random.Range(0, 3).ToString()}");
 		}
 		else
 		{
-			UpdateCurrentStory($"NeutralItemP{Random.Range(0, 4).ToString()}");
+			UpdateCurrentStory($"NeutralItemP{Random.Range(0, 3).ToString()}");
 		}
 
 	}

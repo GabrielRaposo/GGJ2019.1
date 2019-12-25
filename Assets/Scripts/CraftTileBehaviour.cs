@@ -60,8 +60,8 @@ public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
         selectedCitizenBehaviour.OnPointerClick(null);
 
         GameObject instantiatedItem = Instantiate(item, new Vector3(100.0f, 100.0f, 100.0f), Quaternion.identity);
-        Color color = instantiatedItem.GetComponent<SpriteRenderer>().material.color;
-        instantiatedItem.GetComponent<SpriteRenderer>().material.color = new Color(color.r, color.g, color.b, alphaCreation);
+//        Color color = instantiatedItem.GetComponent<SpriteRenderer>().material.color;
+  //      instantiatedItem.GetComponent<SpriteRenderer>().material.color = new Color(color.r, color.g, color.b, alphaCreation);
         gameManager.craftedItem = instantiatedItem;
     }
 
