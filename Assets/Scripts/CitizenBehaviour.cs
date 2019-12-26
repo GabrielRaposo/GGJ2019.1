@@ -97,21 +97,37 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
         {
             if (gameManager.SelectedCitizen == null)
             {
-                gameManager.SelectedCitizen = gameObject;
-                ShowInfo();
-                HighlightInteractable();
+                ClickSelect();
             }
             else
             {
                 if (gameManager.SelectedCitizen == gameObject)
                 {
-                    gameManager.SelectedCitizen = null;
-                    ShowInfo();
-                    UnhighlightInteractable();
+                    ClickDeselect();
+                }
+                else
+                {
+	                gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>().ClickDeselect();
+	                ClickSelect();
                 }
             }
         }
 	}
+
+	public void ClickSelect()
+	{
+		gameManager.SelectedCitizen = gameObject;
+		ShowInfo();
+		HighlightInteractable();
+	}
+
+	public void ClickDeselect()
+	{
+		gameManager.SelectedCitizen = null;
+		ShowInfo();
+		UnhighlightInteractable();
+	}
+	
 
 	public void ShowText(string recievedText)
 	{

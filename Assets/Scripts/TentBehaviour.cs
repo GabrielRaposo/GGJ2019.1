@@ -35,6 +35,7 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 			{
 				CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
 				Debug.Log($"{selectedCitizenBehaviour.name} vai limpar a tenda {gameObject}");
+				selectedCitizenBehaviour.ClickDeselect();
 				selectedCitizenBehaviour.SetTurnAction(
 					delegate () {
 						SetOwner(selectedCitizenBehaviour);
@@ -47,7 +48,7 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 	private void SetOwner(CitizenBehaviour citizen)
 	{
 		GetComponent<SpriteRenderer>().sprite = builtTentSprite;
-		GetComponent<SpriteRenderer>().color = citizen.citizenData.color;
+		GetComponent<SpriteRenderer>().color = TentAdjustedColor(citizen.citizenData.color);
 		citizenOwner = citizen.gameObject;
 		citizen.hasTent = true;
 		citizen.tent = gameObject;
@@ -59,6 +60,18 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 		citizenOwner.GetComponent<CitizenBehaviour>().tent = null;
 		citizenOwner = null;
 		GetComponent<SpriteRenderer>().color = Color.grey;
-	} 
+	}
+
+	//60 75
+	public Color TentAdjustedColor(Color baseColor)
+	{
+		Color.RGBToHSV(baseColor, out var h, out var s, out var v);
+
+		s = 0.6f;
+		v = 0.75f;
+
+		return Color.HSVToRGB(h, s, v);
+
+	}
 
 }

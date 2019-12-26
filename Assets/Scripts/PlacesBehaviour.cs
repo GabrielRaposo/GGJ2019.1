@@ -50,7 +50,10 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
         actions act = actions.getWood;
         resourceTypes type = resourceTypes.wood;
 
+        
+        
         if (selectedCitizen != null) {
+            selectedCitizen.GetComponent<CitizenBehaviour>().ClickDeselect();
             Theme proficience = selectedCitizen.GetComponent<CitizenBehaviour>().CitizenData.proficience;
             Debug.Log(proficience);
             switch (this.gameObject.tag) {

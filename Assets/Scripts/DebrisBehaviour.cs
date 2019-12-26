@@ -54,6 +54,8 @@ public class DebrisBehaviour : MonoBehaviour, IPointerClickHandler {
         if(selectedCitizenBehaviour == null)
             return;
         
+        selectedCitizenBehaviour.ClickDeselect();
+        
         selectedCitizenBehaviour.SetTurnAction(
             delegate () {
                 CleanDebris();
