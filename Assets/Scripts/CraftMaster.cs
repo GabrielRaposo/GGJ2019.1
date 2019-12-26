@@ -135,7 +135,7 @@ public class CraftMaster : MonoBehaviour
             }
             if (slot.type == SlotType.WOOD)
             {
-                materialManager.updateBasicResources(resourceTypes.stone, -1);
+                materialManager.updateBasicResources(resourceTypes.wood, -1);
             }
             
         }

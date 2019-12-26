@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MaterialManager : MonoBehaviour {
@@ -13,6 +14,8 @@ public class MaterialManager : MonoBehaviour {
         { Theme.AIR, 0},
     };
 
+    public TextMeshProUGUI text;
+
     public int Wood { get { return wood; } }
     public int Stone { get { return stone; } }
 
@@ -20,6 +23,7 @@ public class MaterialManager : MonoBehaviour {
     void Start() {
         wood = 0;
         stone = 0;
+        UpdateTextWindow();
     }
 
     public void updateBasicResources(resourceTypes type, int quantity) {
@@ -31,6 +35,7 @@ public class MaterialManager : MonoBehaviour {
                 stone += quantity;
                 break;
         }
+        UpdateTextWindow();
     }
 
     public void updateDecorationResources(Theme type, int quantity) {
@@ -52,5 +57,17 @@ public class MaterialManager : MonoBehaviour {
                 Debug.Log("AIR: " + decorations[Theme.AIR]);
                 break;
         }
+        UpdateTextWindow();
     }
+
+    public void UpdateTextWindow()
+    {
+        text.text = $"<sprite=0>: {wood}\n" +
+                    $"<sprite=1>: {stone}\n" +
+                    $"<sprite=2>: {decorations[Theme.FIRE]}\n" +
+                    $"<sprite=3>: {decorations[Theme.AIR]}\n" +
+                    $"<sprite=4>: {decorations[Theme.EARTH]}\n" +
+                    $"<sprite=5>: {decorations[Theme.WATER]}";
+    }
+    
 }
