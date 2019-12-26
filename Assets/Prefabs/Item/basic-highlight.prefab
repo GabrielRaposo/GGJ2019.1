@@ -69,8 +69,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ade880cce9bdbd9499dfb79c3a500d08, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2509804}
+  m_Sprite: {fileID: 21300000, guid: 01f213fcc6b904346ab877e0ad3f0a58, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,3 +92,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772311de1f40c55418e657cfdd749148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.109697044
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.50393355
+      value: 0.091008365
+      inSlope: 0.040193845
+      outSlope: 0.040193845
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.19097145
+    - serializedVersion: 3
+      time: 1.003346
+      value: -0.10482621
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  speed: 0.75

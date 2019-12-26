@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\UnityProjects\GGJ2019.1" t="IncludeRecursive">
@@ -87,6 +87,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="ActionMarkers.cs" t="Include" />
           <e p="CitizenBehaviour.cs" t="Include" />
           <e p="CitizenData.cs" t="Include" />
           <e p="Container.cs" t="Include" />

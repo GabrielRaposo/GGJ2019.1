@@ -7,7 +7,7 @@ public class FoodTileBehaviour : MonoBehaviour, IPointerClickHandler
 {
 
 	GameManager gameManager;
-
+	public ActionMarkers actionMarkers;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,12 @@ public class FoodTileBehaviour : MonoBehaviour, IPointerClickHandler
 			{
 				CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
 				Debug.Log($"{selectedCitizenBehaviour.name} vai pegar comida");
+				
+				if(selectedCitizenBehaviour.actionMarker != null)
+					selectedCitizenBehaviour.actionMarker.RemoveCitizen(selectedCitizenBehaviour);
+				
+				actionMarkers.AddCitizen(selectedCitizenBehaviour);
+				
 				selectedCitizenBehaviour.ClickDeselect();
 				selectedCitizenBehaviour.SetTurnAction(
 					delegate () {

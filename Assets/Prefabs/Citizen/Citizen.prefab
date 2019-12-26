@@ -106,12 +106,14 @@ MonoBehaviour:
     revealedLike: 0
     revealedDislike: 0
     revealProficience: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
     strikes: 0
   hasTent: 0
   tent: {fileID: 0}
   turnActionType: 0
   textBox: {fileID: 0}
   text: {fileID: 0}
+  circleIndicator: {fileID: 6598159183685235833}
   strikes: 0
 --- !u!61 &1445007973301265268
 BoxCollider2D:
@@ -265,7 +267,7 @@ GameObject:
   - component: {fileID: 1326567671503042013}
   - component: {fileID: 6598159183685235833}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CircleIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8434316, b: 0.24056602, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

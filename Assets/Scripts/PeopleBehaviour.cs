@@ -76,6 +76,8 @@ public class PeopleBehaviour : MonoBehaviour
 				break;
 		}
 
+		citizen.GetComponent<CitizenBehaviour>().circleIndicator.color =
+			citizen.GetComponent<CitizenBehaviour>().citizenData.color; 
 		citizen.GetComponent<SpriteRenderer>().color =
 			GetSoftColor(citizen.GetComponent<CitizenBehaviour>().citizenData.color);
 	}

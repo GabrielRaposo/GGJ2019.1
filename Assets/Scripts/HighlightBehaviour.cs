@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class HighlightBehaviour : MonoBehaviour
 {
-
-    // Start is called before the first frame update
+	public AnimationCurve curve;
+	private Vector3 startingScale;
+	public float speed;
+	private float time;
+	
     void Start()
     {
 		Vector2 tileSize = GetComponentInParent<Interactable>().tileSize;
-		transform.localScale = new Vector3(tileSize.x, tileSize.y, 1.0f);
+		startingScale = new Vector3(tileSize.x, tileSize.y, 1.0f);
+		transform.localScale = startingScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+	    time += speed * Time.deltaTime;
+	    time %= 1;
+	    transform.localScale = startingScale * (curve.Evaluate(time) + 1f);
     }
 }

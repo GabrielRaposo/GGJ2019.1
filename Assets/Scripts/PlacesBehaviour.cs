@@ -8,6 +8,7 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
     [SerializeField] [Range(0f, 10f)] float chanceOfGettingDecorationResources;
     GameObject gameManager;
     GameObject selectedCitizen;
+    public ActionMarkers actionMarkers;
 
     void Start() {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager");
@@ -45,16 +46,17 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        GameObject selectedCitizen = gameManager.GetComponent<GameManager>().SelectedCitizen;
+        GameObject selectedCitizenObject = gameManager.GetComponent<GameManager>().SelectedCitizen;
+        CitizenBehaviour selectedCitizen = selectedCitizenObject.GetComponent<CitizenBehaviour>();
 
         actions act = actions.getWood;
         resourceTypes type = resourceTypes.wood;
 
         
         
-        if (selectedCitizen != null) {
-            selectedCitizen.GetComponent<CitizenBehaviour>().ClickDeselect();
-            Theme proficience = selectedCitizen.GetComponent<CitizenBehaviour>().CitizenData.proficience;
+        if (selectedCitizenObject != null) {
+            selectedCitizen.ClickDeselect();
+            Theme proficience = selectedCitizen.CitizenData.proficience;
             Debug.Log(proficience);
             switch (this.gameObject.tag) {
                 case "WoodWay":
@@ -74,16 +76,24 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
 
             }
             if (act != null && type != null) {
-                if (this.gameObject.tag == "DecorationWay") {
-                    selectedCitizen.GetComponent<CitizenBehaviour>().SetTurnAction(
+                if (this.gameObject.tag == "DecorationWay")
+                {
+                    if(selectedCitizen.actionMarker!=null)
+                        selectedCitizen.actionMarker.RemoveCitizen(selectedCitizen);
+                    
+                    actionMarkers.AddCitizen(selectedCitizen);
+                    selectedCitizen.SetTurnAction(
                     delegate () {
                         collectDecoration(proficience);
                     }, act);
-                } else {
-                selectedCitizen.GetComponent<CitizenBehaviour>().SetTurnAction(
-                    delegate () {
-                        collectBasic(type, proficience);
-                    }, act);
+                }
+                else
+                {
+                    actionMarkers.AddCitizen(selectedCitizen);
+                    selectedCitizen.SetTurnAction(
+                        delegate () {
+                            collectBasic(type, proficience);
+                        }, act);
                 }
             }
         }

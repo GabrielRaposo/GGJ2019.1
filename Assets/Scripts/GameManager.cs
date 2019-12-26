@@ -121,6 +121,12 @@ public class GameManager : MonoBehaviour
             citizen.ResetTurnAction();
             citizen.UnhighlightInteractable();
         }
+
+        foreach (var o in GameObject.FindObjectsOfType(typeof(ActionMarkers)))
+        {
+            var am = (ActionMarkers) o;
+            am.ClearAll();
+        }
     }
 
     public void DeactivateCamp()

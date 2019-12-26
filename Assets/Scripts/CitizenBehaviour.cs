@@ -17,6 +17,9 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	public GameObject textBox;
 	public TextMeshProUGUI text;
 
+	public UnityEngine.UI.Image circleIndicator;
+	public ActionMarkers actionMarker;
+	
 	public int strikes;
 
     private bool isClickable;
