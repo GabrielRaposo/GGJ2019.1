@@ -41,6 +41,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D7AC571C-A2D0-4B2F-981D-0D886FA067CF/31/ad333da6/IndexOutOfRangeException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Ink/InkRuntime/Story.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Cutscener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StoneSlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TentBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/712D4FD8-31E1-48F0-BA51-24A22B81CAC4/78/875b658b/UnityEvent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -53,7 +54,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HoverManager.cs" />
@@ -68,6 +68,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlacesBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TentBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -124,7 +125,7 @@
       <updated>1577228643240</updated>
       <workItem from="1577228651185" duration="3817000" />
       <workItem from="1577308586275" duration="703000" />
-      <workItem from="1577357892718" duration="8266000" />
+      <workItem from="1577357892718" duration="9120000" />
     </task>
     <servers />
   </component>
@@ -156,19 +157,6 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs</url>
-          <line>125</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" initialLine="126">
-            <startOffsets>
-              <option value="2517" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2518" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

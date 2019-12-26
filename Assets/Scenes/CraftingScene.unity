@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -716,5 +716,16 @@ PrefabInstance:
       propertyPath: m_BlocksRaycasts
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6016305413238442820, guid: db42b1197001faa449df266bcdb5f394,
+        type: 3}
+      propertyPath: recipes.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016305413238442820, guid: db42b1197001faa449df266bcdb5f394,
+        type: 3}
+      propertyPath: recipes.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: b2c2b5ed4b2fe7b429b2a74d5fb5911f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db42b1197001faa449df266bcdb5f394, type: 3}
