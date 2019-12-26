@@ -201,6 +201,7 @@ public class StoryMaster : MonoBehaviour
     {
         int i = 0;
         int r = 0;
+        
 		orderedCitizensForStory = new List<CitizenData>(citizens);
 		
         foreach (GameObject citizen in GameObject.FindGameObjectsWithTag("Citizen"))

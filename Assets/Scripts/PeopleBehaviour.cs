@@ -92,9 +92,7 @@ public class PeopleBehaviour : MonoBehaviour
 
 	public void kickCitizen(GameObject citizen) {
         //desassociar tenda da pessoa
-        citizen.GetComponent<CitizenBehaviour>().hasTent = false;
-        citizen.GetComponent<CitizenBehaviour>().tent.GetComponent<TentBehaviour>().CitizenOwner = null;
-        citizen.GetComponent<CitizenBehaviour>().tent = null;
+        citizen.GetComponent<CitizenBehaviour>().tent.GetComponent<TentBehaviour>().RemoveOwner();
 
         //adiciona na listinha de destuicao
         toBeDestroyed.Add(citizen.gameObject);

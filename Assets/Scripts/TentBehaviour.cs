@@ -8,7 +8,9 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 {
 
 	[SerializeField] private GameObject citizenOwner;
-
+	public Sprite builtTentSprite;
+	public Transform ownerPosition;
+	
 	public GameObject CitizenOwner
 	{
 		get { return citizenOwner; }
@@ -35,13 +37,28 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 				Debug.Log($"{selectedCitizenBehaviour.name} vai limpar a tenda {gameObject}");
 				selectedCitizenBehaviour.SetTurnAction(
 					delegate () {
-						citizenOwner = gameManager.SelectedCitizen;
+						SetOwner(selectedCitizenBehaviour);
 						selectedCitizenBehaviour.OnPointerClick(null);
-						selectedCitizenBehaviour.hasTent = true;
-                        selectedCitizenBehaviour.tent = this.gameObject;
 					}, actions.cleanTent);
 			}
 		} 
 	}
+
+	private void SetOwner(CitizenBehaviour citizen)
+	{
+		GetComponent<SpriteRenderer>().sprite = builtTentSprite;
+		GetComponent<SpriteRenderer>().color = citizen.citizenData.color;
+		citizenOwner = citizen.gameObject;
+		citizen.hasTent = true;
+		citizen.tent = gameObject;
+	}
+
+	public void RemoveOwner()
+	{
+		citizenOwner.GetComponent<CitizenBehaviour>().hasTent = false;
+		citizenOwner.GetComponent<CitizenBehaviour>().tent = null;
+		citizenOwner = null;
+		GetComponent<SpriteRenderer>().color = Color.grey;
+	} 
 
 }

@@ -49,7 +49,7 @@ public class Cutscener : MonoBehaviour
             CitizenBehaviour citizenBehaviour = citizen.GetComponent<CitizenBehaviour>();
             if (citizenBehaviour.hasTent)
             {
-                citizen.transform.position = new Vector3(citizenBehaviour.tent.transform.position.x , citizenBehaviour.tent.transform.position.y, -1);
+                citizen.transform.position = new Vector3(citizenBehaviour.tent.GetComponent<TentBehaviour>().ownerPosition.position.x , citizenBehaviour.tent.GetComponent<TentBehaviour>().ownerPosition.position.y, -1);
             } else
             {
                 citizen.transform.position = currentVector;

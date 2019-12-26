@@ -79,7 +79,8 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 		}
 	}
 
-	public void SetTurnAction(TurnAction action, actions actionType) {
+	public void SetTurnAction(TurnAction action, actions actionType)
+	{
 		turnAction = action;
 		turnActionType = actionType;
 	}

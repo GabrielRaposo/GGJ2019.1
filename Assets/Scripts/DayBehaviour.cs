@@ -19,7 +19,6 @@ public class DayBehaviour : MonoBehaviour
 		set { dayCounter = value; }
 	}
 
-	// Start is called before the first frame update
 	void Start()
     {
         peopleBehaviour = GetComponent<PeopleBehaviour>();
@@ -27,12 +26,6 @@ public class DayBehaviour : MonoBehaviour
 		interactableItemsInCurrentDay = new List<GameObject>();
 		StartCoroutine(showDayText());
 	}
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
 	IEnumerator showDayText()
 	{
 		int counterMax = 100;

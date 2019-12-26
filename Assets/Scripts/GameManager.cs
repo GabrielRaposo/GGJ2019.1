@@ -74,12 +74,6 @@ public class GameManager : MonoBehaviour
         storyMaster = GetComponent<StoryMaster>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void BeginFirstDay()
     {
         dayBehaviour.BeginDay();

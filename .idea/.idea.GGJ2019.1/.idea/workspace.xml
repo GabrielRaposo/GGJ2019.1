@@ -54,15 +54,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TentBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CitizenBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PeopleBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CraftTileBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HoverManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interactable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CraftTileBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DayBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TentBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PeopleBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CitizenBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -118,7 +121,8 @@
       <option name="presentableId" value="Default" />
       <updated>1577228643240</updated>
       <workItem from="1577228651185" duration="3817000" />
-      <workItem from="1577308586275" duration="599000" />
+      <workItem from="1577308586275" duration="703000" />
+      <workItem from="1577357892718" duration="6666000" />
     </task>
     <servers />
   </component>
