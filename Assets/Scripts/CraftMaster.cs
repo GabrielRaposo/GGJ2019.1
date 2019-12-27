@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class CraftMaster : MonoBehaviour
 {
@@ -23,7 +24,8 @@ public class CraftMaster : MonoBehaviour
 
 	public Button confirmButton;
 
-	public CitizenData crafter;
+	[FormerlySerializedAs("crafter")] public CitizenData crafterData;
+	public CitizenBehaviour crafterBehavior;
 
 	public bool checkFunction;
 
@@ -38,6 +40,7 @@ public class CraftMaster : MonoBehaviour
 
 	private void Awake()
 	{
+		
 		dropdown.onValueChanged.AddListener(UpdateSlots);
 		dropdown.options.Clear();
 
@@ -80,8 +83,10 @@ public class CraftMaster : MonoBehaviour
     private void Update()
 	{
 		checkFunction = IsCraftReady();
-
-        crafter = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>().citizenData;
+		
+		crafterBehavior = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
+        crafterData = crafterBehavior.citizenData;
+        
 
         if (IsCraftReady())
 			confirmButton.interactable = true;
@@ -137,13 +142,18 @@ public class CraftMaster : MonoBehaviour
             {
                 materialManager.updateBasicResources(resourceTypes.wood, -1);
             }
-            
         }
         
         EmptyAllSlots();
         craftedObject = currentRecipe.results[v];
+        
+        //craftTileBehaviour.actionMarkers.AddCitizen(crafterBehavior);
+        
         craftTileBehaviour.PrepareCraftItem(craftedObject);
         craftTileBehaviour.CloseCraftTable();
+        
+        //crafterBehavior.ClickDeselect();
+        //crafterBehavior.SetClickable(false);
 	}
 
 	public string GetIngredientsCode()
@@ -179,7 +189,7 @@ public class CraftMaster : MonoBehaviour
 					}
                     if (uISlot.GetType() == typeof(InspirationSlot))
                     {
-                        switch (crafter.proficience)
+                        switch (crafterData.proficience)
                         {
                             case Theme.WATER:
                                 w = true;
@@ -224,7 +234,6 @@ public class CraftMaster : MonoBehaviour
 		{
 			if (i < currentRecipe.slots.Count)
 			{
-                print(currentRecipe.slots[i]);
 				slots[i].SetActive(true);
 
 				Vector3 position = slots[i].transform.position;
@@ -249,9 +258,9 @@ public class CraftMaster : MonoBehaviour
 						break;
 					case SlotType.INSPIRATION:
 						slots[i] = Instantiate(inspirationSlot, position, rotation, canvas.transform);
-						if(crafter != null)
+						if(crafterData != null)
 						{
-							slots[i].GetComponent<UISlotScript>().Fill(crafter);
+							slots[i].GetComponent<UISlotScript>().Fill(crafterData);
 						}
 						break;
 				}

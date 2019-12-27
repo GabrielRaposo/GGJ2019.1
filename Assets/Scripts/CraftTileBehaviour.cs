@@ -12,14 +12,12 @@ public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
     public float alphaCreation = 0.5f;
     public GameObject mainCanvas;
 
-    void Awake()
-    {
-        // mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
-    }
+    public ActionMarkers actionMarkers;
     
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        actionMarkers = GetComponentInChildren<ActionMarkers>();
     }
 
     public void OpenCraftTable()

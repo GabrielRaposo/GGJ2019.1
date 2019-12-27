@@ -20,9 +20,16 @@ public class ActionMarkers : MonoBehaviour
       citizen.actionMarker = this;
    }
 
+   public void AddCitizenSingle(CitizenBehaviour citizen)
+   {
+      ClearAll();
+      AddCitizen(citizen);
+   }
+
    public void RemoveCitizen(CitizenBehaviour citizen)
    {
       citizen.actionMarker = null;
+      citizen.ResetTurnAction();
       int index = list.IndexOf(citizen);
       Destroy(transform.GetChild(index).gameObject);
       list.RemoveAt(index);

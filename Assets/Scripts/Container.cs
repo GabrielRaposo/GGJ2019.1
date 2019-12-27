@@ -25,7 +25,6 @@ public class Container : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        print(type);
         if (type == Barks.GET_DECOR_AIR || type == Barks.GET_DECOR_EARTH || type == Barks.GET_DECOR_FIRE || type == Barks.GET_DECOR_WATER)
             Amount = gameManager.GetComponent<MaterialManager>().decorations[StoryMaster.BarkToTheme(type)];
         if (type == Barks.GET_STONE)

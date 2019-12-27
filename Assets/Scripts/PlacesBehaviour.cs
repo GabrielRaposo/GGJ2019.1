@@ -46,19 +46,21 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData eventData) {
+        
         GameObject selectedCitizenObject = gameManager.GetComponent<GameManager>().SelectedCitizen;
+        
+        if(selectedCitizenObject == null) return;
+        
         CitizenBehaviour selectedCitizen = selectedCitizenObject.GetComponent<CitizenBehaviour>();
 
         actions act = actions.getWood;
         resourceTypes type = resourceTypes.wood;
-
-        
         
         if (selectedCitizenObject != null) {
             selectedCitizen.ClickDeselect();
             Theme proficience = selectedCitizen.CitizenData.proficience;
             Debug.Log(proficience);
-            switch (this.gameObject.tag) {
+            switch (gameObject.tag) {
                 case "WoodWay":
                     Debug.Log("wood");
                     act = actions.getWood;
@@ -89,6 +91,8 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
                 }
                 else
                 {
+                    if(selectedCitizen.actionMarker != null)
+                        selectedCitizen.actionMarker.RemoveCitizen(selectedCitizen);
                     actionMarkers.AddCitizen(selectedCitizen);
                     selectedCitizen.SetTurnAction(
                         delegate () {

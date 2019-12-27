@@ -9,11 +9,13 @@ public class DebrisBehaviour : MonoBehaviour, IPointerClickHandler {
 
     MaterialManager materialManager;
     GameManager gameManager;
+    private ActionMarkers actionMarker;
 
 
     void Start() {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        
+        actionMarker = GetComponentInChildren<ActionMarkers>();
+
     }
 
     public void CleanDebris() {
@@ -55,6 +57,11 @@ public class DebrisBehaviour : MonoBehaviour, IPointerClickHandler {
             return;
         
         selectedCitizenBehaviour.ClickDeselect();
+        
+        if(selectedCitizenBehaviour.actionMarker!=null)
+            selectedCitizenBehaviour.actionMarker.RemoveCitizen(selectedCitizenBehaviour);
+        
+        actionMarker.AddCitizenSingle(selectedCitizenBehaviour);
         
         selectedCitizenBehaviour.SetTurnAction(
             delegate () {

@@ -13,7 +13,6 @@ public class Cutscener : MonoBehaviour
         foreach(GameObject citizen in GameObject.FindGameObjectsWithTag("Citizen"))
         {
             int rand = Random.Range(0, l.Count);
-            print(rand);
             citizen.transform.position = l[rand].transform.position;
             citizen.transform.localScale = new Vector3 (2, 2, 0);
             citizen.GetComponent<CitizenBehaviour>().IsClickable = false;

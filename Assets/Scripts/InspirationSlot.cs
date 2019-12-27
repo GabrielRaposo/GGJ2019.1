@@ -24,9 +24,9 @@ public class InspirationSlot : UISlotScript
 
     private void Update()
     {
-        Debug.Log($"{FindObjectOfType<CraftMaster>().crafter.proficience}");
+        //Debug.Log($"{FindObjectOfType<CraftMaster>().crafterData.proficience}");
 
-        switch (FindObjectOfType<CraftMaster>().crafter.proficience)
+        switch (FindObjectOfType<CraftMaster>().crafterData.proficience)
         {
             case Theme.WATER:
                 display.sprite = filledImageW;

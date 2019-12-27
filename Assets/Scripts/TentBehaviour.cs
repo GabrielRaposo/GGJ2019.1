@@ -10,6 +10,7 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 	[SerializeField] private GameObject citizenOwner;
 	public Sprite builtTentSprite;
 	public Transform ownerPosition;
+	public ActionMarkers actionMarkers;
 	
 	public GameObject CitizenOwner
 	{
@@ -23,6 +24,7 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 	void Start()
     {
 		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+		actionMarkers = GetComponentInChildren<ActionMarkers>();
     }
 
 	public void OnPointerClick(PointerEventData eventData)
@@ -34,7 +36,13 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 			if (gameManager.GetInteractableItemsInCurrentDay.Exists(go => go == gameObject))
 			{
 				CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
-				Debug.Log($"{selectedCitizenBehaviour.name} vai limpar a tenda {gameObject}");
+				
+				if(selectedCitizenBehaviour.hasTent) return;
+				
+				if(selectedCitizenBehaviour.actionMarker!=null)
+					selectedCitizenBehaviour.actionMarker.RemoveCitizen(selectedCitizenBehaviour);
+				
+				actionMarkers.AddCitizenSingle(selectedCitizenBehaviour);
 				selectedCitizenBehaviour.ClickDeselect();
 				selectedCitizenBehaviour.SetTurnAction(
 					delegate () {
@@ -49,9 +57,11 @@ public class TentBehaviour : MonoBehaviour, IPointerClickHandler
 	{
 		GetComponent<SpriteRenderer>().sprite = builtTentSprite;
 		GetComponent<SpriteRenderer>().color = TentAdjustedColor(citizen.citizenData.color);
+		GetComponent<Collider2D>().enabled = false;
 		citizenOwner = citizen.gameObject;
 		citizen.hasTent = true;
 		citizen.tent = gameObject;
+		
 	}
 
 	public void RemoveOwner()

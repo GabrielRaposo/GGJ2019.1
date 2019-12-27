@@ -96,25 +96,33 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-        if (IsClickable)
-        {
-            if (gameManager.SelectedCitizen == null)
-            {
-                ClickSelect();
-            }
-            else
-            {
-                if (gameManager.SelectedCitizen == gameObject)
-                {
-                    ClickDeselect();
-                }
-                else
-                {
-	                gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>().ClickDeselect();
-	                ClickSelect();
-                }
-            }
-        }
+		if (!IsClickable) return;
+		
+		if (gameManager.SelectedCitizen == null)
+		{
+			ClickSelect();
+		}
+		else
+		{
+			if (gameManager.SelectedCitizen == gameObject)
+			{
+				ClickDeselect();
+			}
+			else
+			{
+				gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>().ClickDeselect();
+				ClickSelect();
+			}
+		}
+	}
+
+	public void SetClickable(bool value)
+	{
+		isClickable = value;
+		if (!value)
+			GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r, GetComponent<SpriteRenderer>().color.g, GetComponent<SpriteRenderer>().color.b, .7f); 
+		else
+			GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r, GetComponent<SpriteRenderer>().color.g, GetComponent<SpriteRenderer>().color.b, 1f);
 	}
 
 	public void ClickSelect()

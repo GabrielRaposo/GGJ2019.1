@@ -120,13 +120,15 @@ public class GameManager : MonoBehaviour
         {
             citizen.ResetTurnAction();
             citizen.UnhighlightInteractable();
+            citizen.SetClickable(true);
         }
 
-        foreach (var o in GameObject.FindObjectsOfType(typeof(ActionMarkers)))
+        foreach (var o in FindObjectsOfType(typeof(ActionMarkers)))
         {
             var am = (ActionMarkers) o;
             am.ClearAll();
         }
+        
     }
 
     public void DeactivateCamp()

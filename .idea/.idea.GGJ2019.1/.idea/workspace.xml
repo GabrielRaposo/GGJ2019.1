@@ -16,6 +16,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SORecipe.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CraftTileBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6F65ABCB-040A-47DB-87DC-20D5520A125D/6e/ae51500c/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Container.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlacesBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D7AC571C-A2D0-4B2F-981D-0D886FA067CF/02/91a99a84/List`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -33,6 +34,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ActionMarkers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/InspirationSlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RecipeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WoodSlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MaterialManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -59,21 +61,23 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HoverManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CraftTileBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DayBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Cutscener.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TentBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MaterialManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HighlightBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PeopleBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CitizenBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlacesBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CitizenBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlacesBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ActionMarkers.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TentBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CraftTileBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InspirationSlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Container.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Cutscener.cs" />
       </list>
     </option>
   </component>
@@ -110,10 +114,10 @@
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="4200">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="23060">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="4200" />
+      <option name="pid" value="23060" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -130,7 +134,8 @@
       <updated>1577228643240</updated>
       <workItem from="1577228651185" duration="3817000" />
       <workItem from="1577308586275" duration="703000" />
-      <workItem from="1577357892718" duration="14589000" />
+      <workItem from="1577357892718" duration="14694000" />
+      <workItem from="1577450758568" duration="5178000" />
     </task>
     <servers />
   </component>
