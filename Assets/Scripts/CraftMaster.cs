@@ -110,8 +110,6 @@ public class CraftMaster : MonoBehaviour
 					return false;
 				}
 			}
-			
-
 		}
 		return true;
 	}
@@ -147,11 +145,10 @@ public class CraftMaster : MonoBehaviour
         EmptyAllSlots();
         craftedObject = currentRecipe.results[v];
         
-        //craftTileBehaviour.actionMarkers.AddCitizen(crafterBehavior);
-        
-        craftTileBehaviour.PrepareCraftItem(craftedObject);
+        craftTileBehaviour.PrepareCraftItem(craftedObject, crafterBehavior);
         craftTileBehaviour.CloseCraftTable();
         
+        //craftTileBehaviour.actionMarkers.AddCitizen(crafterBehavior);
         //crafterBehavior.ClickDeselect();
         //crafterBehavior.SetClickable(false);
 	}

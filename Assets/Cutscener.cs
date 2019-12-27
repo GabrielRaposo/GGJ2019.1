@@ -16,7 +16,7 @@ public class Cutscener : MonoBehaviour
             citizen.transform.position = l[rand].transform.position;
             citizen.transform.localScale = new Vector3 (2, 2, 0);
             citizen.GetComponent<CitizenBehaviour>().IsClickable = false;
-            citizen.GetComponent<CitizenBehaviour>().UnhighlightInteractable();
+            citizen.GetComponent<CitizenBehaviour>().SetHighlightInteractableAll(false);
             citizen.GetComponent<CitizenBehaviour>().HideInfo();
             l.RemoveAt(rand);
         }
@@ -65,7 +65,7 @@ public class Cutscener : MonoBehaviour
             }
             citizen.transform.localScale = new Vector3(1f, 1f, 0f);
             citizen.GetComponent<CitizenBehaviour>().IsClickable = true;
-            citizen.GetComponent<CitizenBehaviour>().UnhighlightInteractable();
+            citizen.GetComponent<CitizenBehaviour>().SetHighlightInteractableAll(false);
             citizen.GetComponent<CitizenBehaviour>().HideInfo();
         }
     }

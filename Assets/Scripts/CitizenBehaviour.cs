@@ -45,9 +45,9 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
         citizenData = CitizenData.CreateCitizen();
     }
     
-	public void ShowInfo()
+	public void SetShowInfo(bool value)
 	{
-		transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeSelf);
+		transform.GetChild(0).gameObject.SetActive(value);
 	}
     
     public void HideInfo()
@@ -55,15 +55,15 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
         transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    public void UnhighlightInteractable()
+    public void SetHighlightInteractableAll(bool value)
     {
         foreach (GameObject gameObject in gameManager.GetInteractableItemsInCurrentDay)
         {
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.transform.GetChild(0).gameObject.SetActive(value);
         }
     }
 
-    public void HighlightInteractable()
+    public void SetHighlightInteractableScpecific(bool value)
 	{
 		foreach (GameObject gameObject in gameManager.GetInteractableItemsInCurrentDay)
 		{
@@ -71,13 +71,13 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 			{
 				if (gameObject.CompareTag("tent") && gameObject.GetComponent<TentBehaviour>().CitizenOwner == null)
 				{
-					gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
+					gameObject.transform.GetChild(0).gameObject.SetActive(value);
 				}
 				continue;
 			}
 			if (!gameObject.CompareTag("tent"))
 			{
-				gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
+				gameObject.transform.GetChild(0).gameObject.SetActive(value);
 			}
 		}
 	}
@@ -128,15 +128,21 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	public void ClickSelect()
 	{
 		gameManager.SelectedCitizen = gameObject;
-		ShowInfo();
-		HighlightInteractable();
+		SetShowInfo(true);
+		SetHighlightInteractableScpecific(true);
 	}
 
 	public void ClickDeselect()
 	{
 		gameManager.SelectedCitizen = null;
-		ShowInfo();
-		UnhighlightInteractable();
+		SetShowInfo(false);
+		SetHighlightInteractableAll(false);
+	}
+
+	public void ClickDeselectVisualOnly()
+	{
+		SetShowInfo(false);
+		SetHighlightInteractableAll(false);
 	}
 	
 

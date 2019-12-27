@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
 {
 
-    [SerializeField] private GameManager gameManager;
+    public GameManager gameManager;
     public DecorationScript item;
     public float alphaCreation = 0.5f;
     public GameObject mainCanvas;
@@ -16,7 +16,6 @@ public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
     
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         actionMarkers = GetComponentInChildren<ActionMarkers>();
     }
 
@@ -27,8 +26,6 @@ public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
         {
             if (obj.CompareTag("MainCanvas")) obj.SetActive(false);
         }
-        
-        //mainCanvas.SetActive(false);
     }
 
     public void CloseCraftTable()
@@ -40,15 +37,17 @@ public class CraftTileBehaviour : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void PrepareCraftItem(GameObject item)
+    public void PrepareCraftItem(GameObject item, CitizenBehaviour selectedCitizenBehaviour)
     {
-        CitizenBehaviour selectedCitizenBehaviour = gameManager.SelectedCitizen.GetComponent<CitizenBehaviour>();
         selectedCitizenBehaviour.SetTurnAction(
             delegate () {
 				//gameManager.GetComponent<StoryMaster>().newItemName = item.name;
 				gameManager.GetComponent<StoryMaster>().newItem = item;
             }, actions.craft);
-        selectedCitizenBehaviour.OnPointerClick(null);
+        
+        actionMarkers.AddCitizen(selectedCitizenBehaviour);
+        selectedCitizenBehaviour.ClickDeselect();
+        selectedCitizenBehaviour.SetClickable(false);
 
         GameObject instantiatedItem = Instantiate(item, new Vector3(100.0f, 100.0f, 100.0f), Quaternion.identity);
 //        Color color = instantiatedItem.GetComponent<SpriteRenderer>().material.color;

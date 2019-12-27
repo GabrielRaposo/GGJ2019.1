@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
         foreach (CitizenBehaviour citizen in citizens)
         {
             citizen.ResetTurnAction();
-            citizen.UnhighlightInteractable();
+            citizen.SetHighlightInteractableAll(false);
             citizen.SetClickable(true);
         }
 

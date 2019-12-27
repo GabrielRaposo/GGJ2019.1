@@ -53,6 +53,12 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
         
         CitizenBehaviour selectedCitizen = selectedCitizenObject.GetComponent<CitizenBehaviour>();
 
+        if (!selectedCitizen.hasTent)
+        {
+            selectedCitizen.ClickDeselect();
+            return;
+        }
+        
         actions act = actions.getWood;
         resourceTypes type = resourceTypes.wood;
         
