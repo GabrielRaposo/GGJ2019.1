@@ -21,11 +21,6 @@ public class ItemDescriptorScript : MonoBehaviour
 	public float minY;
 
 	public float speed;
-		
-	private void Awake()
-	{
-		
-	}
 
 	private void Update()
 	{

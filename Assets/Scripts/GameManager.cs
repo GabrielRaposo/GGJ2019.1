@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
         backgroundFade = GameObject.FindGameObjectWithTag("Fade Background").GetComponent<Image>();
         backgroundFade.canvasRenderer.SetAlpha(0f);
         storyMaster = GetComponent<StoryMaster>();
+        UpdateFood();
     }
 
     public void BeginFirstDay()
@@ -94,7 +95,13 @@ public class GameManager : MonoBehaviour
             {
                 if (citizen.GetComponent<CitizenBehaviour>().turnActionType == actions.getFood) foodAction = true;
             }
-            if (!foodAction) return false;
+
+            if (!foodAction)
+            {
+                Debug.Log("Mano tu tem que pegar comida");
+                StartCoroutine(FoodAlarm());
+                return false;
+            }
         }
         return true;
     }
@@ -106,11 +113,66 @@ public class GameManager : MonoBehaviour
             if (i < foodQuantity)
             {
                 foodPanel.transform.GetChild(i).GetComponent<RawImage>().texture = foodFilled;
+                foodPanel.transform.GetChild(i).GetComponent<RawImage>().color = Color.white;
             } else
             {
                 foodPanel.transform.GetChild(i).GetComponent<RawImage>().texture = foodUnfilled;
+                foodPanel.transform.GetChild(i).GetComponent<RawImage>().color = new Color(0.6f, 0.6f, 0.6f, 0.8f);
             }
         }
+    }
+
+    private IEnumerator FoodAlarm()
+    {
+        Image window = foodPanel.GetComponent<Image>();
+        float clock = 0;
+        float maxTime = 0.21f;
+        int reps = 0;
+        int maxReps = 5;
+
+        Vector3 startingScale = foodPanel.transform.localScale;
+        Vector3 maxScale = new Vector3(1.75f,1.75f,1f);
+
+        while (reps<=maxReps)
+        {
+            if (reps % 2 == 0)
+            {
+                while (clock<maxTime)
+                {
+                    clock += Time.deltaTime;
+
+                    foodPanel.transform.localScale = Vector3.Lerp(startingScale, maxScale, (clock / maxTime));
+                    Vector3 colorVec = Vector3.Lerp(Vector3.one, new Vector3(Color.red.r, Color.red.g, Color.red.b),
+                        (clock / maxTime));
+                    window.color = new Color(colorVec.x, colorVec.y, colorVec.z);
+            
+                    yield return null;
+                }    
+            }
+            else
+            {
+                while (clock<maxTime)
+                {
+                    clock += Time.deltaTime;
+
+                    foodPanel.transform.localScale = Vector3.Lerp(maxScale, startingScale, (clock / maxTime));
+                    Vector3 colorVec = Vector3.Lerp(new Vector3(Color.red.r, Color.red.g, Color.red.b), Vector3.one,
+                        (clock / maxTime));
+                    window.color = new Color(colorVec.x, colorVec.y, colorVec.z);
+            
+                    yield return null;
+                }
+            }
+            
+            
+            
+            reps++;
+            clock = 0;
+        }
+
+        foodPanel.transform.localScale = startingScale;
+        window.color = Color.white;
+
     }
 
     public void ResetCamp(CitizenBehaviour[] citizens)
