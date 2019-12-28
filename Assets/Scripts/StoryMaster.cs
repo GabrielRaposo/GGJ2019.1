@@ -387,6 +387,9 @@ public class StoryMaster : MonoBehaviour
 
 	public void Bark(Barks barks, CitizenBehaviour dude)
 	{
+		if(citizens.Count < 2)
+			return;
+	
 		ReorderCitizens(citizens.IndexOf(dude.citizenData));
 
 		if(dude.gameObject.GetComponent<SatisfactionManager>().strikes == 3)
@@ -461,23 +464,21 @@ public class StoryMaster : MonoBehaviour
         {
             return;
         }
+		
+		orderedCitizensForStory = new List<CitizenData>(citizens);
 
 		if (i == orderedCitizensForStory.Count - 1)
         {
 			orderedCitizensForStory.Reverse();
-            return;
         }
         else
         {
-            CitizenData placeholder;
-
-			for (int j = 1; j <= i; j++)
+	        for (int j = 1; j <= i; j++)
 			{
-				placeholder = orderedCitizensForStory[j-1];
+				var placeholder = orderedCitizensForStory[j-1];
 				orderedCitizensForStory[j-1] = orderedCitizensForStory[j];
 				orderedCitizensForStory[j] = placeholder;
 			}
-            return;
         }
     }
 

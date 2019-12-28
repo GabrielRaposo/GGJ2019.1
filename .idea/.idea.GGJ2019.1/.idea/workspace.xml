@@ -74,11 +74,11 @@
         <option value="$PROJECT_DIR$/Assets/ItemDescriptorScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlacesBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
       </list>
     </option>
   </component>
@@ -116,10 +116,10 @@
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="23060">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="7536">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="23060" />
+      <option name="pid" value="7536" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -138,7 +138,8 @@
       <workItem from="1577308586275" duration="703000" />
       <workItem from="1577357892718" duration="14694000" />
       <workItem from="1577450758568" duration="9603000" />
-      <workItem from="1577478568877" duration="10867000" />
+      <workItem from="1577478568877" duration="11653000" />
+      <workItem from="1577534845006" duration="1699000" />
     </task>
     <servers />
   </component>

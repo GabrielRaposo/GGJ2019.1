@@ -382,7 +382,7 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(0)}: I'm listening to the sea waves crashing already!
 ->DONE
 = BarkWater1
-{GetName(0)}: Are seashells still on fashion? I hope they do!
+{GetName(0)}: Are seashells still on fashion? I hope they so!
 ->DONE
 = BarkWater2
 {GetName(0)}: Hope I'm lucky enough to find a seashell that sounds like the sea.
