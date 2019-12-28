@@ -79,8 +79,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HoverManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DecorationScript.cs" />
         <option value="$PROJECT_DIR$/Assets/ItemDescriptorScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DecorationScript.cs" />
       </list>
     </option>
   </component>
@@ -141,7 +141,7 @@
       <workItem from="1577357892718" duration="14694000" />
       <workItem from="1577450758568" duration="9603000" />
       <workItem from="1577478568877" duration="11653000" />
-      <workItem from="1577534845006" duration="9214000" />
+      <workItem from="1577534845006" duration="10446000" />
     </task>
     <servers />
   </component>
