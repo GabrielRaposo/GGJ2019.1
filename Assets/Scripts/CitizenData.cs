@@ -84,10 +84,12 @@ public class CitizenData
 
         citizen.color = GetRandomVividColor();
         
+        Debug.Log("-------");
 		Debug.Log($"Like: {citizen.like}");
 		Debug.Log($"Dislike: {citizen.dislike}");
 		Debug.Log($"Proficience: {citizen.proficience}");
 		Debug.Log($"Speciees: {citizen.species}");
+        Debug.Log("-------");
 
         return citizen;
 

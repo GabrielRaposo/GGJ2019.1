@@ -8,18 +8,14 @@ public class FoodTileBehaviour : MonoBehaviour, IPointerClickHandler
 
 	GameManager gameManager;
 	public ActionMarkers actionMarkers;
-
-    // Start is called before the first frame update
+	private StoryMaster storyMaster;
+	
     void Start()
     {
 		gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+		storyMaster = FindObjectOfType<StoryMaster>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-	}
 
 	public void CollectFood()
 	{
@@ -45,6 +41,7 @@ public class FoodTileBehaviour : MonoBehaviour, IPointerClickHandler
 					selectedCitizenBehaviour.actionMarker.RemoveCitizen(selectedCitizenBehaviour);
 				
 				actionMarkers.AddCitizen(selectedCitizenBehaviour);
+				storyMaster.Bark(Barks.GET_FOOD, selectedCitizenBehaviour);
 				
 				selectedCitizenBehaviour.ClickDeselect();
 				selectedCitizenBehaviour.SetTurnAction(

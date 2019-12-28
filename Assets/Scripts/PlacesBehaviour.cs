@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
 
 public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
 {
@@ -9,9 +11,11 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
     GameObject gameManager;
     GameObject selectedCitizen;
     public ActionMarkers actionMarkers;
+    private StoryMaster storyMaster;
 
     void Start() {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager");
+        storyMaster = GameManager.FindObjectOfType<StoryMaster>();
     }
 
     void collectBasic(resourceTypes resource, Theme proficience) {
@@ -90,6 +94,25 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
                         selectedCitizen.actionMarker.RemoveCitizen(selectedCitizen);
                     
                     actionMarkers.AddCitizen(selectedCitizen);
+
+                    switch (proficience)
+                    {
+                        case Theme.WATER:
+                            storyMaster.Bark(Barks.GET_DECOR_WATER, selectedCitizen);
+                            break;
+                        case Theme.FIRE:
+                            storyMaster.Bark(Barks.GET_DECOR_FIRE, selectedCitizen);
+                            break;
+                        case Theme.EARTH:
+                            storyMaster.Bark(Barks.GET_DECOR_EARTH, selectedCitizen);
+                            break;
+                        case Theme.AIR:
+                            storyMaster.Bark(Barks.GET_DECOR_AIR, selectedCitizen);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                    
                     selectedCitizen.SetTurnAction(
                     delegate () {
                         collectDecoration(proficience);
@@ -100,6 +123,12 @@ public class PlacesBehaviour : MonoBehaviour, IPointerClickHandler
                     if(selectedCitizen.actionMarker != null)
                         selectedCitizen.actionMarker.RemoveCitizen(selectedCitizen);
                     actionMarkers.AddCitizen(selectedCitizen);
+                    
+                    if(act == actions.getStone)
+                        storyMaster.Bark(Barks.GET_STONE, selectedCitizen);
+                    else if(act == actions.getWood)
+                        storyMaster.Bark(Barks.GET_WOOD, selectedCitizen);
+                    
                     selectedCitizen.SetTurnAction(
                         delegate () {
                             collectBasic(type, proficience);

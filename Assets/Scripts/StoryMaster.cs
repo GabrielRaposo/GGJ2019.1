@@ -387,7 +387,7 @@ public class StoryMaster : MonoBehaviour
 
 	public void Bark(Barks barks, CitizenBehaviour dude)
 	{
-		ReorderCitizens(citizens.IndexOf(dude.GetComponent<CitizenData>()));
+		ReorderCitizens(citizens.IndexOf(dude.citizenData));
 
 		if(dude.gameObject.GetComponent<SatisfactionManager>().strikes == 3)
 		{
@@ -421,7 +421,7 @@ public class StoryMaster : MonoBehaviour
 				story.ChoosePathString($"BarkWood{Random.Range(0, 3).ToString()}");
 				break;
 		}
-
+		
 		dude.ShowText(story.Continue());
 
 	}

@@ -58,27 +58,27 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HoverManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DayBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MaterialManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HighlightBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PeopleBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ActionMarkers.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TentBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InspirationSlot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Container.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CitizenBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Cutscener.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CraftTileBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlacesBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/ItemDescriptorScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlacesBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CitizenBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -138,7 +138,7 @@
       <workItem from="1577308586275" duration="703000" />
       <workItem from="1577357892718" duration="14694000" />
       <workItem from="1577450758568" duration="9603000" />
-      <workItem from="1577478568877" duration="4341000" />
+      <workItem from="1577478568877" duration="10867000" />
     </task>
     <servers />
   </component>

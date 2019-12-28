@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.UI;
 
 public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 {
@@ -150,22 +152,50 @@ public class CitizenBehaviour : MonoBehaviour, IPointerClickHandler
 	{
 		text.text = recievedText;
 		textBox.SetActive(true);
-		textBox.GetComponent<SpriteRenderer>().color = Color.white;
+		textBox.GetComponentInChildren<Image>().color = Color.white;
 		text.color = Color.white;
 		StartCoroutine(FadeText(4.0f));
 	}
 
 	IEnumerator FadeText(float duration)
 	{
+		RectTransform rect = textBox.GetComponent<RectTransform>();
+		Vector2 basePos = rect.anchoredPosition;
+		Image img = textBox.GetComponentInChildren<Image>();
+		
+		Vector2 startingPos = new Vector2(basePos.x, basePos.y - 0.4f);
+		text.color = Color.clear;
+		img.color = Color.clear;
+
+		float spawnTime = 0.33f;
+		float clock = 0;
+
+		Color curentColor;
+		
+		rect.anchoredPosition = startingPos;
+		while (clock<spawnTime)
+		{
+			clock += Time.deltaTime;
+			
+			rect.anchoredPosition = Vector2.Lerp(startingPos, basePos, (clock/spawnTime));
+			curentColor = new Color(1f,1f,1f,Mathf.Lerp(0,1,clock/spawnTime));
+			text.color = curentColor;
+			img.color = curentColor;
+			yield return null;
+
+		}
+		
+		
 		yield return new WaitForSeconds(duration);
 
-		while(textBox.GetComponent<SpriteRenderer>().color.a > 0)
+		while(textBox.GetComponentInChildren<Image>().color.a > 0)
 		{
-			textBox.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, textBox.GetComponent<SpriteRenderer>().color.a - Time.deltaTime);
+			
+			
+			textBox.GetComponentInChildren<Image>().color = new Vector4(1, 1, 1, textBox.GetComponentInChildren<Image>().color.a - Time.deltaTime);
 			text.color = new Vector4(1, 1, 1, text.color.a - Time.deltaTime);
 			yield return null;
 		}
 		textBox.SetActive(false);
-
 	}
 }
