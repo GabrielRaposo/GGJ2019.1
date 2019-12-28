@@ -57,6 +57,9 @@ public class DebrisBehaviour : MonoBehaviour, IPointerClickHandler {
         if(selectedCitizenBehaviour == null)
             return;
         
+        if(!selectedCitizenBehaviour.hasTent)
+            return;
+        
         selectedCitizenBehaviour.ClickDeselect();
         
         if(selectedCitizenBehaviour.actionMarker!=null)

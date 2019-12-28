@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,18 +18,38 @@ public class ItemDescriptorScript : MonoBehaviour
 
 	public bool visible;
 
-	public float maxY;
-	public float minY;
+	public float movmentDuration;
 
-	public float speed;
+	public AnimationCurve curve;
 
-	private void Update()
+	public RectTransform rect;
+	private Vector2 startingPos;
+	private Vector2 endPos;
+
+	private IEnumerator currentRoutine;
+	private Vector2 TopBottom
 	{
-		
-		if (Input.GetMouseButtonDown(0))
+		get
 		{
-			StartCoroutine(GoDown());
+			return new Vector2(rect.offsetMax.y, rect.offsetMin.y);
 		}
+		set
+		{
+			rect.offsetMax = new Vector2(rect.offsetMax.x, value.x);
+			rect.offsetMin = new Vector2(rect.offsetMin.x, value.y);
+		}
+		
+	}
+
+	private void Awake()
+	{
+		rect = GetComponent<RectTransform>();
+		startingPos = TopBottom;
+
+		float mult = Screen.height * (rect.anchorMax.y - rect.anchorMin.y); 
+		
+		endPos = new Vector2(-475, -475);
+		StartCoroutine(GoDown());
 	}
 
 	public void DisplayInfo(DecorationScript item)
@@ -43,7 +64,19 @@ public class ItemDescriptorScript : MonoBehaviour
 		symbolF.enabled = item.themes.Contains(Theme.FIRE);
 		symbolE.enabled = item.themes.Contains(Theme.EARTH);
 
-		StartCoroutine(GoUp());
+		if (currentRoutine == null)
+		{
+			currentRoutine = GoUp();
+			StartCoroutine(currentRoutine);	
+		}
+		else
+		{
+			StopCoroutine(currentRoutine);
+			currentRoutine = GoUp();
+			StartCoroutine(currentRoutine);
+		}
+		
+		
 
 	}
 
@@ -51,20 +84,49 @@ public class ItemDescriptorScript : MonoBehaviour
 	{
 		visible = false;
 
-		while (transform.position.y < maxY)
+		float clock = 1;
+		
+		if (movmentDuration <= 0)
+			movmentDuration = 1;
+		
+		while (clock > 0)
 		{
-			transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y + Time.deltaTime * speed, transform.localPosition.z); 
+			TopBottom = Vector2.Lerp(startingPos, endPos, (curve.Evaluate(clock)));
+			clock -= Time.deltaTime/movmentDuration;
 			yield return null;
 		}
+		
+		visible = true;
+		
+		yield return new WaitForSeconds(3f);
+
+		currentRoutine = GoDown();
+		StartCoroutine(currentRoutine);
+
+		
+
 	}
 
 	IEnumerator GoDown()
 	{
-		while (transform.position.y > minY)
+
+		float clock = 0;
+
+		if (movmentDuration <= 0)
+			movmentDuration = 1;
+
+		visible = false;
+		
+		while (clock < movmentDuration)
 		{
-			transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - Time.deltaTime * speed, transform.localPosition.z);
+			
+			TopBottom = Vector2.Lerp(startingPos, endPos, (curve.Evaluate(clock)));
+			clock += Time.deltaTime/movmentDuration;
 			yield return null;
 		}
+
+		visible = false;
+		currentRoutine = null;
 	}
 
 

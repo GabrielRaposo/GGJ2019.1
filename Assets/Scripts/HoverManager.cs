@@ -26,7 +26,8 @@ public class HoverManager : MonoBehaviour, IPointerEnterHandler, IPointerClickHa
         if (gameManager.craftedItem != null)
         {
             Color color = gameManager.craftedItem.GetComponent<SpriteRenderer>().color;
-            gameManager.craftedItem.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, 1.0f); 
+            gameManager.craftedItem.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, 1.0f);
+            gameManager.craftedItem.GetComponent<DecorationScript>().Place();
             gameManager.craftedItem = null;
         }
     }

@@ -31,11 +31,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PeopleBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@1.3.0/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/712D4FD8-31E1-48F0-BA51-24A22B81CAC4/ec/dac3f163/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DecorationScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ActionMarkers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InspirationSlot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RecipeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WoodSlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MaterialManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6F65ABCB-040A-47DB-87DC-20D5520A125D/5e/2757c6c7/CanvasScaler.cs" root0="SKIP_HIGHLIGHTING" />
@@ -52,13 +52,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/ItemDescriptorScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SatisfactionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6F65ABCB-040A-47DB-87DC-20D5520A125D/f6/8794473a/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/RecipeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6F65ABCB-040A-47DB-87DC-20D5520A125D/5c/0f33bf4b/StandaloneInputModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6F65ABCB-040A-47DB-87DC-20D5520A125D/46/aec6ce02/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/HoverManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DayBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MaterialManager.cs" />
@@ -71,14 +71,16 @@
         <option value="$PROJECT_DIR$/Assets/Cutscener.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CraftMaster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CraftTileBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/ItemDescriptorScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FoodTileBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlacesBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CitizenBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StoryMaster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DebrisBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HoverManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DecorationScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/ItemDescriptorScript.cs" />
       </list>
     </option>
   </component>
@@ -139,7 +141,7 @@
       <workItem from="1577357892718" duration="14694000" />
       <workItem from="1577450758568" duration="9603000" />
       <workItem from="1577478568877" duration="11653000" />
-      <workItem from="1577534845006" duration="1699000" />
+      <workItem from="1577534845006" duration="9214000" />
     </task>
     <servers />
   </component>

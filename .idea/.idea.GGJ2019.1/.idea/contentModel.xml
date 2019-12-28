@@ -3,10 +3,14 @@
   <component name="ContentModelStore">
     <e p="C:\UnityProjects\GGJ2019.1" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Cutscener.cs" t="Include" />
+        <e p="Editor" t="Include">
+          <e p="RecipeEditor.cs" t="Include" />
+        </e>
         <e p="ItemDescriptorScript.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Ink" t="Include">
@@ -107,7 +111,6 @@
           <e p="MaterialManager.cs" t="Include" />
           <e p="PeopleBehaviour.cs" t="Include" />
           <e p="PlacesBehaviour.cs" t="Include" />
-          <e p="RecipeEditor.cs" t="Include" />
           <e p="SatisfactionManager.cs" t="Include" />
           <e p="SORecipe.cs" t="Include" />
           <e p="StoneSlot.cs" t="Include" />
