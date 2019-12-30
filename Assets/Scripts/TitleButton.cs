@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class TitleButton : MonoBehaviour
 {
     public void CallMainScene()
-    {
+    {		
         SceneManager.LoadScene("TilemapTest");
     }
 }

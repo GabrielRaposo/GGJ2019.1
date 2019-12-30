@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cutscener : MonoBehaviour
 {
-
+	public GameObject bonfire;
     public List<GameObject> spawnPlaces;
 
     public void StartCutscene(int dayCounter, ref StoryMaster storyMaster)
@@ -22,6 +22,10 @@ public class Cutscener : MonoBehaviour
         }
         if (dayCounter < 6)
         {
+			if(dayCounter == 0)
+			{
+				storyMaster.UpdateCurrentStory("Leaving_camp");
+			}
 
             if (dayCounter == 1) storyMaster.UpdateCurrentStory("Alone_by_bonfire");
             if (dayCounter == 2) storyMaster.UpdateCurrentStory("Day_two");

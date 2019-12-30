@@ -508,6 +508,10 @@ public class StoryMaster : MonoBehaviour
 
     public string ParseText(string line)
     {
+
+		if (FindObjectOfType<DayBehaviour>().DayCounter == 1 && (line.Contains("red") || line.Contains("blue") || line.Contains("...")))
+			return line;
+
 	    if (line[0] == '<')
 		    return line;
 

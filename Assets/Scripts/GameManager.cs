@@ -73,6 +73,12 @@ public class GameManager : MonoBehaviour
         backgroundFade.canvasRenderer.SetAlpha(0f);
         storyMaster = GetComponent<StoryMaster>();
         UpdateFood();
+
+		if(dayBehaviour.DayCounter == 0)
+		{
+			StartCoroutine(Downfall());
+		}
+		
     }
 
     public void BeginFirstDay()
@@ -217,7 +223,9 @@ public class GameManager : MonoBehaviour
     {
         CitizenBehaviour[] citizens = GameObject.FindObjectsOfType<CitizenBehaviour>();
 
-        foodQuantity--;
+		if(dayBehaviour.DayCounter >=1)
+			foodQuantity--;
+
         dayBehaviour.AdvanceDay(citizens);
         ResetCamp(citizens);
         DeactivateCamp();

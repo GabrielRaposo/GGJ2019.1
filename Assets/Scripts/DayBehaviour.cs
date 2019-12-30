@@ -11,7 +11,7 @@ public class DayBehaviour : MonoBehaviour
     [SerializeField] float dayTextDuration;
     PeopleBehaviour peopleBehaviour;
 
-    int dayCounter = 0;
+    int dayCounter = -1;
 	
 	public int DayCounter
 	{
@@ -30,7 +30,7 @@ public class DayBehaviour : MonoBehaviour
 	{
 		int counterMax = 100;
 		float alpha = 1;
-		dayTextObject.GetComponent<TextMeshProUGUI>().text = "Day " + dayCounter;
+		dayTextObject.GetComponent<TextMeshProUGUI>().text = "Day " + dayCounter.ToString();
 		dayCounter++;
 		dayTextObject.SetActive(true);
 		for (int i = 0; i < counterMax; i++) {

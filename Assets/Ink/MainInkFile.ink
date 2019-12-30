@@ -13,21 +13,24 @@ EXTERNAL GetItem(p)
 = Leaving_camp
 
 {GetName(0)}: I think it's time for me to say goodbye to you all.
-{GetName(1)}: Are you sure of this?
+<color=red>Juan</color>: Are you sure of this?
 {GetName(0)}: Sadly, I don't feel at home being here. 
-Nothing personal, but I feel the need to look for somewhere where I can feel at home.
-{GetName(1)}: I'm sorry to hear that, {GetName(0)}.
-{GetName(2)}: I hope you look what you're looking for..
+{GetName(0)}: Nothing personal, but I feel the need to look for somewhere where I can feel at home.
+<color=red>Juan</color>: I'm sorry to hear that, {GetName(0)}.
+<color=blue>Thiago</color>: I hope you look what you're looking for..
 {GetName(0)}: If we happen to meet again, I hope to be able to receive you guys with the same hospitality you showed me.
-{GetName(1)}: Farewell!
-{GetName(2)}: Farewell!
+<color=red>Juan</color>: Farewell!
+<color=blue>Thiago</color>: Farewell!
 ...
-{GetName(1)}: God damn it, he was the most hardworking of all of us.
+<color=red>Juan</color>: God damn it, they were the most hardworking of all of us.
+
+->Reaching_new_camp
 
 ->DONE
 
 = Reaching_new_camp
 
+<A couple days of travel later>
 {GetName(0)}: Hello? Is anyone there?
 <Deafening silence>
 {GetName(0)}: I think I'm all alone here. Bummer.
@@ -108,6 +111,14 @@ Nothing personal, but I feel the need to look for somewhere where I can feel at 
 {GetName(0)}: Once again, welcome to the group.
 {GetName(3)}: Thank you!
 
+->DONE
+
+= BarkNeedCamp
+I should start by setting up a tent.
+->DONE
+
+= BarkNeedFood
+Today I have to go find some food before anything else.
 ->DONE
 
 = LikeWater0
