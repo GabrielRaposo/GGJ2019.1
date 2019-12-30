@@ -74,12 +74,17 @@ public class GameManager : MonoBehaviour
         storyMaster = GetComponent<StoryMaster>();
         UpdateFood();
 
-		if(dayBehaviour.DayCounter == 0)
-		{
+		StartCoroutine(StartFirstScene());
+
+    }
+
+	IEnumerator StartFirstScene()
+	{
+		yield return new WaitForEndOfFrame();
+		if (dayBehaviour.DayCounter == 0) {
 			StartCoroutine(Downfall());
 		}
-		
-    }
+	}
 
     public void BeginFirstDay()
     {
