@@ -56,7 +56,7 @@ public class StoryMaster : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("space") && passStory)
+        if ((Input.GetKeyDown("space") || Input.GetMouseButtonDown(0)) && passStory)
         {
             if (story.canContinue)
             {
