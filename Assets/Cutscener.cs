@@ -19,6 +19,18 @@ public class Cutscener : MonoBehaviour
             citizen.GetComponent<CitizenBehaviour>().SetHighlightInteractableAll(false);
             citizen.GetComponent<CitizenBehaviour>().HideInfo();
             l.RemoveAt(rand);
+
+			if (dayCounter == 0) {
+				citizen.GetComponent<SpriteRenderer>().enabled = false;
+				bonfire.GetComponent<SpriteRenderer>().enabled = false;
+				bonfire.GetComponent<ParticleSystem>().gameObject.SetActive(false);
+			}
+			else {
+				bonfire.GetComponent<ParticleSystem>().gameObject.SetActive(true);
+				bonfire.GetComponent<SpriteRenderer>().enabled = true;
+				citizen.GetComponent<SpriteRenderer>().enabled = true;
+			}
+
         }
         if (dayCounter < 6)
         {
@@ -71,6 +83,9 @@ public class Cutscener : MonoBehaviour
             citizen.GetComponent<CitizenBehaviour>().IsClickable = true;
             citizen.GetComponent<CitizenBehaviour>().SetHighlightInteractableAll(false);
             citizen.GetComponent<CitizenBehaviour>().HideInfo();
+
+			citizen.GetComponent<SpriteRenderer>().enabled = true;
+
         }
     }
 }
