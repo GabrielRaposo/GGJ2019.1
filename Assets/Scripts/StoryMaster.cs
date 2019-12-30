@@ -5,7 +5,7 @@ using UnityEngine;
 using Ink.Runtime;
 using TMPro;
 
-public enum Barks { GET_FOOD, REMOVE_DEBRIE, GET_DECOR_WATER, GET_DECOR_FIRE, GET_DECOR_EARTH, GET_DECOR_AIR, GET_STONE, GET_WOOD}
+public enum Barks { GET_FOOD, REMOVE_DEBRIE, GET_DECOR_WATER, GET_DECOR_FIRE, GET_DECOR_EARTH, GET_DECOR_AIR, GET_STONE, GET_WOOD, TENT, FOOD}
 
 public class StoryMaster : MonoBehaviour
 {
@@ -387,9 +387,13 @@ public class StoryMaster : MonoBehaviour
 
 	public void Bark(Barks barks, CitizenBehaviour dude)
 	{
-		if(citizens.Count < 2)
-			return;
-	
+
+		if(citizens.Count < 2) {
+			if(!(barks == Barks.TENT || barks == Barks.FOOD)){
+				return;
+			}
+		}
+
 		ReorderCitizens(citizens.IndexOf(dude.citizenData));
 
 		if(dude.gameObject.GetComponent<SatisfactionManager>().strikes == 3)
@@ -397,8 +401,7 @@ public class StoryMaster : MonoBehaviour
 			story.ChoosePathString($"StrikeBark{Random.Range(0, 3).ToString()}");
 		}
 
-		switch (barks)
-		{
+		switch (barks) {
 			case Barks.GET_FOOD:
 				story.ChoosePathString($"BarkFood{Random.Range(0, 3).ToString()}");
 				break;
@@ -423,8 +426,14 @@ public class StoryMaster : MonoBehaviour
 			case Barks.GET_WOOD:
 				story.ChoosePathString($"BarkWood{Random.Range(0, 3).ToString()}");
 				break;
+			case Barks.TENT:
+				story.ChoosePathString("BarkNeedCamp");
+				break;
+			case Barks.FOOD:
+				story.ChoosePathString("BarkNeedFood");
+				break;
 		}
-		
+
 		dude.ShowText(story.Continue());
 
 	}
@@ -538,6 +547,6 @@ public class StoryMaster : MonoBehaviour
     {
 	    return $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>" + text + "</color>";
     }
-    
+
 
 }

@@ -272,7 +272,20 @@ public class GameManager : MonoBehaviour
 
         backgroundFade.CrossFadeAlpha(0.0f, secondsToDownfall / 3.0f, false);
         yield return new WaitForSeconds(secondsToDownfall / 3.0f);
-    }
+
+		
+
+		if(dayBehaviour.DayCounter == 1)
+		{
+			Debug.Log($"SUNRISE DIA: {dayBehaviour.DayCounter}");
+			storyMaster.Bark(Barks.TENT, FindObjectOfType<CitizenBehaviour>());			
+		}
+		if (dayBehaviour.DayCounter == 2) {
+			Debug.Log($"SUNRISE DIA: {dayBehaviour.DayCounter}");
+			storyMaster.Bark(Barks.FOOD, FindObjectOfType<CitizenBehaviour>());			
+		}
+
+	}
 
     public void AdvanceDay()
     {
